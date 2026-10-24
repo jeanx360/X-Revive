@@ -56,3 +56,17 @@ foram fornecidos apenas à cópia QA. A IMG de produção permaneceu intacta.
 Na cópia limpa dos fontes: 68 testes descobertos, 67 passaram e 1 skipped
 (UIX com pacote externo não fornecido). O fingerprint dessa cópia coincidiu com
 o usado para gerar a IMG pública: não há dependência dos assets privados antigos.
+
+## Boot independente e GitHub
+
+O SSD instalado iniciou sozinho, sem USB nem compartilhamento 9p. Xemu abriu
+com áudio ALSA RUNNING e chegou à dashboard. Reboot real com R abriu a manutenção
+própria, cujo inventário confirmou dez dashboards, 104 pacotes e 98.996 arquivos.
+Prova local: `ssd-boot-check.log`, marcador `SSD_NORMAL_AND_R_MAINTENANCE_PASS` e
+capturas em `bancada/validacao-publica-beta2/ssd-boot/`.
+
+O [GitHub Actions](https://github.com/jeanx360/X-Revive/actions/runs/40142583240)
+concluiu com sucesso no commit `509aab13ef438afa40ccbe670aaa4e0dd518001d`: 68 testes
+descobertos, 67 passaram e 1 skipped, seguido de sintaxe dos scripts de shell.
+A tag beta.2 identifica esse commit dos fontes que geraram o fingerprint da IMG;
+este complemento registra os resultados posteriores à compilação.
