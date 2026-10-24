@@ -21,6 +21,7 @@ podman run --rm --privileged -v "$root:/src:ro,z" -v "$root/cartucho/cache:/cach
  cp -r --preserve=mode /src/plataformas/xbox/. /tmp/build/rootfs/usr/local/lib/console/platform/
  cp --preserve=mode /src/hal/probe.sh /tmp/build/rootfs/usr/local/lib/console/hal/
  rm -rf /tmp/build/rootfs/usr/local/lib/console/platform/firstrun/dash /tmp/build/rootfs/usr/local/lib/console/platform/firstrun/bootanims
+ python3 /src/cartucho/build/public-rootfs.py /tmp/build/rootfs /src
  export IMAGE_ROOTFS=/tmp/build/rootfs IMAGE_WORK=/tmp/build/installer IMAGE_VARIANT=installer
  export IMAGE_KERNEL=$(ls /tmp/build/rootfs/lib/modules)
  sh /src/cartucho/build/emit-image.sh'

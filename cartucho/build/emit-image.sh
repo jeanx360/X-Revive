@@ -5,7 +5,7 @@ rootfs=${IMAGE_ROOTFS:?}
 work=${IMAGE_WORK:?}
 variant=${IMAGE_VARIANT:?}
 mkdir -p "$work"
-export IMAGE_VARIANT
+export IMAGE_VARIANT XREVIVE_VERSION
 mkdir -p "$rootfs/usr/share/console"
 python3 - <<'PY'
 import hashlib, json, os, subprocess
@@ -13,7 +13,7 @@ from pathlib import Path
 root = Path(os.environ['IMAGE_ROOTFS'])
 driver = subprocess.run(['chroot', str(root), 'dpkg-query', '-W', '-f=${Version}', 'nvidia-driver'],
                         capture_output=True, text=True)
-data = dict(build_id=os.environ['BUILD_ID'], source_sha256=os.environ['SOURCE_SHA'],
+data = dict(version=os.environ['XREVIVE_VERSION'], distribution='public', build_id=os.environ['BUILD_ID'], source_sha256=os.environ['SOURCE_SHA'],
             variant=os.environ['IMAGE_VARIANT'], kernel=os.environ['IMAGE_KERNEL'],
             nvidia_driver=driver.stdout if driver.returncode == 0 else None)
 data['utilities'] = {'rocky5': {'delivery':'online-or-user-iso','catalog_sha256':hashlib.sha256((root/'usr/share/console/rocky5-catalog.json').read_bytes()).hexdigest()}}

@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.1.0-beta.2 — 2026-10-24
+
+- IMG pública compactada para gravação, com checksum e guia para usuários.
+- Modelo de pastas do pendrive sem firmware incluído.
+- Removidos firmware do Xbox Wireless Adapter, chave MOK privada e bibliotecas antigas não usadas da AppImage.
+- Mesmo Xemu modificado e drivers da bancada; nenhum jogo ou firmware Xbox embutido.
+- Fontes Debian exatos, incluindo Built-Using, fontes Xemu/dependências e avisos de licença na release.
+- Preparo de imagens futuras aplica a mesma separação de arquivos locais.
+
 ## v0.1.0-beta.1 — 2026-10-24
 
 Primeira publicação dos fontes, após retorno positivo de bancada.

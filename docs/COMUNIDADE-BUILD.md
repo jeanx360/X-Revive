@@ -1,6 +1,7 @@
 # Build e publicação para a comunidade
 
-Esta beta publica fontes. Leia [terceiros e distribuição](../THIRD_PARTY_NOTICES.md)
+A beta.2 oferece IMG pronta; para usar sem compilar, leia [este guia](BAIXAR-E-INSTALAR.md).
+Para recompilar ou redistribuir, leia [terceiros e distribuição](../THIRD_PARTY_NOTICES.md)
 antes de redistribuir uma imagem compilada. Nenhum firmware pessoal, ISO, pacote
 de aplicativos ou chave privada faz parte do Git.
 
@@ -42,8 +43,9 @@ um binário oficial genérico não preserva o patch da bandeja e do menu.
 APT ainda acompanha os repositórios Debian sem snapshot completo. O wheel
 pyfatx 0.0.8 precisa de hash fixado e timestamps ainda variam. Não se promete
 build bit a bit idêntico. Consulte os metadados gerados para a versão efetiva.
-Um cache contendo firmware opcional do dongle pode incorporá-lo ao build;
-revise seu conteúdo antes de qualquer distribuição.
+O preparo público remove firmware opcional do dongle e a chave MOK de
+compilação, mesmo quando uma base local contém esses arquivos. Bibliotecas
+antigas da AppImage são removidas; o Xemu compilado usa as bibliotecas Debian.
 
 O fingerprint da entrega df48 foi calculado sobre os arquivos locais da bancada,
 incluindo assets históricos privados depois excluídos do sistema. O clone público
@@ -89,8 +91,8 @@ Capturas/logs mencionados nos relatórios são provas locais, não arquivos do G
 ## Manutenção das releases
 
 Correções entram em branch/PR, testes e changelog. Uma tag beta identifica fontes;
-a prerelease descreve o que realmente foi validado. Binários só são anexados após
-preparar licenças/fontes correspondentes. Não envie `cartucho/cache`, `out`, discos,
+a prerelease descreve o que realmente foi validado. A beta.2 anexa a IMG junto de
+inventário, avisos e fontes correspondentes. Não envie `cartucho/cache`, `out`, discos,
 firmwares, ISOs ou chaves. A chave pública pode estar no Git; a privada nunca.
 
 O workflow Xemu é manual nesta primeira beta. Ele resolve upstream, compila com

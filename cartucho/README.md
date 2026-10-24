@@ -1,8 +1,8 @@
 # Mídia X-Revive
 
 Uma IMG instaladora para PC x86-64 UEFI com Mesa e NVIDIA 550 no mesmo sistema.
-Pendrive de pelo menos 16 GB. Esta beta publica fontes; a distribuição binária
-está pendente conforme [terceiros](../THIRD_PARTY_NOTICES.md).
+Pendrive de pelo menos 16 GB. A beta.2 oferece IMG para gravação: [baixar e instalar](../docs/BAIXAR-E-INSTALAR.md).
+Avisos e fontes correspondentes acompanham a release.
 
 ## Gerar
 

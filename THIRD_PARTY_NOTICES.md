@@ -1,7 +1,7 @@
 # Terceiros e distribuição
 
-Esta beta publica fontes e patches do X-Revive. Não publica a IMG de bancada,
-coleção Rocky5, firmware Xbox, jogos, dumps pessoais ou executáveis Xbox.
+A beta.2 distribui uma IMG pública, fontes, patches e avisos de licença.
+Não distribui a coleção Rocky5, firmware Xbox, jogos, dumps pessoais ou executáveis Xbox.
 A licença do projeto não concede direitos sobre esses materiais.
 
 | Componente | Origem / licença | Tratamento |
@@ -21,15 +21,21 @@ baixado. O X-Revive não afirma que o acesso público a um pacote autoriza seu u
 ou redistribuição. As assinaturas conferem autenticidade e integridade, não uma
 licença de distribuição.
 
-## Antes de distribuir uma imagem binária
+## Entrega binária beta.2
 
-Inventariar as versões efetivas dos pacotes e bibliotecas, preservar textos de
-licença/avisos, preparar fontes correspondentes e instruções de build aplicáveis
-e verificar os termos dos componentes não livres. A lista de pacotes e os hashes
-da bancada ajudam, mas não substituem os fontes nem a verificação por componente.
-A imagem pode conter firmware opcional do dongle se estiver no cache local;
-revisar isso explicitamente.
+A IMG inclui os pacotes Debian e seus avisos em `/usr/share/doc/` e
+`/usr/share/common-licenses/`. A release disponibiliza o inventário de versões,
+os pacotes-fonte exatos (incluindo Built-Using), os fontes do Xemu com dependências
+e os scripts/patches de construção. Arquivos `sources-*` são para estudar ou
+recompilar; não são necessários para instalar.
 
-Por isso a primeira prerelease não recebe a IMG local, a ISO offline ou um pacote
-Xemu binário enquanto essa preparação estiver pendente. O cliente de atualização
-estar pronto não significa que exista um canal público ou uma oferta publicada.
+Foram excluídos o firmware opcional do dongle Xbox Wireless, a chave privada MOK
+gerada por DKMS e as bibliotecas antigas da AppImage que não eram usadas pelo
+Xemu compilado. O binário Xemu e os drivers da bancada permanecem os mesmos.
+A licença NVIDIA incluída no pacote permite distribuição para sistemas com
+licença aberta, sob suas condições; as bibliotecas proprietárias não foram
+modificadas. O aviso completo acompanha o pacote, sem relicenciamento como GPL.
+
+O cliente de atualização estar pronto não significa que exista um canal público
+ou uma oferta de atualização publicada. A IMG beta.1 de bancada continua sendo
+um artefato local; a beta.2 identifica a preparação pública.

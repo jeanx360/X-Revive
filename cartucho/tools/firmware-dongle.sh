@@ -1,7 +1,7 @@
 #!/bin/sh
 # Baixa o firmware do dongle sem fio do Xbox (Xbox Wireless Adapter) dos
 # servidores do Windows Update e o deixa em cartucho/cache/xone-firmware/,
-# de onde o build o coloca na imagem. Mesmas URLs e hashes do
+# para uso particular; o preparo público NÃO o incorpora à IMG. URLs e hashes do
 # install/firmware.sh do xone v0.5.8.
 #
 #   cartucho/tools/firmware-dongle.sh
@@ -47,4 +47,4 @@ echo "$list" | podman run --rm -i -v "$dest:/out:Z" debian:trixie sh -euc '
 		echo "xone_dongle_$pid.bin ok"
 	done
 '
-echo "pronto: gere a imagem de novo (cartucho/build/build.sh)"
+echo "Arquivos particulares em $dest. A IMG pública não incorpora esse firmware."

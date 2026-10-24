@@ -11,6 +11,16 @@ spec.loader.exec_module(release)
 
 
 class ReleaseTest(unittest.TestCase):
+    def test_fingerprint_ignores_unused_private_assets_but_includes_notices(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            original=release.source(root,'xbox')
+            private=root/'plataformas/xbox/firstrun';private.mkdir(parents=True)
+            (private/'BootAnim.xbe').write_bytes(b'private unused file')
+            self.assertEqual(release.source(root,'xbox'),original)
+            (root/'LICENSE').write_text('public notice')
+            self.assertNotEqual(release.source(root,'xbox'),original)
+
     def test_installer_retires_previous_images_without_deleting_baseline(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);stage=root/'stage';out=root/'out';stage.mkdir();out.mkdir()

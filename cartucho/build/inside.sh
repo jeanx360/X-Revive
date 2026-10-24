@@ -85,14 +85,9 @@ done
 chroot "$rootfs" depmod "$kver"
 # O mt76x2u tambem reconhece o dongle (e um chip MT76) e tomaria o lugar do xone
 echo "blacklist mt76x2u" >"$rootfs/etc/modprobe.d/xone.conf"
-# Firmware do dongle (termos de uso da Microsoft): so entra se o usuario o
-# baixou com cartucho/tools/firmware-dongle.sh
-if ls /cache/xone-firmware/xone_dongle_*.bin >/dev/null 2>&1; then
-	cp /cache/xone-firmware/xone_dongle_*.bin "$rootfs/lib/firmware/"
-	echo "firmware do dongle incluido"
-else
-	echo "aviso: sem firmware do dongle (cartucho/tools/firmware-dongle.sh)"
-fi
+# Firmware do adaptador sem fio pertence ao usuário e não entra na IMG pública.
+# A limpeza também cobre bases locais usadas por repack.
+python3 /src/cartucho/build/public-rootfs.py "$rootfs" /src
 
 # Uma imagem com Mesa e NVIDIA. O destino instalado usa este mesmo sistema.
 export IMAGE_ROOTFS="$rootfs" IMAGE_KERNEL="$kver"

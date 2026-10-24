@@ -9,15 +9,14 @@ cliente Xemu assinado com reversão. Relatório físico recebido em 24/10/2026.
 
 ## Prioridade 1 — abrir o projeto
 
-Publicar fontes como `v0.1.0-beta.1`, guias, limitações, licenças, modelos de
+Fontes publicados como `v0.1.0-beta.1`, com guias, limitações, licenças, modelos de
 issues e testes no GitHub. Excluir dados pessoais, firmwares, ISOs, caches,
 dashboards e discos de bancada. Correções terão commits, changelog e evidências.
 
 ## Prioridade 2 — permitir a distribuição binária
 
-Concluir inventário/licenças e pacote de fontes correspondentes para IMG e
-Xemu modificado. Depois publicar uma única IMG compactada por versão, com
-SHA256, versões, lista de pacotes e notas. Não distribuir a ISO particular ou
+Beta.2: publicar a IMG limpa com inventário/licenças e fontes correspondentes
+para o sistema e Xemu modificado, SHA256, versões, lista de pacotes e notas. Não distribuir a ISO particular ou
 firmware do mantenedor como se fossem assets públicos.
 
 ## Prioridade 3 — operar as atualizações

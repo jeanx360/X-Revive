@@ -1,8 +1,9 @@
-# Beta v0.1.0-beta.1
+# Beta v0.1.0-beta.2
 
-Status em 24/10/2026: fontes preparados para a primeira publicação, com mídia de
-bancada funcional. Não é uma versão estável ou garantia para qualquer GPU, SSD
-ou Xbox. A beta pública inicial não inclui binários.
+A beta.2 entrega a IMG pública pronta para gravar. A beta.1 publicou inicialmente
+somente fontes. O sistema de bancada é a base desta preparação, com firmware
+opcional do dongle, chave MOK e bibliotecas não usadas separados da IMG pública.
+Não é versão estável ou garantia para qualquer GPU, SSD ou Xbox.
 
 ## Requisitos atuais
 
@@ -20,7 +21,8 @@ emulação e do hardware. Não há interface de seleção de Wi-Fi.
 
 | Evidência | Resultado e limite |
 |---|---|
-| Testes automatizados da entrega de bancada | 64 testes passaram com fixtures locais; no clone público, o teste UIX com pacote real é opcional |
+| Testes da preparação pública beta.2 | 68 passaram na bancada, incluindo limpeza pública, coleta de fontes e fingerprint sem assets particulares |
+| Testes automatizados da base df48 | 64 testes passaram com fixtures locais; no clone público, o teste UIX com pacote real é opcional |
 | Cópia limpa dos fontes públicos | 64 testes descobertos: 63 passaram e 1 skipped (UIX sem pacote real), sem firmware ou executáveis Xbox privados |
 | VM, instalação offline completa | 104 pacotes / 98.996 arquivos, leitura de volta; SSD intacto antes das confirmações |
 | VM, download online real | 107 arquivos HTTPS, hashes conferidos e coleção equivalente à offline |
@@ -40,7 +42,8 @@ arquivos locais de bancada, não fazem parte do clone público.
 - Instalação limpa: não preserva jogos ou outro sistema existente no destino.
 - Offline aceita somente ISO normalizada com `payload/manifest.json`, não qualquer ISO Xbox.
 - ISO de teste e cache online de 8 GiB não cabem juntos na área XREVIVE de 10 GiB.
-- Cliente Xemu validado localmente; canal público e distribuição binária pendentes.
+- Cliente Xemu validado localmente; canal público de atualização ainda pendente.
+- Firmware do Xbox Wireless Adapter não incluído: use teclado ou controle com fio nesta entrega pública.
 - Atualização integral, migração preservando dados e importadores de outros discos não implementados.
 - Downloads dependem das origens fixadas; se mudarem, os hashes impedem instalar conteúdo diferente silenciosamente.
 - Build ainda não hermético: APT sem snapshot completo, wheel pyfatx sem hash fixado e timestamps variáveis.

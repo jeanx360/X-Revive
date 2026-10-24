@@ -19,7 +19,11 @@ def source(root, platform):
     h = hashlib.sha256()
     files = []
     for folder in ('cartucho/build', 'cartucho/overlay', 'hal', f'plataformas/{platform}'):
-        files.extend(p for p in (root/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
+        files.extend(p for p in (root/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts
+                     and 'firstrun' not in p.relative_to(root).parts)
+    # These notices are copied into the public rootfs and are build inputs.
+    files.extend(root/name for name in ('LICENSE', 'NOTICE.md', 'THIRD_PARTY_NOTICES.md')
+                 if (root/name).is_file())
     for p in sorted(files):
         h.update(str(p.relative_to(root)).encode() + b'\0')
         h.update(oct(p.stat().st_mode & 0o777).encode() + b'\0')
