@@ -1,0 +1,4 @@
+# A context line containing one space is significant in unified patches.
+*.patch whitespace=-blank-at-eol
+# Preserve generated vector artwork supplied by the maintainer.
+docs/branding/*.svg -whitespace

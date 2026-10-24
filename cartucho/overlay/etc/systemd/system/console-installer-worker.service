@@ -1,0 +1,14 @@
+[Unit]
+Description=Preparação e manutenção de disco X-Revive
+Requires=console-prepare.service
+After=console-prepare.service
+ConditionPathExists=/run/console/installer
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/lib/console/installer-worker.py
+UMask=0077
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

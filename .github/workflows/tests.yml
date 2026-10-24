@@ -1,0 +1,26 @@
+name: Tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Unit and boundary tests without private files
+        run: python3 -m unittest discover -s tests -v
+      - name: Shell syntax
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          for folder in ('cartucho', 'hal', 'plataformas', 'bancada'):
+              for script in Path(folder).rglob('*.sh'):
+                  subprocess.run(['sh', '-n', str(script)], check=True)
+          PY

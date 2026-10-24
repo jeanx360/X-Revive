@@ -1,0 +1,44 @@
+name: Xemu upstream candidate
+on:
+  workflow_dispatch:
+# Ativar agendamento após medir custo e validar o primeiro build no GitHub.
+permissions:
+  contents: read
+concurrency:
+  group: xemu-upstream-candidate
+  cancel-in-progress: false
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Test update client and installer invariants
+        run: python3 -m unittest discover -s tests -v
+      - name: Prepare container runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y podman
+      - name: Resolve stable release and compile with X-Revive patches
+        run: python3 cartucho/tools/xemu-update-candidate.py --build
+      - name: Collect unsigned candidate only
+        run: |
+          mkdir -p candidate
+          python3 - <<'PYCODE'
+          import json, pathlib, shutil
+          root=pathlib.Path('cartucho/cache')
+          data=json.loads((root/'xemu-upstream-candidate.json').read_text())
+          folder=root/('xemu-update-'+data['tag'][1:])
+          for name in ['xemu','LICENSE.txt','upstream-commit','compiler-packages.txt','xemu.sha256','recipe.sha256','vsh-carryover.tap','ptimer.tap']:
+              shutil.copyfile(folder/name,pathlib.Path('candidate')/name)
+          shutil.copyfile(root/'xemu-upstream-candidate.json','candidate/upstream.json')
+          PYCODE
+          cp cartucho/build/patches/xemu-0.8.138-*.patch candidate/
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: xemu-unsigned-candidate
+          path: candidate/
+          retention-days: 14
+          if-no-files-found: error

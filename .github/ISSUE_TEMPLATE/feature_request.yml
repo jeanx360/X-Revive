@@ -1,0 +1,17 @@
+name: Sugerir melhoria
+description: Proposta de função, compatibilidade ou documentação
+title: '[Ideia] '
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Qual problema isso resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Comportamento desejado e alternativas
+    validations:
+      required: true

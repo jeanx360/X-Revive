@@ -1,0 +1,41 @@
+# Roadmap da beta
+
+## Base entregue
+
+Instalador próprio; uma IMG Mesa/NVIDIA; Rocky5 online; ISO X-Revive offline;
+firmware separado; SSD com boot independente e FATX; manutenção por R;
+Start+digital para cima para Xemu; bandeja física; logos de boot/desligamento;
+cliente Xemu assinado com reversão. Relatório físico recebido em 24/10/2026.
+
+## Prioridade 1 — abrir o projeto
+
+Publicar fontes como `v0.1.0-beta.1`, guias, limitações, licenças, modelos de
+issues e testes no GitHub. Excluir dados pessoais, firmwares, ISOs, caches,
+dashboards e discos de bancada. Correções terão commits, changelog e evidências.
+
+## Prioridade 2 — permitir a distribuição binária
+
+Concluir inventário/licenças e pacote de fontes correspondentes para IMG e
+Xemu modificado. Depois publicar uma única IMG compactada por versão, com
+SHA256, versões, lista de pacotes e notas. Não distribuir a ISO particular ou
+firmware do mantenedor como se fossem assets públicos.
+
+## Prioridade 3 — operar as atualizações
+
+Definir URLs HTTPS reais, hospedar manifesto/catálogo assinado, proteger e fazer
+backup privado da chave, validar ofertas e promover Xemu após QA. O CI prepara
+candidatos sem assinatura; não substitui patches X-Revive por release genérica.
+Atualização de Xemu e nova imagem de sistema são fluxos distintos.
+
+## Prioridade 4 — ampliar a validação e polir
+
+Documentar online/offline por máquina, repetir FTP com arquivo grande e hash,
+bandeja com/sem mídia, perda de energia e recuperação. Investigar splash BIOS.
+Testar Xbox original separadamente sem prometer equivalência física a partir
+da VM. Registrar limites de cada família de GPU.
+
+## Etapas futuras
+
+APT snapshot e dependências totalmente fixadas; atualização integral; interface
+Wi-Fi; importadores explícitos de outras mídias; migração preservando dados após
+projeto/testes específicos. Outros consoles permanecem visão futura.

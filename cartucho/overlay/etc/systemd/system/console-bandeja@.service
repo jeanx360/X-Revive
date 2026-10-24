@@ -1,0 +1,7 @@
+[Unit]
+Description=Bandeja fisica Xbox (%i)
+After=console-prepare.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/lib/console/bandeja.sh %i

@@ -1,0 +1,16 @@
+# Portas fisicas do console. Normalmente nao precisa mexer: plugou, achou, bootou.
+#
+# hdd = auto  (padrao) acha o HDD sozinho: o disco ja formatado FATX, ou, se
+#             estiver em branco, o unico disco que nao e o pendrive.
+#       none  forca console sem HDD.
+#       <porta> um nome de config/discos-detectados.txt, se quiser fixar um
+#             disco especifico (so em maquina com varios discos).
+# dvd = auto (primeiro leitor optico), none, ou nome de porta.
+# ram = 64 (Xbox original) ou 128 ("Ultimate Xbox", precisa de jogo com patch).
+hdd=auto
+dvd=auto
+ram=64
+# Ethernet: auto escolhe placa com cabo conectado. Xbox recebe IP do roteador.
+net_interface=auto
+# Saida: auto prefere analogica/USB; alternativas hdmi, analog ou plughw:0,0.
+audio=auto

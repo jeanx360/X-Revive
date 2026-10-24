@@ -1,0 +1,30 @@
+X-Revive — arquivos do proprietário
+
+Na partição XREVIVE deste pendrive:
+  X-Revive/firmware/xbox/bios.bin        BIOS de 256/512/1024 KiB
+  X-Revive/firmware/xbox/mcpx_1.0.bin    MCPX de 512 bytes
+  X-Revive/firmware/xbox/eeprom.bin      EEPROM de 256 bytes
+Opcional para a animação Xbox do Cerbios:
+  X-Revive/firmware/bootanims/Xbox/BootAnim.xbe
+  X-Revive/firmware/bootanims/Xbox/bootanim.ini
+
+Online: conectar cabo Ethernet com DHCP, escolher Rocky5 e aguardar.
+Os pacotes vêm das origens oficiais fixadas no catálogo e são verificados.
+X-Revive/cache/rocky5-stage.ext4 ocupa 8 GiB para downloads e preparação.
+Essa área não vai para RAM nem contém jogos pessoais. Apagá-la pelo PC,
+com o pendrive desmontado do instalador, descarta o cache de downloads.
+
+Offline: colocar a ISO compatível em X-Revive/pacotes/rocky5-offline.iso.
+A ISO deve conter payload/manifest.json e a coleção X-Revive normalizada.
+Não é uma ISO genérica do HeXEn/OGXbox/AID; esses formatos precisam de adaptador.
+A ISO abre somente para leitura, sem executar seus menus de firmware.
+
+Para alternar os ensaios online/offline num pendrive de 16 GB:
+retirar pelo PC a ISO antes do online, ou o arquivo de cache de 8 GiB antes
+ de copiar a ISO. Não remover nada com uma instalação em andamento.
+Firmware é importado uma vez para o SSD e não precisa continuar no USB.
+Instalar é instalação LIMPA: apaga o disco selecionado após duas confirmações.
+Não use Instalar para atualizar um SSD contendo jogos que deseja preservar.
+
+Diagnóstico: X-Revive/diagnosticos/ guarda logs sem copiar seu firmware.
+Use teclado (setas/Enter/Esc/F10) OU controle (digital/A/B/LT+RT+Start).

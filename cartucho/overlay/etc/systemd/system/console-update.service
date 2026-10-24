@@ -1,0 +1,11 @@
+[Unit]
+Description=Atualização opcional do Xemu antes de iniciar o Xbox
+Requires=console-prepare.service
+After=console-prepare.service
+Before=console.service console-installer.service
+ConditionPathExists=/run/console/update
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/local/lib/console/update-service.py serve
+TimeoutStartSec=infinity

@@ -1,0 +1,12 @@
+[Unit]
+Description=Liga eject virtual do Xbox a bandeja fisica
+After=console-prepare.service
+Requires=console-prepare.service
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/lib/console/tray-monitor.py
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+[Unit]
+Description=Reapresenta controles Xbox ao console (contorna cold-boot do xpad)
+After=console.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/lib/console/pad-kick.sh

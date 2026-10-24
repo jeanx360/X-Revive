@@ -1,0 +1,41 @@
+name: Relatar problema na beta
+description: Falha de instalação, boot, controle, áudio, rede ou DVD
+title: '[Beta] '
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Versão / build
+    validations:
+      required: true
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware
+      description: CPU, GPU, RAM, UEFI, USB/HDD/SSD, leitor e controle. Oculte séries pessoais.
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Situação
+      options:
+        - Instalação online
+        - Instalação offline com ISO normalizada
+        - Boot ou uso pelo SSD
+        - Compilação / testes
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Passos, resultado esperado e resultado obtido
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnósticos revisados
+      description: Não envie firmware, EEPROM, chaves, jogos ou discos inteiros.

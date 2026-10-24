@@ -1,0 +1,15 @@
+[Unit]
+Description=Diagnóstico persistente do boot X-Revive
+After=console-prepare.service console-installer.service
+ConditionPathIsMountPoint=/userdata
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/python3 /usr/local/lib/console/diagnostics.py --wait
+ExecStop=/usr/bin/python3 /usr/local/lib/console/diagnostics.py
+TimeoutStartSec=70
+TimeoutStopSec=50
+
+[Install]
+WantedBy=multi-user.target

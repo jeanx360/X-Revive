@@ -1,0 +1,12 @@
+diff --git a/ui/xui/main.cc b/ui/xui/main.cc
+--- a/ui/xui/main.cc
++++ b/ui/xui/main.cc
+@@ -280,7 +280,7 @@
+         }
+ 
+         // Allow controllers without a guide button to also work
+-        if ((buttons & CONTROLLER_BUTTON_BACK) &&
++        if ((buttons & CONTROLLER_BUTTON_DPAD_UP) &&
+             (buttons & CONTROLLER_BUTTON_START)) {
+             menu_button = true;
+         }

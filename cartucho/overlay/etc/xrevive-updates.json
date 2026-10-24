@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "manifest_url": "",
+  "allow_http": false,
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAf4G/S63F80k/+L0LW31Wa5UucE3DkmFW5FqLpXCBbnc=\n-----END PUBLIC KEY-----\n"
+}

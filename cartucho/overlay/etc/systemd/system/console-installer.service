@@ -1,0 +1,22 @@
+[Unit]
+Description=Instalador X-Revive com teclado ou controle
+Requires=console-prepare.service console-installer-worker.service
+After=console-prepare.service console-installer-worker.service systemd-user-sessions.service
+ConditionPathExists=/run/console/installer
+Conflicts=getty@tty1.service
+
+[Service]
+User=console
+PAMName=login
+TTYPath=/dev/tty1
+StandardInput=tty-fail
+EnvironmentFile=-/run/console/env
+ExecStartPre=-+/usr/bin/plymouth quit
+ExecStartPre=+/usr/bin/chvt 1
+ExecStart=/usr/local/lib/console/launch.sh installer
+ExecStop=-/usr/bin/pkill -KILL -u console -f "^/usr/bin/python3 /usr/local/lib/console/installer-ui.py$"
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

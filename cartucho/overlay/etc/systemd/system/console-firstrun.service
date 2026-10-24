@@ -1,0 +1,19 @@
+[Unit]
+Description=Primeiro boot: prepara o HDD (formatar / instalar dashboard)
+Requires=console-prepare.service
+After=console-prepare.service
+Before=console.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+StandardInput=tty
+StandardOutput=tty
+StandardError=tty
+TTYPath=/dev/tty1
+TTYReset=yes
+EnvironmentFile=-/run/console/env
+ExecStart=/usr/local/lib/console/firstrun.sh
+
+[Install]
+WantedBy=multi-user.target

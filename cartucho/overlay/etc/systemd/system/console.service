@@ -1,0 +1,36 @@
+[Unit]
+Description=Console em tela cheia (cage + emulador)
+Requires=console-prepare.service
+Wants=console-update.service
+After=console-prepare.service console-update.service systemd-user-sessions.service
+Conflicts=getty@tty1.service
+# Console nunca desiste de religar o emulador
+StartLimitIntervalSec=0
+
+[Service]
+ExecCondition=/usr/bin/test ! -f /run/console/installer
+User=console
+PAMName=login
+TTYPath=/dev/tty1
+UtmpIdentifier=tty1
+UtmpMode=user
+StandardInput=tty-fail
+StandardOutput=journal
+StandardError=journal
+EnvironmentFile=-/run/console/env
+# Pcap liga o Xbox diretamente a Ethernet sem executar o emulador como root.
+AmbientCapabilities=CAP_NET_RAW CAP_NET_ADMIN
+# O splash fica ate aqui (quit automatico do plymouth esta mascarado); so agora,
+# quando o emulador vai subir, encerramos o splash e liberamos o DRM/VT.
+ExecStartPre=+/usr/bin/python3 /usr/local/lib/console/update-service.py launch
+ExecStartPre=-+/usr/bin/plymouth quit
+ExecStartPre=+/usr/bin/chvt 1
+ExecStart=/usr/local/lib/console/launch.sh
+ExecStop=/usr/local/lib/console/parar.sh
+TimeoutStopSec=20
+# Emulador fechou ou travou: reinicia, como um console que religa
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

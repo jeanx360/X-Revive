@@ -1,0 +1,7 @@
+[Unit]
+Description=Troca de midia do DVD fisico
+After=console-prepare.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/lib/console/media-change.sh

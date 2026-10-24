@@ -1,0 +1,13 @@
+#!/bin/sh
+# Include both video paths; init-premount selects which driver to load.
+set -e
+PREREQ=""
+prereqs() { echo "$PREREQ"; }
+case "$1" in prereqs) prereqs; exit 0;; esac
+. /usr/share/initramfs-tools/hook-functions
+for module in nvidia-current nvidia-current-modeset nvidia-current-uvm nvidia-current-drm nouveau; do
+    # The base bootstrap also builds an initrd before NVIDIA is installed.
+    if modinfo -k "$version" "$module" >/dev/null 2>&1; then
+        manual_add_modules "$module"
+    fi
+done

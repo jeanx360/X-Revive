@@ -1,0 +1,12 @@
+[Unit]
+Description=Confirma primeira inicialização e recupera Xemu em falha
+Requires=console-prepare.service
+After=console-prepare.service
+ConditionPathExists=/run/console/standalone.json
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/lib/console/update-service.py health
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

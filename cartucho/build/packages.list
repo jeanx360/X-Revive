@@ -1,0 +1,77 @@
+# Sistema base comum a todas as plataformas (Debian 13 "trixie")
+linux-image-amd64
+live-boot
+systemd-sysv
+systemd-resolved
+udev
+dbus
+libpam-systemd
+kmod
+dosfstools
+e2fsprogs
+exfatprogs
+util-linux
+kbd
+python3
+python3-cffi
+python3-pygame
+fonts-dejavu-core
+grub-efi-amd64-bin
+grub-common
+mtools
+eject
+procps
+pciutils
+
+# Splash de boot (logo X-Revive + carregamento)
+plymouth
+plymouth-label
+
+# Video: compositor kiosk + Vulkan/GL para Intel, AMD e NVIDIA (NVK)
+cage
+xwayland
+# Backend Wayland do SDL do xemu (carregado sob demanda): sem XWayland no meio
+libwayland-egl1
+libwayland-cursor0
+libdecor-0-0
+mesa-vulkan-drivers
+libgl1-mesa-dri
+libvulkan1
+libgl1
+libegl1
+libgles2
+vulkan-tools
+
+# Dependencias do xemu (AppImage) que vem do sistema
+libusb-1.0-0
+libpcap0.8t64
+libslirp0
+libsamplerate0
+libcurl3t64-gnutls
+libgtk-3-0t64
+iproute2
+ethtool
+
+# Audio
+libasound2t64
+alsa-ucm-conf
+alsa-utils
+
+# Controles Bluetooth
+bluez
+
+# Firmware de GPU, audio, Bluetooth e rede
+firmware-linux-free
+firmware-misc-nonfree
+firmware-intel-graphics
+firmware-amd-graphics
+firmware-sof-signed
+firmware-realtek
+firmware-iwlwifi
+firmware-atheros
+intel-microcode
+amd64-microcode
+
+# Atualizações assinadas do emulador
+openssl
+ca-certificates

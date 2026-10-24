@@ -1,0 +1,12 @@
+[Unit]
+Description=Prepara o console (firmware, perfil de hardware, portas)
+After=systemd-udev-trigger.service local-fs.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/lib/console/prepare.sh
+ExecStop=/usr/local/lib/console/save.sh
+
+[Install]
+WantedBy=multi-user.target

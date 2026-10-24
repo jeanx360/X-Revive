@@ -1,0 +1,9 @@
+# Drivers de video (KMS) para o splash aparecer cedo no boot
+i915
+amdgpu
+radeon
+nouveau
+virtio-gpu
+# Leitor optico (DVD): garante o /dev/sr* enumerado cedo, mesmo no boot toram
+sr_mod
+cdrom

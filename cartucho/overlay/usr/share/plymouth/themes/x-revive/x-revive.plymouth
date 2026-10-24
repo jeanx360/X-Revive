@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=X-Revive Boot
+Description=Splash de boot do X-Revive
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/x-revive
+ScriptFile=/usr/share/plymouth/themes/x-revive/x-revive.script

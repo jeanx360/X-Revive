@@ -1,0 +1,18 @@
+[Unit]
+Description=Novidades e confirmação da atualização do Xemu
+After=console-prepare.service systemd-user-sessions.service
+ConditionPathExists=/run/console/update
+Conflicts=getty@tty1.service
+
+[Service]
+User=console
+PAMName=login
+TTYPath=/dev/tty1
+StandardInput=tty-fail
+EnvironmentFile=-/run/console/env
+ExecStartPre=-+/usr/bin/plymouth quit
+ExecStartPre=+/usr/bin/chvt 1
+ExecStart=/usr/local/lib/console/launch.sh update
+ExecStop=-/usr/bin/pkill -KILL -u console -f "^/usr/bin/python3 /usr/local/lib/console/update-ui.py$"
+Restart=on-failure
+RestartSec=2

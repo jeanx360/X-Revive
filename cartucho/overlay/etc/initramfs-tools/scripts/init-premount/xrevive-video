@@ -1,0 +1,17 @@
+#!/bin/sh
+# The same image carries Mesa and NVIDIA 550; an unsupported NVIDIA card
+# must still get a chance to bind nouveau. Never changes host drivers.
+PREREQ=""
+prereqs() { echo "$PREREQ"; }
+case "$1" in prereqs) prereqs; exit 0;; esac
+for dev in /sys/bus/pci/devices/*; do
+    case "$(cat "$dev/class" 2>/dev/null)" in 0x03*) ;; *) continue;; esac
+    [ "$(cat "$dev/vendor" 2>/dev/null)" = 0x10de ] || continue
+    driver=$(readlink "$dev/driver" 2>/dev/null || true)
+    # udev may already have bound the base NVIDIA PCI driver. Still load its
+    # DRM dependency for Plymouth; leave an existing nouveau binding alone.
+    case "${driver##*/}" in
+        "" | nvidia*) modprobe nvidia-current-drm modeset=1 fbdev=1 2>/dev/null || true;;
+    esac
+    if [ ! -L "$dev/driver" ]; then modprobe nouveau 2>/dev/null || true; fi
+done
