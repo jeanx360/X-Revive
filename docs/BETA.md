@@ -13,6 +13,11 @@ Não é versão estável ou garantia para qualquer GPU, SSD ou Xbox.
 - Teclado ou controle compatível. Cabo de rede e DHCP para instalação online.
 - BIOS, MCPX e EEPROM obtidos pelo usuário; animação Xbox é opcional e separada.
 
+**Próxima mudança aprovada:** tornar a EEPROM fornecida pelo usuário opcional,
+deixando o Xemu gerar e o sistema preservar o arquivo quando ausente.
+[Plano](EEPROM-OPCIONAL.md). A beta.2 atual ainda exige o arquivo; esta revisão de
+documentação não é uma nova imagem.
+
 A mídia reúne Mesa e NVIDIA 550, incluindo suporte à GTX 750 da bancada. Isso
 não significa suporte a toda NVIDIA antiga ou futura. Desempenho depende da
 emulação e do hardware. Não há interface de seleção de Wi-Fi.
@@ -23,7 +28,7 @@ emulação e do hardware. Não há interface de seleção de Wi-Fi.
 |---|---|
 | Testes da preparação pública beta.2 | 68 passaram na bancada, incluindo limpeza pública, coleta de fontes e fingerprint sem assets particulares |
 | Testes automatizados da base df48 | 64 testes passaram com fixtures locais; no clone público, o teste UIX com pacote real é opcional |
-| Cópia limpa dos fontes públicos | 64 testes descobertos: 63 passaram e 1 skipped (UIX sem pacote real), sem firmware ou executáveis Xbox privados |
+| Cópia limpa dos fontes públicos da beta.2 | 68 testes descobertos: 67 passaram e 1 skipped (UIX sem pacote real), sem firmware ou executáveis Xbox privados |
 | VM, instalação offline completa | 104 pacotes / 98.996 arquivos, leitura de volta; SSD intacto antes das confirmações |
 | VM, download online real | 107 arquivos HTTPS, hashes conferidos e coleção equivalente à offline |
 | VM, operação por controle | Preparação online, cancelamento, duas confirmações com soltura, instalação completa |

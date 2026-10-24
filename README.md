@@ -1,5 +1,30 @@
 # X-Revive · Beta
 
+## Download público e instalação
+
+**[BAIXAR A IMG — beta.2 · 1,29 GB](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/x-revive-v0.1.0-beta.2.img.xz)**
+
+**[COMO GRAVAR E INSTALAR — guia passo a passo](docs/BAIXAR-E-INSTALAR.md)**
+
+| Download | Para que serve |
+|---|---|
+| [IMG pronta (.img.xz)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/x-revive-v0.1.0-beta.2.img.xz) | Descompactar e gravar no pendrive; não precisa compilar |
+| [Pastas do usuário (.zip)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/arquivos-do-usuario.zip) | Extrair na raiz da partição XREVIVE e colocar seus arquivos |
+| [Checksums SHA256](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/SHA256SUMS.txt) | Conferir a integridade do download |
+| [Página da release e todos os arquivos](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.2) | Notas, fontes e avisos de licença |
+
+Para gravar, recomendamos **[balenaEtcher](https://etcher.balena.io/)**.
+[Outros aplicativos e instruções por sistema](docs/BAIXAR-E-INSTALAR.md#aplicativos-para-gravar-o-pendrive).
+No GitHub, os botões **Code → Download ZIP** e os arquivos **Source code** baixam
+os fontes, não a IMG instaladora. Use o download da IMG acima.
+
+**Firmware na beta.2 publicada:** ainda são exigidos `bios.bin`, `mcpx_1.0.bin`
+e `eeprom.bin`. A próxima mudança aprovada torna a **EEPROM fornecida pelo usuário
+opcional**, com geração pelo Xemu quando ausente e preservação no SSD.
+[Estado e plano da mudança](docs/EEPROM-OPCIONAL.md). Ela ainda não está na IMG atual.
+
+## Sobre o projeto
+
 Um PC com experiência de Xbox Clássico: logo do projeto, animação Xbox e
 dashboard, com áudio, rede, FTP e controle da bandeja física do DVD.
 Linux fornece a base do sistema e o **Xemu** executa o console emulado.
@@ -19,11 +44,6 @@ Não é um instalador de dual boot com Windows/Linux nem uma migração de jogos
 - Uso do instalador por teclado **ou** controle, sem exigir os dois.
 - Recuperação pelo USB e cliente de atualizações Xemu assinadas com reversão.
 
-**[Baixar a IMG pronta para gravar](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/x-revive-v0.1.0-beta.2.img.xz)**
-
-Baixe **`x-revive-v0.1.0-beta.2.img.xz`**, `SHA256SUMS.txt` e
-`arquivos-do-usuario.zip`. Os arquivos `Source code` e `sources-*` são fontes
-para desenvolvedores; não são o instalador. [Passo a passo para usar](docs/BAIXAR-E-INSTALAR.md).
 BIOS, MCPX, EEPROM, jogos e animação proprietária não são fornecidos.
 
 O mantenedor confirmou que a nova mídia funcionou como esperado em teste físico
@@ -79,6 +99,7 @@ drivers, firmware ou coleção Rocky5.
 ## Documentação
 
 - [Estado da beta, hardware e limitações](docs/BETA.md)
+- [EEPROM opcional — próxima mudança aprovada](docs/EEPROM-OPCIONAL.md)
 - [Instalação online, offline e diagnósticos](docs/INSTALADOR-ONLINE.md)
 - [Build, testes e reprodução](docs/COMUNIDADE-BUILD.md)
 - [Roadmap atual](docs/ROADMAP-BETA.md)

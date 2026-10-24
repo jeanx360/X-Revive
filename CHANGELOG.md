@@ -1,5 +1,12 @@
 # Changelog
 
+## Não lançado — revisão documental
+
+- Download público da IMG, guia, pastas e checksum destacados no início do README.
+- Recomendações de balenaEtcher, Raspberry Pi Imager e Discos do GNOME.
+- EEPROM opcional aprovada como próxima mudança; implementação e nova IMG pendentes. A beta.2 atual ainda exige os três arquivos.
+- Nenhum binário ou artefato de instalação alterado nesta revisão.
+
 ## v0.1.0-beta.2 — 2026-10-24
 
 - IMG pública compactada para gravação, com checksum e guia para usuários.

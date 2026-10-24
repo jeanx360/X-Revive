@@ -3,6 +3,10 @@
 Para baixar e usar sem compilar, siga [Baixar e instalar](BAIXAR-E-INSTALAR.md).
 A beta.2 é a preparação pública da base de bancada descrita abaixo.
 
+Na beta.2, BIOS, MCPX e EEPROM ainda precisam ser fornecidos. A **EEPROM opcional**
+é a próxima mudança aprovada, com geração pelo Xemu quando ausente e persistência
+no SSD. [Plano e distinção entre versões](EEPROM-OPCIONAL.md).
+
 Entrega de bancada **df48d0e06a6f**, validada em VM e com retorno físico positivo do mantenedor em 24/10/2026. O retorno não detalha modos/máquinas; [estado da beta](BETA.md). [Gates e checksum](VALIDACAO-ONLINE-2026-10-24.md).
 
 Esta etapa substitui o conteúdo offline embutido da mídia 730645d7124c.

@@ -7,15 +7,23 @@ firmware separado; SSD com boot independente e FATX; manutenção por R;
 Start+digital para cima para Xemu; bandeja física; logos de boot/desligamento;
 cliente Xemu assinado com reversão. Relatório físico recebido em 24/10/2026.
 
-## Prioridade 1 — abrir o projeto
+## Próxima mudança — EEPROM opcional
+
+Primeiro revisar documentação, download público e instruções de gravação no
+GitHub. Em seguida, tornar `eeprom.bin` opcional: importar quando fornecida ou
+permitir a geração pelo Xemu, persistindo a identidade uma única vez no SSD.
+BIOS e MCPX continuam obrigatórios. [Plano e critérios](EEPROM-OPCIONAL.md).
+Nenhuma nova IMG é compilada durante esta revisão documental.
+
+## Publicação dos fontes — concluída
 
 Fontes publicados como `v0.1.0-beta.1`, com guias, limitações, licenças, modelos de
 issues e testes no GitHub. Excluir dados pessoais, firmwares, ISOs, caches,
 dashboards e discos de bancada. Correções terão commits, changelog e evidências.
 
-## Prioridade 2 — permitir a distribuição binária
+## Distribuição binária — concluída na beta.2
 
-Beta.2: publicar a IMG limpa com inventário/licenças e fontes correspondentes
+Beta.2 publicada com IMG limpa, inventário/licenças e fontes correspondentes
 para o sistema e Xemu modificado, SHA256, versões, lista de pacotes e notas. Não distribuir a ISO particular ou
 firmware do mantenedor como se fossem assets públicos.
 

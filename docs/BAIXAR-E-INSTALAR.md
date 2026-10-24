@@ -1,18 +1,25 @@
 # Baixar, gravar e instalar o X-Revive
 
-Não precisa compilar. [Abra a release v0.1.0-beta.2](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.2)
-e baixe em **Assets**:
+**[BAIXAR A IMG PRONTA — beta.2 · 1,29 GB](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/x-revive-v0.1.0-beta.2.img.xz)**
+
+Não precisa compilar, criar conta nem fazer login para baixar. Use os links
+abaixo ou [abra a release](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.2)
+e expanda **Assets** para ver os arquivos:
 
 | Arquivo | Para que serve |
 |---|---|
-| `x-revive-v0.1.0-beta.2.img.xz` | Imagem instaladora para o pendrive |
-| `SHA256SUMS.txt` | Conferir integridade dos downloads |
-| `arquivos-do-usuario.zip` | Pastas vazias e instruções para seus arquivos |
-| `LEIA-ME.txt` | Guia curto que pode ser guardado no PC |
+| [x-revive-v0.1.0-beta.2.img.xz](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/x-revive-v0.1.0-beta.2.img.xz) | Imagem instaladora para o pendrive |
+| [SHA256SUMS.txt](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/SHA256SUMS.txt) | Conferir integridade dos downloads |
+| [arquivos-do-usuario.zip](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/arquivos-do-usuario.zip) | Pastas vazias e instruções para seus arquivos |
+| [LEIA-ME.txt](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/LEIA-ME.txt) | Guia curto que pode ser guardado no PC |
 
 `Source code` e `sources-*` são para estudar/recompilar. **Não grave esses arquivos
 como instalador.** A IMG contém Linux, drivers, Xemu e nosso instalador; não contém
 BIOS/MCPX/EEPROM, coleção de aplicativos ou jogos.
+
+**Compatibilidade desta instrução:** a beta.2 ainda exige os três arquivos de
+firmware. A EEPROM opcional é a próxima mudança aprovada, ainda não implementada
+na IMG publicada. [Detalhes](EEPROM-OPCIONAL.md).
 
 ## 1. Preparar
 
@@ -48,11 +55,28 @@ No Linux também pode usar:
 xz -dk x-revive-v0.1.0-beta.2.img.xz
 ```
 
-O resultado é `x-revive-v0.1.0-beta.2.img`. No [balenaEtcher](https://etcher.balena.io/),
-selecione **Flash from file**, a IMG descompactada, **Select target**, confira o
-**pendrive** e grave. A gravação apaga o pendrive. Não selecione seu SSD/HDD do PC.
+O resultado é `x-revive-v0.1.0-beta.2.img`. Use um dos aplicativos abaixo.
+A gravação apaga o pendrive. Não selecione seu SSD/HDD do PC.
 Copiar a IMG como arquivo para dentro do pendrive não o torna inicializável.
 Aguarde a verificação da ferramenta; depois ejete e reconecte o USB no PC.
+
+### Aplicativos para gravar o pendrive
+
+| Aplicativo | Sistema no qual você grava | Como usar com o X-Revive |
+|---|---|---|
+| **[balenaEtcher — recomendado](https://etcher.balena.io/)** | Windows, Linux e macOS | **Flash from file** → IMG descompactada → **Select target** → pendrive → **Flash!**; aguarde a validação |
+| [Raspberry Pi Imager](https://www.raspberrypi.com/software/) | Windows, Linux e macOS | Na seleção de sistema, **Use Custom / Usar imagem personalizada** → nossa IMG descompactada → pendrive; não escolha Raspberry Pi OS nem aplique personalizações de outro sistema |
+| [Discos do GNOME](https://apps.gnome.org/DiskUtility/) | Linux com GNOME | Selecione o pendrive inteiro e use **Restaurar imagem de disco…** para gravar nossa IMG descompactada |
+
+O nome Raspberry Pi Imager é do gravador; a imagem X-Revive continua destinada a
+PC x86-64 UEFI, sem suporte anunciado a Raspberry Pi. As alternativas são
+orientações de gravação; não houve ensaio novo de cada aplicativo/sistema nesta
+revisão documental. Use a gravação de imagem completa, sem extrair arquivos para
+um pendrive formatado nem recriar suas partições manualmente.
+
+Referências oficiais: [Etcher](https://etcher.balena.io/),
+[Imager e opção Use Custom](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system),
+[Discos do GNOME](https://apps.gnome.org/DiskUtility/).
 
 ## 3. Colocar seus arquivos
 
@@ -66,7 +90,7 @@ XREVIVE/
       xbox/
         bios.bin          # 256, 512 ou 1024 KiB
         mcpx_1.0.bin       # 512 bytes, MCPX 1.0
-        eeprom.bin        # 256 bytes, sua identidade de console
+        eeprom.bin        # 256 bytes; ainda obrigatório na beta.2
       bootanims/Xbox/     # opcional
         BootAnim.xbe
         bootanim.ini
@@ -77,6 +101,9 @@ XREVIVE/
 Os três firmwares precisam ser fornecidos por você, obtidos de forma autorizada
 e compatíveis com o [Xemu](https://xemu.app/docs/required-files/). O projeto não
 os fornece. Não renomeie arquivos aleatórios nem use uma EEPROM de terceiros.
+O Xemu sabe gerar uma EEPROM válida; exigir um arquivo externo na beta.2 é uma
+restrição do nosso instalador. [A próxima mudança](EEPROM-OPCIONAL.md) remove essa
+exigência, preservando a opção de importar a EEPROM do usuário.
 Não coloque `firmware` e `pacotes` soltos na raiz, nem crie `X-Revive/X-Revive`.
 A pasta opcional de animação só é usada quando seus arquivos são fornecidos.
 
