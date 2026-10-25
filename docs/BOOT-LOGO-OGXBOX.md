@@ -2,7 +2,7 @@
 
 ## Pedido e escopo (2026-10-23)
 
-O usuario confirmou graficos perfeitos e eject fisico funcionando na imagem
+Graficos e eject fisico validados em bancada na imagem
 NVIDIA anterior. Audio e R tambem confirmados; FTP fisico ainda nao testado.
 Manter arquitetura e o par de imagens, corrigir splash, incluir OGXbox completo
 via G e manter HeXEn via R. Boot normal desejado: logo X-Revive, animacao Xbox,
@@ -112,7 +112,7 @@ Checksums das imagens:
 d414d08f2cc991f44fe366b1194347198e03ad7906984951f8731528841db15d  console-xbox-nvidia.img
 ```
 
-O par anterior confirmado pelo usuario foi preservado fora de out em
+O par anterior validado em bancada foi preservado fora de out em
 `cartucho/cache/baseline-dual-funcional-20261023/`.
 
 Referencias primarias:

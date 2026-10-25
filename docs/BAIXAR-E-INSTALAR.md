@@ -1,23 +1,23 @@
 # Baixar, gravar e instalar o X-Revive
 
-**[BAIXAR A IMG PRONTA — beta.3 · 1,29 GB](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/x-revive-v0.1.0-beta.3.img.xz)**
+**[BAIXAR A IMG PRONTA — beta.4 · 1,27 GB](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/x-revive-v0.1.0-beta.4.img.xz)**
 
 Não precisa compilar, criar conta nem fazer login para baixar. Use os links
-abaixo ou [abra a release](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.3)
+abaixo ou [abra a release](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.4)
 e expanda **Assets** para ver os arquivos:
 
 | Arquivo | Para que serve |
 |---|---|
-| [x-revive-v0.1.0-beta.3.img.xz](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/x-revive-v0.1.0-beta.3.img.xz) | Imagem instaladora para o pendrive |
-| [SHA256SUMS.txt](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/SHA256SUMS.txt) | Conferir integridade dos downloads |
-| [arquivos-do-usuario.zip](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/arquivos-do-usuario.zip) | Pastas vazias e instruções para seus arquivos |
-| [LEIA-ME.txt](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/LEIA-ME.txt) | Guia curto que pode ser guardado no PC |
+| [x-revive-v0.1.0-beta.4.img.xz](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/x-revive-v0.1.0-beta.4.img.xz) | Imagem instaladora para o pendrive |
+| [SHA256SUMS.txt](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/SHA256SUMS.txt) | Conferir integridade dos downloads |
+| [arquivos-do-usuario.zip](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/arquivos-do-usuario.zip) | Pastas vazias e instruções para seus arquivos |
+| [LEIA-ME.txt](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/LEIA-ME.txt) | Guia curto que pode ser guardado no PC |
 
 `Source code` e `sources-*` são para estudar/recompilar. **Não grave esses arquivos
 como instalador.** A IMG contém Linux, drivers, Xemu e nosso instalador; não contém
 BIOS/MCPX/EEPROM, coleção de aplicativos ou jogos.
 
-**Na beta.3, a EEPROM é opcional.** BIOS e MCPX continuam obrigatórios.
+**Na beta.4, a EEPROM é opcional.** BIOS e MCPX continuam obrigatórios.
 Sem `eeprom.bin`, o Xemu gera a identidade no primeiro boot e ela fica preservada
 no SSD. [Detalhes](EEPROM-OPCIONAL.md). A beta.2 antiga ainda exigia os três arquivos.
 
@@ -35,13 +35,13 @@ Confira o SHA256 da imagem compactada com a linha correspondente de SHA256SUMS:
 Linux:
 
 ```sh
-sha256sum x-revive-v0.1.0-beta.3.img.xz
+sha256sum x-revive-v0.1.0-beta.4.img.xz
 ```
 
 PowerShell no Windows:
 
 ```powershell
-Get-FileHash .\x-revive-v0.1.0-beta.3.img.xz -Algorithm SHA256
+Get-FileHash .\x-revive-v0.1.0-beta.4.img.xz -Algorithm SHA256
 ```
 
 Os 64 dígitos devem coincidir, sem diferença entre maiúsculas/minúsculas.
@@ -52,10 +52,10 @@ Descompacte `.img.xz` com [7-Zip](https://www.7-zip.org/) ou ferramenta compatí
 No Linux também pode usar:
 
 ```sh
-xz -dk x-revive-v0.1.0-beta.3.img.xz
+xz -dk x-revive-v0.1.0-beta.4.img.xz
 ```
 
-O resultado é `x-revive-v0.1.0-beta.3.img`. Use um dos aplicativos abaixo.
+O resultado é `x-revive-v0.1.0-beta.4.img`. Use um dos aplicativos abaixo.
 A gravação apaga o pendrive. Não selecione seu SSD/HDD do PC.
 Copiar a IMG como arquivo para dentro do pendrive não o torna inicializável.
 Aguarde a verificação da ferramenta; depois ejete e reconecte o USB no PC.

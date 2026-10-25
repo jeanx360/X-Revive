@@ -45,7 +45,7 @@ def wait_ready():
     if not rows:raise RuntimeError('No identity verification result')
     return json.loads(rows[-1])
 
-first=wait_ready();assert first['build']=='0.1.0-beta.3'
+first=wait_ready();assert first['build']=='0.1.0-beta.4'
 print('XEMU_GENERATION_AND_IMMEDIATE_PERSISTENCE_PASS',first['identity'],flush=True)
 command('systemctl --no-block reboot')
 # Wait until the guest actually has a new boot id; the old runtime may still be ready.

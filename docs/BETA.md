@@ -1,4 +1,4 @@
-# Beta v0.1.0-beta.3
+# Beta v0.1.0-beta.4
 
 Beta para PC x86-64 UEFI, com IMG pronta para gravar, instalação Rocky5 online
 ou ISO local normalizada, manutenção e EEPROM opcional.
@@ -11,7 +11,7 @@ ou ISO local normalizada, manutenção e EEPROM opcional.
 - Teclado ou controle compatível. Cabo de rede e DHCP para instalação online.
 - BIOS e MCPX fornecidos pelo usuário; EEPROM e animação Xbox opcionais.
 
-**EEPROM opcional na beta.3:** forneça sua EEPROM ou deixe o Xemu gerar uma nova.
+**EEPROM opcional na beta.4:** forneça sua EEPROM ou deixe o Xemu gerar uma nova.
 A identidade é preservada no SSD. [Detalhes](EEPROM-OPCIONAL.md).
 
 A mídia reúne Mesa e NVIDIA 550, incluindo suporte à GTX 750 da bancada. Isso
@@ -22,9 +22,9 @@ emulação e do hardware. Não há interface de seleção de Wi-Fi.
 
 | Evidência | Resultado e limite |
 |---|---|
-| Testes da beta.3 | 72 passaram na bancada, incluindo limpeza pública, coleta de fontes e fingerprint sem assets particulares |
+| Testes da beta.4 | 72 passaram na bancada, incluindo limpeza pública, coleta de fontes e fingerprint sem assets particulares |
 | Testes automatizados da base df48 | 64 testes passaram com fixtures locais; no clone público, o teste UIX com pacote real é opcional |
-| Cópia limpa dos fontes públicos da beta.3 | 72 testes descobertos: 71 passaram e 1 skipped (UIX sem pacote real), sem firmware ou executáveis Xbox privados |
+| Cópia limpa dos fontes públicos da beta.4 | 72 testes descobertos: 71 passaram e 1 skipped (UIX sem pacote real), sem firmware ou executáveis Xbox privados |
 | VM, instalação offline completa | 104 pacotes / 98.996 arquivos, leitura de volta; SSD intacto antes das confirmações |
 | VM, download online real | 107 arquivos HTTPS, hashes conferidos e coleção equivalente à offline |
 | VM, operação por controle | Preparação online, cancelamento, duas confirmações com soltura, instalação completa |

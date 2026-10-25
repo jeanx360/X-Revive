@@ -75,7 +75,7 @@ Treze testes locais passaram, incluindo ordem stop/eject/start e retorno
 do emulador mesmo se eject falhar. Bootloader de producao nao contem shell de
 debug: ela foi habilitada apenas na linha de comando da VM de teste.
 
-## Retorno fisico do usuario apos gravacao
+## Validacao fisica apos gravacao
 
 - Atalho R confirmado: iniciou o HeXEn com o HDD FATX.
 - Rede obteve IP; usuario considera que aparentemente funcionou. FTP fisico

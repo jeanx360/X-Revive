@@ -1,6 +1,6 @@
 # Validação da preparação pública beta.2
 
-A base df48 recebeu relato físico positivo do mantenedor. Esta preparação pública
+A base df48 foi validada em bancada física. Esta preparação pública
 mantém o binário Xemu e os drivers, separando arquivos particulares. Não equivale
 a um novo teste de todas as máquinas físicas. Nenhum disco físico do host foi
 alvo do build ou dos testes automatizados.

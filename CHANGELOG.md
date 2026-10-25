@@ -1,12 +1,18 @@
 # Changelog
 
-## v0.1.0-beta.3 — 2026-10-24
+## v0.1.0-beta.4 — 2026-10-24
 
 - EEPROM fornecida pelo usuário opcional; geração nativa pelo Xemu quando ausente.
 - Persistência inicial imediata no SSD e reutilização da identidade nos próximos boots.
 - BIOS e MCPX continuam obrigatórios; importação de EEPROM existente preservada.
 - Interface, guia e pastas do usuário atualizados para os dois fluxos.
 - Apresentação pública na voz do projeto e links de download destacados.
+- Persistência da EEPROM sem ciclo na inicialização; compilação verifica a transação completa do systemd.
+
+## v0.1.0-beta.3 — candidata não publicada
+
+Retida na validação de reboot por conflito de ordem de inicialização. A tag foi
+preservada para rastreabilidade; a imagem corrigida é a beta.4.
 
 ## v0.1.0-beta.2 — 2026-10-24
 

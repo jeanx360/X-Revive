@@ -1,6 +1,6 @@
 # EEPROM opcional
 
-A partir da **beta.3**, é possível instalar sem fornecer `eeprom.bin`.
+A partir da **beta.4**, é possível instalar sem fornecer `eeprom.bin`.
 
 | Arquivo | Exigência |
 |---|---|
@@ -25,6 +25,6 @@ links simbólicos são recusados antes da seleção do disco de destino.
 ## Versões anteriores
 
 As betas.1 e .2 exigiam o fornecimento dos três arquivos. A geração automática é
-funcionalidade do [Xemu](https://xemu.app/docs/eeprom/); a beta.3 adapta o instalador
+funcionalidade do [Xemu](https://xemu.app/docs/eeprom/); a beta.4 adapta o instalador
 e a persistência do X-Revive para utilizá-la. BIOS e MCPX permanecem separados e
 necessários: [arquivos requeridos](https://xemu.app/docs/required-files/).

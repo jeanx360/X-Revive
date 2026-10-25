@@ -7,7 +7,7 @@ firmware separado; SSD com boot independente e FATX; manutenção por R;
 Start+digital para cima para Xemu; bandeja física; logos de boot/desligamento;
 cliente Xemu assinado com reversão. Validação em bancada concluída.
 
-## EEPROM opcional — beta.3
+## EEPROM opcional — beta.4
 
 Instalar com BIOS e MCPX. A EEPROM é importada quando fornecida ou gerada pelo
 Xemu quando ausente, com identidade preservada no SSD. [Funcionamento](EEPROM-OPCIONAL.md).
@@ -22,7 +22,7 @@ dashboards e discos de bancada. Correções terão commits, changelog e evidênc
 
 Beta.2 publicada com IMG limpa, inventário/licenças e fontes correspondentes
 para o sistema e Xemu modificado, SHA256, versões, lista de pacotes e notas. Não distribuir a ISO particular ou
-firmware do mantenedor como se fossem assets públicos.
+firmware particular como se fosse asset público.
 
 ## Prioridade 3 — operar as atualizações
 

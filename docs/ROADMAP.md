@@ -6,7 +6,7 @@
 
 > Registro da etapa anterior. A direção atual é o [instalador próprio, estágio 2](ESTAGIO2-INSTALADOR.md), com uma única IMG de instalação.
 Atualizacao 2026-10-23: o [roadmap atual](ROADMAP-2026-10-23.md) registra o
-FTP confirmado pelo usuario, o refinamento de R/G, a correcao da dashboard
+FTP validado em bancada, o refinamento de R/G, a correcao da dashboard
 e a terceira variante standalone experimental. As restricoes antigas de duas
 imagens/HDD puro continuam como padrao USB; standalone e uma excecao opt-in.
 
@@ -20,7 +20,7 @@ O que já foi feito está em VALIDACOES.md.
 | 1.1 | **Cache de shaders persistente em disco** | **feito** | 3ª partição `CACHE` (ext4). `XDG_DATA_HOME` por máquina (fingerprint da HAL) → xemu grava em `/var/cache/console/<fp>/xdg/xemu/xemu/`. Montada rw no boot por `prepare.sh`; não vai para a RAM. Validado na VM (pasta `shaders` persiste após desligar). |
 | 1.2 | **CPU sempre no máximo** | **feito** | `probe.sh` emite `cpu_governor` (performance em desktop/console, schedutil em notebook pelo chassi SMBIOS) e `cpu_isolate`. `prepare.sh` aplica o governador; `run.sh` fixa o xemu com `taskset` deixando a CPU 0 para o sistema (quando ≥6 threads). Só vale onde há cpufreq (não na VM). |
 | 1.3 | **Wayland direto (sem XWayland)** | **feito** | `run.sh` usa `SDL_VIDEODRIVER=wayland` quando o cage e as libs estão presentes (precisou de `libwayland-cursor0`). Queda segura para X11 se o init falhar em <5 s. Validado na VM: nenhum Xwayland sobe. |
-| 1.4 | **Variante NVIDIA proprietária** | confirmada na bancada (2026-10-23) | Usuario confirmou imagem perfeita na GTX 750 com proprietario Debian 550.163.01-2. Build mantem sempre universal + NVIDIA. Ver `IMAGENS-UNIVERSAL-NVIDIA.md`. |
+| 1.4 | **Variante NVIDIA proprietária** | confirmada na bancada (2026-10-23) | Imagem validada na GTX 750 com proprietario Debian 550.163.01-2. Atualmente, uma unica IMG instaladora reune Mesa e NVIDIA. Ver `IMAGENS-UNIVERSAL-NVIDIA.md`. |
 | 1.5 | **Escala de resolução por jogo** | a fazer | `surface_scale` até 4K. Alguns jogos dão defeito em escala alta, então precisa de exceção por jogo. |
 | 1.6 | **Opção 128 MB / cartucho "Ultimate Xbox"** | **parcial** | `ram=128` no `ports.conf` → `configure.sh` → `mem_limit='128'` → xemu `-m 128` (confirmado por log na VM). Mas o dashboard ainda vê 64 MB: o kernel/BIOS precisa ser 128-aware para expor a RAM extra ao software. Falta validar na bancada com título/config 128 MB. Padrão 64. |
 | 1.7 | Patches de 60 fps / widescreen | documentar | São patches da comunidade, por jogo. O console só precisa rodá-los (via dashboard/HDD). |
@@ -192,13 +192,13 @@ Limpeza total = **ação explícita** (nunca automática num disco qualquer).
 
 | # | Item | Observação |
 |---|------|-----------|
-| 1 | **Vídeo: dashboard roda num frame pequeno no canto SUP. ESQUERDO**, não em tela cheia | Usuario confirmou imagem perfeita com variante NVIDIA em 2026-10-23. |
+| 1 | **Vídeo: dashboard roda num frame pequeno no canto SUP. ESQUERDO**, não em tela cheia | Imagem com variante NVIDIA validada em bancada em 2026-10-23. |
 | 2 | **Logo do projeto não aparece** | Causa reproduzida: console=tty3 forcava Plymouth details/texto. Corrigido com console=tty0; logo confirmado no boot UEFI da nova imagem NVIDIA em VM. Falta bancada fisica. Ver `BOOT-LOGO-OGXBOX.md`. |
 | 3 | **Menu de config do xemu não é funcional** (mudanças não salvam) | **Correção incluida nas duas imagens; falta bancada.** Preferências de RAM, renderer, escala e vsync são salvas no pendrive por hardware no desligamento normal e restauradas sobre a configuração gerada pela HAL. Ver `docs/CONFIGURACAO-PERSISTENTE.md`. |
-| 4 | **DVD tray open/close não dispara ação** | Eject fisico confirmado pelo usuario em 2026-10-23 com a imagem NVIDIA. |
-| 5 | **Eject pelo sistema não funciona** | Usuario confirmou acionamento real da bandeja em 2026-10-23. Manter ponte QMP e regressao. |
+| 4 | **DVD tray open/close não dispara ação** | Eject fisico validado em bancada em 2026-10-23 com a imagem NVIDIA. |
+| 5 | **Eject pelo sistema não funciona** | Acionamento real da bandeja validado em bancada em 2026-10-23. Manter ponte QMP e regressao. |
 | 6 | **Som** | Confirmado funcionando pelo usuario na bancada; manter como regressao nas duas imagens. |
-| 7 | **Rede** | Usuario confirmou obtencao de IP. FTP fisico ainda nao testado: testar arquivo grande, SHA-256 e velocidade. |
+| 7 | **Rede** | IP e FTP fisico validados com instalacao de jogos e homebrew. Medicoes de SHA-256 e velocidade permanecem como teste de desempenho. |
 | 8 | **Menu de manutenção no boot** (acessar utilitarios sem Fedora) | R/Start+Back para HeXEn, G para ISO completa OGXbox na mesma janela de oito segundos. Prioridade sobre FATX/DVD e preservacao nos restarts da sessao. Menu completo permanece futuro. |
 
 ### A embutir na próxima imagem (já decidido)

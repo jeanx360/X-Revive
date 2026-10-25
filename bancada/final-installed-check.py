@@ -28,11 +28,12 @@ frame('normal-dashboard')
 cmd('systemctl --no-block reboot')
 deadline=time.monotonic()+180
 while time.monotonic()<deadline:
- m.qmp(f/'vm.qmp',{'execute':'human-monitor-command','arguments':{'command-line':'sendkey r 1000'}})
+ m.qmp(f/'vm.qmp',{'execute':'input-send-event','arguments':{'events':[{'type':'key','data':{'down':False,'key':{'type':'qcode','data':'r'}}},{'type':'key','data':{'down':True,'key':{'type':'qcode','data':'r'}}}]}})
  time.sleep(1)
  r=cmd("test -f /run/console/installer && systemctl is-active --quiet console-installer.service && test -s /run/console/interface.log && printf 'MAINT_%s\\n' ACTIVE")
  if 'MAINT_ACTIVE' in r:break
 else:raise TimeoutError('R maintenance')
+m.qmp(f/'vm.qmp',{'execute':'input-send-event','arguments':{'events':[{'type':'key','data':{'down':False,'key':{'type':'qcode','data':'r'}}}]}})
 time.sleep(4);frame('r-maintenance')
 r=cmd("python3 -c \"import socket,json;s=socket.socket(socket.AF_UNIX);s.connect('/run/xrevive-installer/control.sock');s.sendall(b'{\\\"action\\\":\\\"hello\\\"}\\n');print(s.makefile().readline())\"")
 rows=re.findall(r'\{"ok": true, "data": .*\}',r);assert rows

@@ -1,6 +1,6 @@
 # Bandeja comandada pela dashboard
 
-O usuario confirmou abertura/fechamento fisico pelo menu Xemu, mas nenhum
+Abertura/fechamento fisico validados pelo menu Xemu; nenhum
 movimento pela dashboard. Na versao upstream 0.8.138, SMC_REG_TRAYEJECT (0x0c)
 esta definido, porem nao tem tratamento de escrita. O menu chama qmp_eject e
 xbox_smc_update_tray_state diretamente. Uma resposta FTP 200 a SITE TRAYOPEN

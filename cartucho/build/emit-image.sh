@@ -2,6 +2,7 @@
 set -eu
 . /src/cartucho/build/versions.env
 rootfs=${IMAGE_ROOTFS:?}
+python3 /src/cartucho/build/verify-units.py "$rootfs"
 work=${IMAGE_WORK:?}
 variant=${IMAGE_VARIANT:?}
 mkdir -p "$work"

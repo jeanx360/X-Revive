@@ -1,7 +1,7 @@
 # Entrega em duas imagens
 
-Documento historico da primeira entrega dupla. Atualizacao: o usuario depois
-confirmou FTP fisico com instalacao de jogos/homebrew; eject funciona pelo menu
+Documento historico da primeira entrega dupla. Atualizacao: FTP fisico validado
+com instalacao de jogos/homebrew; eject funciona pelo menu
 Xemu, mas a dashboard ainda exigia correcao. A entrega atual passa a incluir
 uma terceira variante standalone experimental: ver [roadmap atual](ROADMAP-2026-10-23.md).
 
@@ -10,8 +10,7 @@ uma terceira variante standalone experimental: ver [roadmap atual](ROADMAP-2026-
 Manter arquitetura atual e gerar duas imagens a cada entrega de roadmap/bugs:
 universal e NVIDIA para a bancada Xeon E5-2680 v4 + GTX 750 (10de:1381).
 Som e R estao confirmados no hardware; IP foi obtido. FTP fisico ainda precisa
-de teste pratico. Eject e graficos da variante NVIDIA foram confirmados pelo
-usuario em 2026-10-23. Este documento registra a primeira entrega; o trabalho trata
+de teste pratico. Eject e graficos da variante NVIDIA validados em bancada em 2026-10-23. Este documento registra a primeira entrega; o trabalho trata
 do build duplo e do perfil grafico, sem declarar esses itens resolvidos.
 
 ## Implementacao
@@ -75,7 +74,7 @@ As duas imagens tem 3.894.411.264 bytes; os hashes completos estao em
 O smoke test inicia diretamente o kernel/initrd extraidos das imagens; nao
 valida o caminho UEFI/GRUB, nem passa a GTX 750 fisica para a VM. Nao comprova
 aceleracao NVIDIA, splash fisico, menu completo do HeXEn ou FTP entre PCs.
-Posteriormente o usuario confirmou graficos perfeitos e eject fisico funcionando
+Posteriormente, graficos e eject fisico validados em bancada
 nessa entrega. FTP fisico permanece pendente. A proxima entrega corrige logo,
 adiciona G/OGXbox completo e prepara animacao Xbox: ver `BOOT-LOGO-OGXBOX.md`.
 

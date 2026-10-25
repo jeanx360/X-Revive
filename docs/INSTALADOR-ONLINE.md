@@ -1,9 +1,9 @@
 # Instalação Rocky5 online e ISO local
 
 Para baixar e usar sem compilar, siga [Baixar e instalar](BAIXAR-E-INSTALAR.md).
-A beta.3 é a preparação pública da base de bancada descrita abaixo.
+A beta.4 é a preparação pública da base de bancada descrita abaixo.
 
-Na beta.3, forneça BIOS e MCPX; a **EEPROM é opcional**, com geração pelo Xemu
+Na beta.4, forneça BIOS e MCPX; a **EEPROM é opcional**, com geração pelo Xemu
 quando ausente e persistência no SSD. [Como funciona](EEPROM-OPCIONAL.md).
 Inicialização, áudio, FTP, jogos/homebrew e bandeja física validados em bancada.
 [Validação e histórico](BETA.md).

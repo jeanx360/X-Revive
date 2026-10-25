@@ -1,6 +1,6 @@
 # Build e publicação para a comunidade
 
-A beta.3 oferece IMG pronta; para usar sem compilar, leia [este guia](BAIXAR-E-INSTALAR.md).
+A beta.4 oferece IMG pronta; para usar sem compilar, leia [este guia](BAIXAR-E-INSTALAR.md).
 Para recompilar ou redistribuir, leia [terceiros e distribuição](../THIRD_PARTY_NOTICES.md)
 antes de redistribuir uma imagem compilada. Nenhum firmware pessoal, ISO, pacote
 de aplicativos ou chave privada faz parte do Git.

@@ -2,16 +2,16 @@
 
 ## Download público e instalação
 
-**[BAIXAR A IMG — beta.3 · 1,29 GB](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/x-revive-v0.1.0-beta.3.img.xz)**
+**[BAIXAR A IMG — beta.4 · 1,27 GB](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/x-revive-v0.1.0-beta.4.img.xz)**
 
 **[COMO GRAVAR E INSTALAR — guia passo a passo](docs/BAIXAR-E-INSTALAR.md)**
 
 | Download | Para que serve |
 |---|---|
-| [IMG pronta (.img.xz)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/x-revive-v0.1.0-beta.3.img.xz) | Descompactar e gravar no pendrive; não precisa compilar |
-| [Pastas do usuário (.zip)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/arquivos-do-usuario.zip) | Extrair na raiz da partição XREVIVE e colocar seus arquivos |
-| [Checksums SHA256](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/SHA256SUMS.txt) | Conferir a integridade do download |
-| [Página da release e todos os arquivos](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.3) | Notas, fontes e avisos de licença |
+| [IMG pronta (.img.xz)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/x-revive-v0.1.0-beta.4.img.xz) | Descompactar e gravar no pendrive; não precisa compilar |
+| [Pastas do usuário (.zip)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/arquivos-do-usuario.zip) | Extrair na raiz da partição XREVIVE e colocar seus arquivos |
+| [Checksums SHA256](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/SHA256SUMS.txt) | Conferir a integridade do download |
+| [Página da release e todos os arquivos](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.4) | Notas, fontes e avisos de licença |
 
 Para gravar, recomendamos **[balenaEtcher](https://etcher.balena.io/)**.
 [Outros aplicativos e instruções por sistema](docs/BAIXAR-E-INSTALAR.md#aplicativos-para-gravar-o-pendrive).
@@ -29,7 +29,7 @@ Um PC com experiência de Xbox Clássico: logo do projeto, animação Xbox e
 dashboard, com áudio, rede, FTP e controle da bandeja física do DVD.
 Linux fornece a base do sistema e o **Xemu** executa o console emulado.
 
-**Versão dos fontes: `v0.1.0-beta.3`.** Projeto experimental para PC x86-64 com
+**Versão dos fontes: `v0.1.0-beta.4`.** Projeto experimental para PC x86-64 com
 boot UEFI. A instalação **apaga o HDD/SSD selecionado**, após duas confirmações.
 Não é um instalador de dual boot com Windows/Linux nem uma migração de jogos.
 
@@ -54,7 +54,7 @@ modchipado permanece experimental.
 
 ## Começar
 
-1. Baixe a IMG na [release beta.3](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.3) e siga o [guia de gravação](docs/BAIXAR-E-INSTALAR.md). Não precisa compilar.
+1. Baixe a IMG na [release beta.4](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.4) e siga o [guia de gravação](docs/BAIXAR-E-INSTALAR.md). Não precisa compilar.
 2. Descompacte `.img.xz` e grave a IMG no **pendrive inteiro**, de pelo menos 16 GB.
 3. Na partição **XREVIVE**, coloque seus arquivos nesta estrutura:
 
@@ -102,7 +102,7 @@ drivers, firmware ou coleção Rocky5.
 - [Instalação online, offline e diagnósticos](docs/INSTALADOR-ONLINE.md)
 - [Build, testes e reprodução](docs/COMUNIDADE-BUILD.md)
 - [Roadmap atual](docs/ROADMAP-BETA.md)
-- [Notas v0.1.0-beta.3](docs/releases/v0.1.0-beta.3.md) e [changelog](CHANGELOG.md)
+- [Notas v0.1.0-beta.4](docs/releases/v0.1.0-beta.4.md) e [changelog](CHANGELOG.md)
 - [Atualizador Xemu](docs/ATUALIZADOR-XEMU.md) e [patch da bandeja](docs/XEMU-SMC-TRAY.md)
 - [Licenças, terceiros e escopo da publicação](THIRD_PARTY_NOTICES.md) e [fontes da IMG](docs/FONTES-E-LICENCAS.md)
 - [Como contribuir](CONTRIBUTING.md) e [relatar problemas](SECURITY.md)

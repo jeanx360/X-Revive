@@ -1,7 +1,11 @@
 [Unit]
 Description=Observa a EEPROM criada pelo Xemu no primeiro boot
-After=console-prepare.service
-Before=console.service
+# A unidade observa um arquivo de runtime depois da preparação. O padrão das
+# unidades .path (Before=paths.target) criaria um ciclo com basic.target.
+DefaultDependencies=no
+After=basic.target console-prepare.service
+Before=console.service shutdown.target
+Conflicts=shutdown.target
 ConditionPathExists=/run/console/standalone.json
 ConditionPathExists=!/run/console/installer
 
