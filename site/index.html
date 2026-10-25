@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07100d">
+  <meta name="description" content="X-Revive: um novo caminho para preservar o Xbox Clássico e reviver a experiência do console usando hardware compatível de PC. Conheça a beta, a história e os downloads.">
+  <link rel="canonical" href="https://jeanx360.github.io/X-Revive/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="X-Revive | O hardware pode morrer. O console não.">
+  <meta property="og:description" content="Um projeto open source de preservação do Xbox Clássico, nascido de um console danificado por uma enchente.">
+  <meta property="og:image" content="https://jeanx360.github.io/X-Revive/assets/logo.png">
+  <meta property="og:url" content="https://jeanx360.github.io/X-Revive/">
+  <title>X-Revive — O hardware pode morrer. O console não.</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Pular para o conteúdo</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <nav class="nav container" aria-label="Navegação principal">
+        <a href="#inicio" class="brand" aria-label="X-Revive, início"><span class="brand-icon">X</span><span>X<span class="brand-dash">-</span>REVIVE</span><span class="brand-sub">PROJECT</span></a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+        <div id="nav-links" class="nav-links">
+          <a href="#origem" data-i18n="navStory">A origem</a>
+          <a href="#projeto" data-i18n="navProject">O projeto</a>
+          <a href="#como-funciona" data-i18n="navHow">Como funciona</a>
+          <a href="#futuro" data-i18n="navFuture">O futuro</a>
+          <a class="nav-download" href="#download" data-i18n="navDownload">Download <span aria-hidden="true">↗</span></a>
+        </div>
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch site language to English" title="English">EN <span aria-hidden="true">↗</span></button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="inicio" class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-layout">
+          <div class="hero-copy reveal">
+            <div class="eyebrow"><span class="status-dot"></span><span data-i18n="heroEyebrow">PROJETO OPEN SOURCE · BETA EXPERIMENTAL</span></div>
+            <h1 id="hero-title" data-i18n-html="heroTitle">O hardware pode morrer.<br><em>O console não.</em></h1>
+            <p class="hero-desc" data-i18n="heroDesc">Um projeto para dar uma nova vida ao Xbox Clássico com hardware de PC. Uma experiência dedicada de console, nascida da vontade de preservar um videogame que parecia perdido.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#download"><span data-i18n="heroButton">Conhecer a beta</span><span class="btn-arrow" aria-hidden="true">↗</span></a>
+              <a class="btn btn-outline" href="https://github.com/jeanx360/X-Revive" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="hero-note"><span class="thin-line" aria-hidden="true"></span><span data-i18n="heroNote">Feito para a comunidade. Em evolução constante.</span></div>
+          </div>
+          <div class="hero-visual reveal" aria-label="Identidade visual X-Revive">
+            <div class="visual-orbit orbit-one" aria-hidden="true"></div><div class="visual-orbit orbit-two" aria-hidden="true"></div>
+            <div class="console-stage"><div class="console-body">
+              <div class="console-top"><div class="console-disc"><div class="console-cross">X</div></div></div>
+              <div class="console-face"><span class="face-slot"></span><span class="face-led"></span><span class="face-mark">X-REVIVE SYSTEM</span></div>
+            </div><div class="console-shadow"></div></div>
+            <img class="official-logo" src="./assets/logo.png" loading="eager" decoding="async" alt="Logotipo oficial X-Revive">
+            <span class="visual-caption">CONSOLE EXPERIENCE / REIMAGINED</span>
+          </div>
+        </div>
+        <div class="container hero-footer"><span>01 / 05</span><span data-i18n="scrollCue">ROLE PARA EXPLORAR</span><span aria-hidden="true">↓</span></div>
+      </section>
+
+      <section class="signal-strip" aria-label="Princípios"><div class="container signals"><span data-i18n="signal1">PRESERVAÇÃO</span><span class="signal-star" aria-hidden="true">✳</span><span data-i18n="signal2">HARDWARE REAPROVEITADO</span><span class="signal-star" aria-hidden="true">✳</span><span data-i18n="signal3">CONTROLE NA MÃO</span><span class="signal-star" aria-hidden="true">✳</span><span data-i18n="signal4">CÓDIGO ABERTO</span></div></section>
+
+      <section id="origem" class="section story-section">
+        <div class="container story-layout">
+          <div class="section-intro reveal"><span class="section-number">01 / ORIGIN STORY</span><h2 data-i18n-html="storyTitle">Tudo começou<br>com um <em>Xbox da enchente.</em></h2></div>
+          <div class="story-text reveal"><p class="big-lead" data-i18n="storyLead">Uma placa-mãe danificada. Um notebook antigo sem uso. E uma pergunta: e se fosse possível trazer aquele Xbox de volta à vida sem abrir mão da sua identidade?</p>
+            <p data-i18n="storyP1">O Xbox Clássico sempre teve um lugar especial para mim. Sua arquitetura próxima à de um computador despertou uma ideia: substituir o hardware defeituoso por componentes comuns e continuar vivendo a experiência do console.</p>
+            <p data-i18n="storyP2">A solução cresceu. Da recuperação de um único aparelho nasceu o X-Revive: uma iniciativa de preservação, estudo de baixo nível e reaproveitamento de hardware para a comunidade de retrogaming.</p>
+            <div class="story-signature"><span class="signature-mark">J.</span><div><strong>Jean Vargas · jeanx360</strong><small data-i18n="storyAuthor">Criador do X-Revive</small></div></div>
+          </div>
+        </div>
+        <div class="container"><div class="story-quote reveal"><span class="quote-icon" aria-hidden="true">“</span><p data-i18n="quote">Não era apenas fazer um jogo rodar. Era recuperar meu console — e descobrir como ajudar outras pessoas a fazer o mesmo.</p><span class="story-quote-label">WHY WE BUILD</span></div></div>
+      </section>
+
+      <section id="projeto" class="section project-section">
+        <div class="container"><div class="section-heading reveal"><span class="section-number">02 / THE PROJECT</span><h2 data-i18n-html="projectTitle">Não é abrir um emulador.<br><em>É ligar um console.</em></h2><p data-i18n="projectLead">O X-Revive transforma um PC compatível em um ambiente dedicado ao Xbox Clássico. Linux minimalista nos bastidores; uma experiência de console na frente da TV.</p></div>
+          <div class="feature-grid">
+            <article class="feature-card feature-large reveal"><span class="feature-index">01 — BOOT</span><div class="feature-glyph glyph-boot" aria-hidden="true"><span>↳</span></div><h3 data-i18n="feature1Title">Ligou. Entrou no Xbox.</h3><p data-i18n="feature1Text">Inicialização UEFI, ambiente dedicado e dashboard. Sem abrir um desktop para iniciar o Xemu manualmente.</p></article>
+            <article class="feature-card reveal"><span class="feature-index">02 — INPUT</span><div class="feature-glyph" aria-hidden="true">⌁</div><h3 data-i18n="feature2Title">Feito para controles</h3><p data-i18n="feature2Text">Instalador e operação desenhados para teclado ou controle compatível.</p></article>
+            <article class="feature-card reveal"><span class="feature-index">03 — STORAGE</span><div class="feature-glyph" aria-hidden="true">▤</div><h3 data-i18n="feature3Title">Armazenamento FATX</h3><p data-i18n="feature3Text">Jogos e aplicativos no ambiente Xbox, com instalação independente em HDD/SSD dedicado.</p></article>
+            <article class="feature-card reveal"><span class="feature-index">04 — HARDWARE</span><div class="feature-glyph" aria-hidden="true">◇</div><h3 data-i18n="feature4Title">Drivers integrados</h3><p data-i18n="feature4Text">Base Linux com Mesa e NVIDIA 550 nesta beta; suporte real depende da GPU, CPU e emulação.</p></article>
+            <article class="feature-card reveal"><span class="feature-index">05 — RECOVERY</span><div class="feature-glyph" aria-hidden="true">⟳</div><h3 data-i18n="feature5Title">Manutenção e recuperação</h3><p data-i18n="feature5Text">Acesso ao modo de manutenção, diagnósticos e ferramentas de suporte via mídia USB.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="como-funciona" class="section steps-section">
+        <div class="container"><div class="section-heading reveal"><span class="section-number">03 / GET STARTED</span><h2 data-i18n-html="stepsTitle">Baixar. Gravar.<br><em>Preparar. Jogar.</em></h2><p data-i18n="stepsLead">A beta pública foi pensada para uma instalação orientada, sem exigir compilação. Leia os avisos antes de escolher qualquer disco.</p></div>
+          <div class="step-grid">
+            <div class="step-card reveal"><span class="step-no">01</span><div class="step-line"></div><h3 data-i18n="step1Title">Baixe a imagem</h3><p data-i18n="step1Text">Faça download da beta publicada e confira o SHA256.</p></div>
+            <div class="step-card reveal"><span class="step-no">02</span><div class="step-line"></div><h3 data-i18n="step2Title">Prepare o USB</h3><p data-i18n="step2Text">Grave a IMG em um pendrive de 16 GB ou maior e inclua seus arquivos Xbox autorizados.</p></div>
+            <div class="step-card reveal"><span class="step-no">03</span><div class="step-line"></div><h3 data-i18n="step3Title">Instale no disco de teste</h3><p data-i18n="step3Text">Selecione um HDD/SSD dedicado. A instalação limpa apaga todo o disco escolhido.</p></div>
+            <div class="step-card reveal"><span class="step-no">04</span><div class="step-line"></div><h3 data-i18n="step4Title">Ligue o console</h3><p data-i18n="step4Text">Depois da instalação, o disco inicia o ambiente Xbox sem precisar do pendrive.</p></div>
+          </div>
+          <div class="safety-note reveal" role="note"><div class="warning-icon" aria-hidden="true">!</div><div><strong data-i18n="safetyTitle">Atenção aos dados do seu disco.</strong><p data-i18n="safetyText">A beta pública v0.1.0-beta.4 é uma instalação limpa: ela APAGA o HDD/SSD selecionado. Não use seu HDD original de Xbox nesta versão. O modo de preservação de FATX existente permanece experimental e não está incluído nessa release.</p></div></div>
+        </div>
+      </section>
+
+      <section class="preserve-section section" id="preservacao">
+        <div class="container preserve-layout"><div class="preserve-art reveal" aria-hidden="true"><div class="storage-frame"><div class="ssd-drive"><span class="ssd-icon">X</span><span class="ssd-copy">ORIGINAL XBOX HDD</span><span class="ssd-meta">FATX / PERSONAL DATA</span></div><div class="storage-arrow">↔</div><div class="ssd-drive ssd-second"><span class="ssd-icon">X</span><span class="ssd-copy">X-REVIVE HOST</span><span class="ssd-meta">COMPATIBLE PC HARDWARE</span></div></div></div><div class="preserve-copy reveal"><span class="section-number">RESEARCH / EXPERIMENTAL</span><h2 data-i18n-html="preserveTitle">Preservar o que<br><em>já existe.</em></h2><p data-i18n="preserveP1">A ideia que deu origem ao projeto continua viva: reaproveitar o HDD de um Xbox original, com suas partições FATX, jogos e identidade. A pesquisa de bancada investiga inicialização por USB/RAM e boot UEFI opcional mantendo os dados existentes.</p><p data-i18n="preserveP2">Esse caminho ainda não integra a beta pública. Compatibilidade com discos originais e Xbox físico precisa ser validada por cenário, com backup verificável e testes de integridade.</p><a class="text-link" href="https://github.com/jeanx360/X-Revive/blob/main/docs/PRESERVACAO-HDD.md" data-i18n="preserveLink">Conheça a pesquisa de preservação ↗</a></div></div>
+      </section>
+
+      <section id="futuro" class="section vision-section"><div class="container"><div class="section-heading reveal"><span class="section-number">04 / WHAT'S NEXT</span><h2 data-i18n-html="visionTitle">Uma vida nova para o Xbox.<br><em>Um universo de possibilidades.</em></h2><p data-i18n="visionLead">O X-Revive é dedicado ao Xbox original. No futuro, outros projetos independentes poderão seguir a mesma filosofia: um SSD por console, em hardware compatível, com uma experiência própria do momento em que é ligado.</p></div>
+          <div class="roadmap-cards"><div class="roadmap-card current reveal"><span class="roadmap-label" data-i18n="visionNow">AGORA · X-REVIVE</span><h3 data-i18n="visionCard1Title">Xbox Clássico</h3><p data-i18n="visionCard1Text">Evoluir a beta, testar mais hardware, refinar a instalação, preservar dados e ampliar a compatibilidade.</p><span class="roadmap-symbol">X</span></div><div class="roadmap-card future reveal"><span class="roadmap-label" data-i18n="visionNext">VISÃO FUTURA · PROJETOS SEPARADOS</span><h3 data-i18n="visionCard2Title">Outros consoles, novos cartuchos</h3><p data-i18n="visionCard2Text">Ideias como PS2-Renew e Wii/GC-Boot são iniciativas futuras e independentes; não são recursos disponíveis nesta beta.</p><span class="roadmap-symbol">+</span></div></div>
+          <p class="vision-footnote" data-i18n="visionFootnote">Pesquisa de longo prazo: firmware livre e novas técnicas de execução e tradução de hardware. Nenhuma garantia de 100% de compatibilidade ou execução nativa de XBE na versão atual.</p></div></section>
+
+      <section id="download" class="section download-section"><div class="container"><div class="download-inner reveal"><div class="download-overline"><span class="status-dot"></span> <span data-i18n="downloadLabel">RELEASE PÚBLICA · EXPERIMENTAL</span></div><h2 data-i18n-html="downloadTitle">Seu próximo Xbox<br><em>começa por aqui.</em></h2><p data-i18n="downloadDesc">A imagem pública é a v0.1.0-beta.4 para PC x86-64 com UEFI. Não inclui BIOS, MCPX, EEPROM pessoal, jogos nem arquivos proprietários. Forneça BIOS e MCPX; a EEPROM é opcional e o Xemu a gera quando ausente.</p><div class="download-links"><a class="btn btn-primary" href="https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/x-revive-v0.1.0-beta.4.img.xz"><span data-i18n="downloadCTA">Baixar IMG · beta.4</span><span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="https://github.com/jeanx360/X-Revive/blob/main/docs/BAIXAR-E-INSTALAR.md" data-i18n="guideCTA">Guia de instalação ↗</a></div><div class="download-footer"><span data-i18n="downloadMeta">Pendrive ≥ 16 GB · SSD/HDD dedicado ≥ 32 GiB · instalação destrutiva</span><a href="https://github.com/jeanx360/X-Revive/releases" data-i18n="allReleases">Todas as releases ↗</a></div></div></div></section>
+
+      <section class="section community-section"><div class="container community-layout"><div class="reveal"><span class="section-number">05 / COMMUNITY</span><h2 data-i18n-html="communityTitle">Não é só um projeto.<br><em>É uma construção coletiva.</em></h2></div><div class="reveal"><p data-i18n="communityText">O X-Revive é aberto para estudo, testes, relatos de compatibilidade e contribuições. Se você tem hardware diferente, experiência em Xbox, Linux, emulação ou engenharia reversa, existe espaço para ajudar.</p><div class="community-links"><a href="https://github.com/jeanx360/X-Revive/issues" data-i18n="communityIssue">Relatar um problema ↗</a><a href="https://github.com/jeanx360/X-Revive/blob/main/CONTRIBUTING.md" data-i18n="communityContrib">Como contribuir ↗</a><a href="https://github.com/jeanx360/X-Revive/blob/main/docs/INDEX.md" data-i18n="communityDocs">Documentação completa ↗</a></div></div></div></section>
+    </main>
+    <footer class="footer"><div class="container footer-top"><a class="brand" href="#inicio"><span class="brand-icon">X</span><span>X-REVIVE</span></a><p data-i18n="footerMission">Preservar o passado. Recriar o hardware. Manter o Xbox vivo.</p></div><div class="container footer-bottom"><span>© 2026 X-Revive · jeanx360</span><span data-i18n="footerDisclaimer">Projeto independente. Sem vínculo com Microsoft ou Xbox.</span><a href="https://github.com/jeanx360/X-Revive/blob/main/NOTICE.md">Licenças & avisos ↗</a></div></footer>
+  </div>
+</body>
+</html>

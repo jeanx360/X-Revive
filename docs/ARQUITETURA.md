@@ -1,158 +1,96 @@
-# Arquitetura
+# Arquitetura atual — beta pública v0.1.0-beta.4
 
-## 1. Princípio
+Esta página descreve a **arquitetura da imagem de instalação pública**, não todas as propostas e protótipos anteriores. Para registros de pesquisa de épocas diferentes, veja [INDEX.md](INDEX.md). Para o projeto de reaproveitamento de HDD Xbox já existente, leia [PRESERVACAO-HDD.md](PRESERVACAO-HDD.md).
 
-O comportamento de console vem do **emulador LLE (xemu)**: ele já emula BIOS,
-EEPROM, HDD IDE, leitor DVD e portas de controle do Xbox. O trabalho deste
-projeto é **ligar cada peça física do PC ao componente virtual certo** e esconder
-o Linux.
+## Visão geral
 
-```
- PEÇA FÍSICA                    CAMADA DO PROJETO                     XEMU (console virtual)
- ─────────────                  ─────────────────                     ──────────────────────
- Pendrive / part. CONSOLE  ──▶  monta firmware/ ro                ──▶ MCPX boot ROM, Flash BIOS, EEPROM
- Porta SATA designada      ──▶  udev by-path → /dev/console-hdd   ──▶ IDE0 Master (HDD)
- Leitor DVD                ──▶  udev → /dev/console-dvd + daemon  ──▶ IDE0 Slave (DVD) + bandeja
- Controles USB/Bluetooth   ──▶  xpad / xpadneo / hid + SDL        ──▶ Portas 1–4 (Duke/S virtual)
- GPU/CPU (qualquer)        ──▶  HAL: perfil de hardware            ──▶ renderer, escala, áudio
- Botão Power/Eject/LED     ──▶  ACPI + gpio/serial (ver CARCACA)   ──▶ desligar / ejetar
-```
-
-## 2. O pendrive ("cartucho")
-
-Três partições:
-
-| Partição    | Formato         | Conteúdo                                                   | Montagem          |
-|-------------|-----------------|------------------------------------------------------------|-------------------|
-| `p1 SYSTEM` | FAT32 (ESP)     | kernel + initramfs + `system.squashfs` (sistema inteiro)   | lida e copiada p/ RAM |
-| `p2 CONSOLE`| FAT32           | `firmware/` (mcpx, bios, eeprom), `profiles/`, `config/`   | ro; rw só p/ gravar perfil |
-| `p3 CACHE`  | ext4            | cache de shaders e dados do xemu, uma pasta por máquina    | rw; persistente, não vai p/ RAM |
-
-- `p1` pode ser regravada a qualquer momento (atualização do "sistema") sem
-  perder a identidade do console.
-- `p2` é o equivalente à **EEPROM + chips de BIOS** de um Xbox real. É FAT32 para
-  você copiar os dumps de qualquer PC. O `eeprom.bin` é a identidade do console
-  (serial, MAC, HDD key): é ele que faz o HDD ser "deste console".
-- `p3` guarda o cache de shaders compilado para a GPU daquela máquina (pasta por
-  `fingerprint` da HAL). Fica no pendrive, não na RAM, então sobrevive ao boot: o
-  jogo roda liso desde o início, sem as travadinhas da primeira vez. É descartável
-  (se apagar, o xemu regenera). O xemu é apontado para lá via `XDG_DATA_HOME`.
-- O sistema roda inteiro da RAM (`toram`). Puxar o pendrive com o console ligado
-  não corrompe nada; o próximo boot simplesmente não acontece, como um Xbox sem BIOS.
-
-## 3. Boot
-
-```
-Power → UEFI (fast boot, logo desligado)
-  → kernel + initramfs do pendrive → squashfs para RAM
-  → hal/probe: detecta CPU/GPU/áudio/portas, escolhe ou carrega perfil
-  → udev: cria /dev/console-hdd (só a porta SATA designada) e /dev/console-dvd
-  → gera /run/console/xemu.toml (firmware + discos + perfil)
-  → cage (compositor kiosk, sem cursor) → xemu em tela cheia
-  → animação verde do Xbox
+```text
+PC x86-64 com UEFI
+        │
+        ▼
+Pendrive instalador X-Revive
+        │  firmware Xbox fornecido pelo usuário
+        │  catálogo Rocky5 online OU ISO local normalizada
+        ▼
+Interface de instalação (teclado ou controle)
+        │  valida fontes, destino, geometrias e confirmações
+        │  ⚠ APAGA o HDD/SSD selecionado
+        ▼
+HDD/SSD preparado pelo X-Revive
+        ├── boot e serviços Linux minimalistas
+        ├── sistema/firmware/perfil e dados auxiliares
+        └── área Xbox em FATX com dashboard/jogos/apps
+        │
+        ▼
+Boot UEFI diretamente do SSD/HDD
+        │
+        ▼
+Linux (drivers, HAL, áudio, entrada, rede)
+        │
+        ▼
+Xemu com integração X-Revive
+        │
+        ▼
+Dashboard Xbox / jogos e homebrew
 ```
 
-Nada de tela de login, nada de cursor, nada de mensagens do kernel (`quiet
-loglevel=0 vt.global_cursor_default=0`, splash preto).
+**O X-Revive não executa XBE nativamente no processador do PC na beta pública.** O [Xemu](https://xemu.app/) emula a plataforma Xbox, incluindo componentes que não existem em PCs genéricos. O Linux cuida da inicialização e integração com hardware do host. O objetivo é **experiência de console dedicada**, não alegar substituição perfeita de toda a eletrônica Xbox.
 
-## 4. HDD físico
+## Mídia USB e instalação
 
-- A porta SATA é escolhida **pelo caminho físico** (`/dev/disk/by-path/pci-…-ata-N`),
-  nunca por `/dev/sdX`. O pendrive e qualquer outro disco ficam invisíveis ao console.
-- Configuração do vínculo fica em `CONSOLE/config/ports.conf`, gerado por um
-  assistente de primeiro boot ("plugue o HDD do console na porta desejada").
-- Sem disco na porta: o xemu sobe sem HDD e o kernel do Xbox mostra o erro real
-  (com BIOS retail: erro 07; com Cerbios/PrometheOS: tela própria deles).
-- Disco virgem: boot por DVD de utilitário (HeXEn etc.) particiona em FATX.
-- Portabilidade para um Xbox real exige: mesmo `eeprom.bin` do console real,
-  disco travado (ATA lock) ou BIOS modificada que aceite disco destravado, e LBA48
-  para discos > 137 GB. Ver VALIDACOES.md V3.
+A release disponibiliza uma única IMG pública (`x-revive-v0.1.0-beta.4.img.xz`) com suporte previsto a Mesa e NVIDIA 550. Ao gravar a IMG em pendrive de pelo menos 16 GB, uma área `XREVIVE` exFAT fica disponível para arquivos do usuário; as demais partições de inicialização e suporte não devem ser modificadas manualmente.
 
-## 5. Leitor de DVD
+O instalador aceita **dois fluxos de fonte**, que alimentam a instalação limpa:
 
-Limitação física importante: **um leitor de DVD de PC comum não lê discos
-originais de Xbox** (setores de segurança/partição de jogo escondida). Opções:
+- **Online:** catálogo Rocky5 com origens fixadas, HTTPS, validação de tamanho e SHA256, Ethernet/DHCP.
+- **Offline:** ISO do formato **normalizado X-Revive** com `payload/manifest.json`. ISOs Xbox arbitrárias de HeXEn, OGXbox ou Rocky Extras Disc não são aceitas diretamente.
 
-| Mídia                         | Leitor comum | Leitor com firmware Kreon (ex.: Samsung SH-D162, LiteOn iHAS) |
-|-------------------------------|--------------|------------------------------------------------------------|
-| DVD-R gravado (XISO)          | funciona     | funciona                                                   |
-| Disco original de fábrica     | não lê o jogo | lê (é o que se usa para fazer backup)                      |
-| DVD de vídeo / CD de áudio    | funciona     | funciona                                                   |
+Arquivos Xbox necessários na beta: `bios.bin`, `mcpx_1.0.bin`; `eeprom.bin` é opcional. Sem EEPROM fornecida, o Xemu gera uma identidade, que o X-Revive preserva no SSD. A animação proprietária também é opcional e não acompanha a IMG.
 
-Troca de disco (implementado, testado na VM):
+## Segurança do instalador público
 
-- Com disco na bandeja, o `run.sh` passa o leitor ao xemu como
-  `host_device:/dev/srN`. O driver `host_cdrom` do QEMU trava o xemu na leitura.
-  Bandeja vazia: o console liga com o leitor vazio.
-- O kernel verifica a bandeja a cada 2 s (`events_poll_msecs`, já que não há
-  udisks). Disco colocado → udev religa o console, como o Xbox que dá boot no
-  jogo ao fechar a bandeja.
-- Botão Eject do leitor: enquanto o xemu usa o leitor, o kernel trava a
-  bandeja. O pedido de ejeção (`DISK_EJECT_REQUEST`) aciona o
-  `console-bandeja.service`: ele desliga o emulador, abre a bandeja e religa o
-  console sem disco, que volta para a dashboard.
-- O live-boot só procura o sistema na partição SYSTEM (`live-media=`), nunca no
-  disco do leitor.
+A beta publicada prepara um **disco de teste dedicado**, com setores lógicos de 512 bytes, pelo menos 32 GiB e menos de 2 TiB. Antes da escrita, a interface valida as fontes, apresenta o destino e exige duas confirmações explícitas (com soltura entre elas). Não é dual boot nem importação de disco anterior.
 
-## 6. Controles
+**A instalação apaga completamente o HDD/SSD selecionado**. O fluxo de preservação de FATX existente proposto para pesquisa **não faz parte da beta.4**. Não transponha procedimentos de bancada antigos para o instalador público.
 
-Implementado:
+## Sistema instalado
 
-- USB com fio: `xpad` do kernel, para Duke/S original (as portas da carcaça
-  são USB), 360, One e Series. O usuário `console` está no grupo `input`. O
-  SDL entrega os controles ao xemu (`auto_bind`), que os liga às portas 1–4 na
-  ordem de conexão, com vibração.
-- Dongle sem fio original (Xbox Wireless Adapter 02e6/02fe/02f9/091e): driver
-  `xone` v0.5.8, compilado no build para o kernel da imagem. Só os módulos do
-  dongle: o `xone_wired` fica de fora para o `xpad` continuar ativo, porque o
-  Duke original precisa dele. O `mt76x2u` fica na blacklist porque também
-  reconheceria o dongle. O firmware é da Microsoft e só entra na imagem se
-  baixado com `cartucho/tools/firmware-dongle.sh`.
+A instalação coloca o sistema de inicialização e os arquivos necessários no HDD/SSD, além do conteúdo Xbox em **FATX**. Após concluir e remover o pendrive, o PC inicia pelo disco e abre a experiência Xbox com XBMC4Gamers como dashboard padrão. A área de utilitários serve para inventário e manutenção; não duplica toda a coleção de aplicativos fora do FATX. A mídia USB continua útil para recuperação.
 
-A fazer:
+A inicialização inclui os serviços do Linux mínimo, seleção de driver disponível, configuração e integração com Xemu. A bandeja de DVD, áudio, rede/FTP e controles possuem implementação/testes com limites documentados em [BETA.md](BETA.md). **Leitores comuns de PC não leem automaticamente discos originais de Xbox.**
 
-- Bluetooth (`xpadneo`, One/Series via BT) e pareamento sem tela: segurar o
-  botão de sync; o console aceita pareamento por 60 s após ligar.
-- Porta fixa por controle (porta 1 da carcaça = jogador 1).
+## HAL: integração e perfis de hardware
 
-## 7. O que mudei em relação à spec original (Gemini)
+A camada HAL detecta componentes, aplica opções do host e prepara o ambiente para o Xemu. É um mecanismo de regras, **não uma IA que gera drivers**. A imagem pode incluir drivers Mesa e NVIDIA, mas depende do dispositivo real e das exigências de Vulkan/OpenGL e do Xemu. Veja [HARDWARE.md](HARDWARE.md).
 
-| Spec original                          | Mudança                                                   | Motivo |
-|----------------------------------------|-----------------------------------------------------------|--------|
-| Alpine Linux                           | Debian stable mínimo (live-build, squashfs, toram)        | Alpine usa musl: não roda driver proprietário NVIDIA nem os binários oficiais do xemu. Debian roda em qualquer GPU. |
-| Fork do xemu "headless"                | xemu oficial + `xemu.toml` gerado no boot; patch só se a bancada provar necessidade | Fork é manutenção eterna. O xemu já tem tela cheia e não precisa de desktop dentro do `cage`. |
-| KMS puro / `-display curses`           | `cage` (kiosk Wayland)                                    | curses é modo texto. `cage` dá tela cheia + Vulkan + sem cursor de forma estável. |
-| KVM obrigatório                        | Removido                                                  | O xemu emula a CPU por TCG; o gargalo é a GPU NV2A, não a CPU de 733 MHz. |
-| `chmod 666 /dev/sda`                   | Regra udev por caminho físico + grupo dedicado           | `sda` muda entre boots; erro aqui apaga o disco errado. |
-| Boot < 3 s                             | Meta 8–15 s até a animação verde                          | O POST do UEFI sozinho já leva 5–15 s. |
-| Linha de comando estilo QEMU           | `xemu.toml` (`[sys.files]`)                               | É a forma suportada do xemu atual. |
-| Hardware fixo                          | Camada HAL com perfis                                     | Mesmo pendrive em Xeon, Ryzen ou Intel (ver HARDWARE.md). |
-| PS2 com mesmo modelo de disco          | Plataforma separada, modelo próprio                       | PCSX2 não usa HD bruto como o Xbox; vira outro "cartucho". |
+## Operação e manutenção
 
-## 8. Vários consoles, um hardware
+| Ação | Teclado | Controle |
+| --- | --- | --- |
+| Navegar / selecionar / voltar | Setas / Enter / Esc | Direcional / A / B |
+| Confirmação destrutiva no instalador | Segurar F10, soltar e repetir | Segurar LT+RT+Start, soltar e repetir |
+| Manutenção no boot do SSD | Segurar R | Start+Back |
+| Atualizador Xemu | Segurar U | Y |
+| Menu do Xemu | Menu da aplicação | Start + direcional para cima |
 
-O hardware na sala é sempre o mesmo. **Cada pendrive é um console**:
+O **cliente de atualização Xemu** existe, com mecanismos de assinatura e reversão, mas **não há canal público ativo**. Não atualiza kernel, drivers ou firmware.
 
-```
-pendrive "XBOX"  → sistema base + plataforma xbox  + CONSOLE/ (mcpx, bios, eeprom)
-pendrive "PS2"   → sistema base + plataforma ps2   + CONSOLE/ (bios do PS2, memory cards)
-pendrive "PS1"   → sistema base + plataforma ps1   + CONSOLE/ (bios do PS1, memory cards)
+## Limites e próximos caminhos
+
+A arquitetura de **preservação do HDD Xbox original**, com FATX existente e possível inicialização por USB/RAM ou UEFI no próprio disco, é uma linha experimental separada, sem distribuição pública no release atual. Compatibilidade de HDD com um Xbox físico modchipado também exige validação específica.
+
+O objetivo de longo prazo de firmware livre e pesquisa de execução direta de XBE não deve ser confundido com o funcionamento atual baseado em Xemu.
+
+## Onde está o código
+
+```text
+cartucho/build/     receitas, dependências e patches Xemu
+cartucho/overlay/   sistema, interface, instalador, manutenção e atualizador
+hal/               detecção/adaptação ao hardware do PC
+plataformas/xbox/  integração específica de Xbox
+bancada/           ferramentas de ensaio, não instruções para produção
+ tests/            testes automatizados
+ docs/             documentação, evidências e pesquisas históricas
 ```
 
-- O **sistema base** (kernel, drivers, HAL, udev, controles, `cage`) é idêntico
-  em todos.
-- A **plataforma** (`plataformas/<nome>/`) define o emulador e como cada peça
-  física vira peça virtual: o que é o HDD, o que é o DVD, onde ficam os saves.
-- A **partição CONSOLE** guarda a identidade daquele console específico.
-- O disco SATA também é do console: trocar de console é trocar o par
-  pendrive + disco, como um cartucho com seu cartão de memória.
-
-Na imagem, isso significa um único script de build com parâmetro de plataforma:
-`cartucho/build/build.sh xbox`.
-
-## 9. Limite honesto
-
-"Igual ao console real" está limitado pela compatibilidade do xemu: a maioria do
-catálogo roda bem, mas alguns jogos ainda têm falhas gráficas ou de desempenho em
-qualquer hardware. O projeto garante o **comportamento físico** (BIOS, HDD, DVD,
-controles); a fidelidade de cada jogo vem do xemu e melhora a cada versão dele.
+[Guia de instalação](BAIXAR-E-INSTALAR.md) · [Estado de validação](BETA.md) · [Roadmap atual](ROADMAP-ATUAL.md)

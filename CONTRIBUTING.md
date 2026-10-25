@@ -1,6 +1,6 @@
 # Contribuir com o X-Revive
 
-Comece por [BETA](docs/BETA.md), [roadmap](docs/ROADMAP-BETA.md) e
+Comece por [BETA](docs/BETA.md), [roadmap vigente](docs/ROADMAP-ATUAL.md) e
 [build](docs/COMUNIDADE-BUILD.md). Abra uma issue antes de propor mudanças grandes
 no layout de disco, instalador ou protocolo de atualização.
 
@@ -33,3 +33,8 @@ e limites diretamente. Validações confirmadas em bancada entram como validadas
 sem narrar conversas ou tratar o autor do projeto em terceira pessoa. Preserve a
 rastreabilidade técnica nos relatórios e não estenda um resultado a hardware ou
 cenários que não foram testados.
+
+A direção vigente está em [INDEX](docs/INDEX.md) e [ROADMAP-ATUAL](docs/ROADMAP-ATUAL.md):
+X-Revive dedicado ao Xbox Clássico, preservação de HDD/FATX como pesquisa separada
+da instalação limpa publicada, experiência por controle e SSDs intercambiáveis.
+Outros consoles pertencem a projetos futuros independentes.
