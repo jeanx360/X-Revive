@@ -1,11 +1,12 @@
 # Changelog
 
-## Não lançado — revisão documental
+## v0.1.0-beta.3 — 2026-10-24
 
-- Download público da IMG, guia, pastas e checksum destacados no início do README.
-- Recomendações de balenaEtcher, Raspberry Pi Imager e Discos do GNOME.
-- EEPROM opcional aprovada como próxima mudança; implementação e nova IMG pendentes. A beta.2 atual ainda exige os três arquivos.
-- Nenhum binário ou artefato de instalação alterado nesta revisão.
+- EEPROM fornecida pelo usuário opcional; geração nativa pelo Xemu quando ausente.
+- Persistência inicial imediata no SSD e reutilização da identidade nos próximos boots.
+- BIOS e MCPX continuam obrigatórios; importação de EEPROM existente preservada.
+- Interface, guia e pastas do usuário atualizados para os dois fluxos.
+- Apresentação pública na voz do projeto e links de download destacados.
 
 ## v0.1.0-beta.2 — 2026-10-24
 

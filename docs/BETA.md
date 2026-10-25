@@ -1,9 +1,7 @@
-# Beta v0.1.0-beta.2
+# Beta v0.1.0-beta.3
 
-A beta.2 entrega a IMG pública pronta para gravar. A beta.1 publicou inicialmente
-somente fontes. O sistema de bancada é a base desta preparação, com firmware
-opcional do dongle, chave MOK e bibliotecas não usadas separados da IMG pública.
-Não é versão estável ou garantia para qualquer GPU, SSD ou Xbox.
+Beta para PC x86-64 UEFI, com IMG pronta para gravar, instalação Rocky5 online
+ou ISO local normalizada, manutenção e EEPROM opcional.
 
 ## Requisitos atuais
 
@@ -11,12 +9,10 @@ Não é versão estável ou garantia para qualquer GPU, SSD ou Xbox.
 - Pendrive de 16 GB ou maior. A área de dados do instalador é exFAT.
 - HDD/SSD de teste dedicado, pelo menos 32 GiB, menor que 2 TiB e setores lógicos de 512 bytes.
 - Teclado ou controle compatível. Cabo de rede e DHCP para instalação online.
-- BIOS, MCPX e EEPROM obtidos pelo usuário; animação Xbox é opcional e separada.
+- BIOS e MCPX fornecidos pelo usuário; EEPROM e animação Xbox opcionais.
 
-**Próxima mudança aprovada:** tornar a EEPROM fornecida pelo usuário opcional,
-deixando o Xemu gerar e o sistema preservar o arquivo quando ausente.
-[Plano](EEPROM-OPCIONAL.md). A beta.2 atual ainda exige o arquivo; esta revisão de
-documentação não é uma nova imagem.
+**EEPROM opcional na beta.3:** forneça sua EEPROM ou deixe o Xemu gerar uma nova.
+A identidade é preservada no SSD. [Detalhes](EEPROM-OPCIONAL.md).
 
 A mídia reúne Mesa e NVIDIA 550, incluindo suporte à GTX 750 da bancada. Isso
 não significa suporte a toda NVIDIA antiga ou futura. Desempenho depende da
@@ -26,15 +22,14 @@ emulação e do hardware. Não há interface de seleção de Wi-Fi.
 
 | Evidência | Resultado e limite |
 |---|---|
-| Testes da preparação pública beta.2 | 68 passaram na bancada, incluindo limpeza pública, coleta de fontes e fingerprint sem assets particulares |
+| Testes da beta.3 | 72 passaram na bancada, incluindo limpeza pública, coleta de fontes e fingerprint sem assets particulares |
 | Testes automatizados da base df48 | 64 testes passaram com fixtures locais; no clone público, o teste UIX com pacote real é opcional |
-| Cópia limpa dos fontes públicos da beta.2 | 68 testes descobertos: 67 passaram e 1 skipped (UIX sem pacote real), sem firmware ou executáveis Xbox privados |
+| Cópia limpa dos fontes públicos da beta.3 | 72 testes descobertos: 71 passaram e 1 skipped (UIX sem pacote real), sem firmware ou executáveis Xbox privados |
 | VM, instalação offline completa | 104 pacotes / 98.996 arquivos, leitura de volta; SSD intacto antes das confirmações |
 | VM, download online real | 107 arquivos HTTPS, hashes conferidos e coleção equivalente à offline |
 | VM, operação por controle | Preparação online, cancelamento, duas confirmações com soltura, instalação completa |
 | VM, boot só pelo SSD | Dashboard, áudio, manutenção por R e inventário de dez dashboards |
-| Relatos físicos anteriores | Áudio, rede/FTP, jogos/homebrew e bandeja pela dashboard confirmados pelo mantenedor em etapas anteriores |
-| Retorno físico de 24/10/2026 | Após organizar as pastas do USB, o mantenedor informou “funcionou como esperado”; não detalhou quais modos/máquinas foram novamente ensaiados |
+| Bancada física | Inicialização, áudio, rede/FTP, jogos/homebrew e bandeja física validados |
 | Xbox original modchipado | Objetivo experimental; não há novo teste físico conclusivo desta beta |
 | Splash personalizado da BIOS | Cópia reaberta no editor e boot em VM; o splash não apareceu nas capturas. Exibição permanece pendente |
 

@@ -1,12 +1,11 @@
 # Validação online/local e diagnóstico da tela preta
 
-**Atualização de 24/10/2026:** após corrigir a estrutura das pastas no USB, o
-mantenedor informou que funcionou como esperado e autorizou publicar como beta.
-Esse relato não especifica uma nova matriz completa de modos/máquinas. As
-pendências de bancada e ausência de Git mencionadas abaixo descrevem o momento
-dos ensaios, anterior à preparação da publicação. Veja [BETA](BETA.md).
+**Validação em bancada — 24/10/2026:** corrigida a estrutura de pastas no USB,
+a inicialização foi validada e a base liberada para a beta. As pendências e a
+ausência de Git citadas no registro abaixo descrevem a etapa de investigação,
+anterior à publicação. [Estado atual](BETA.md).
 
-Relato físico: imagem 730645d7124c demora no logo e termina preta com cursor,
+Bancada física: imagem 730645d7124c demora no logo e termina preta com cursor,
 tanto na bancada anterior quanto no Dell G15. Desligamento pelo botão exibe
 logo/Desligando. Isso invalida a aceitação física do instalador anterior,
 embora os ensaios anteriores com virtio tivessem passado.

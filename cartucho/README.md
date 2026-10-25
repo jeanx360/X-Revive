@@ -1,7 +1,7 @@
 # Mídia X-Revive
 
 Uma IMG instaladora para PC x86-64 UEFI com Mesa e NVIDIA 550 no mesmo sistema.
-Pendrive de pelo menos 16 GB. A beta.2 oferece IMG para gravação: [baixar e instalar](../docs/BAIXAR-E-INSTALAR.md).
+Pendrive de pelo menos 16 GB. A beta.3 oferece IMG para gravação: [baixar e instalar](../docs/BAIXAR-E-INSTALAR.md).
 Avisos e fontes correspondentes acompanham a release.
 
 ## Gerar
@@ -18,7 +18,7 @@ e [instalação](../docs/INSTALADOR-ONLINE.md).
 ## Iniciar e instalar
 
 Grave a IMG no pendrive inteiro. Copie firmware para
-`XREVIVE/X-Revive/firmware/xbox/`; ISO opcional em `X-Revive/pacotes/`.
+`XREVIVE/X-Revive/firmware/xbox/` (BIOS/MCPX obrigatórios; EEPROM opcional); ISO opcional em `X-Revive/pacotes/`.
 Inicie USB UEFI, prepare a fonte, selecione o destino e confirme duas vezes.
 A instalação limpa apaga o destino; não é uma atualização de disco com jogos.
 

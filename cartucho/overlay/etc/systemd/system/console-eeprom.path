@@ -1,0 +1,10 @@
+[Unit]
+Description=Observa a EEPROM criada pelo Xemu no primeiro boot
+After=console-prepare.service
+Before=console.service
+ConditionPathExists=/run/console/standalone.json
+ConditionPathExists=!/run/console/installer
+
+[Path]
+PathChanged=/run/console/eeprom.bin
+Unit=console-eeprom.service

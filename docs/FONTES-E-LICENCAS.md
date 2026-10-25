@@ -1,4 +1,7 @@
-# Fontes e licenças da IMG beta.2
+# Fontes e licenças das imagens públicas
+
+As betas.2 e .3 usam as mesmas versões dos pacotes Debian e do Xemu.
+Cada release disponibiliza esses fontes e a tag correspondente ao código X-Revive.
 
 Os avisos estão na própria IMG em `/usr/share/doc/` e
 `/usr/share/common-licenses/`; a release oferece também `licencas-e-avisos.zip`.

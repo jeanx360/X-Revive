@@ -63,6 +63,7 @@ def firmware():
     root=USER/'firmware/xbox';files={}
     for name,sizes in [('bios.bin',(256*1024,512*1024,1024**2)),('mcpx_1.0.bin',(512,)),('eeprom.bin',(256,))]:
         path=root/name
+        if name=='eeprom.bin' and not path.exists() and not path.is_symlink():continue
         if path.is_symlink() or not path.is_file() or path.stat().st_size not in sizes:
             raise ValueError('Forneça '+str(path)+' com tamanho válido')
         files[name]=dict(path=str(path),sha256=digest(path),bytes=path.stat().st_size)

@@ -1,13 +1,12 @@
 # Instalação Rocky5 online e ISO local
 
 Para baixar e usar sem compilar, siga [Baixar e instalar](BAIXAR-E-INSTALAR.md).
-A beta.2 é a preparação pública da base de bancada descrita abaixo.
+A beta.3 é a preparação pública da base de bancada descrita abaixo.
 
-Na beta.2, BIOS, MCPX e EEPROM ainda precisam ser fornecidos. A **EEPROM opcional**
-é a próxima mudança aprovada, com geração pelo Xemu quando ausente e persistência
-no SSD. [Plano e distinção entre versões](EEPROM-OPCIONAL.md).
-
-Entrega de bancada **df48d0e06a6f**, validada em VM e com retorno físico positivo do mantenedor em 24/10/2026. O retorno não detalha modos/máquinas; [estado da beta](BETA.md). [Gates e checksum](VALIDACAO-ONLINE-2026-10-24.md).
+Na beta.3, forneça BIOS e MCPX; a **EEPROM é opcional**, com geração pelo Xemu
+quando ausente e persistência no SSD. [Como funciona](EEPROM-OPCIONAL.md).
+Inicialização, áudio, FTP, jogos/homebrew e bandeja física validados em bancada.
+[Validação e histórico](BETA.md).
 
 Esta etapa substitui o conteúdo offline embutido da mídia 730645d7124c.
 A correção de inicialização e os gates da nova entrega estão descritos no
@@ -26,14 +25,15 @@ Copiar para `XREVIVE/X-Revive/firmware/xbox/`:
 
 - `bios.bin` (256, 512 ou 1024 KiB);
 - `mcpx_1.0.bin` (512 bytes);
-- `eeprom.bin` (256 bytes, do proprietário).
+- `eeprom.bin` (opcional, 256 bytes, para importar sua identidade).
 
 O instalador base não fornece esses arquivos. Crie as pastas ou copie sua
-árvore X-Revive organizada. Os arquivos particulares do mantenedor não estão
-no Git nem disponíveis como download. Para a animação Xbox do Cerbios, forneça
+árvore X-Revive organizada. Arquivos pessoais não são distribuídos pelo projeto.
+Para a animação Xbox do Cerbios, forneça
 opcionalmente `firmware/bootanims/Xbox/BootAnim.xbe` e `bootanim.ini`.
 Na instalação online, ela é incorporada à coleção. Uma ISO normalizada pode conter
-a animação do usuário; ela não é distribuída pelo projeto. BIOS e EEPROM são importadas para o SSD uma vez.
+a animação do usuário; ela não é distribuída pelo projeto. BIOS e MCPX são importados para o SSD. A EEPROM é importada quando fornecida
+ou gerada pelo Xemu no primeiro boot, mantendo a identidade no SSD.
 
 ## Online
 

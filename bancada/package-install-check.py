@@ -48,11 +48,11 @@ if not a.monitor:
   time.sleep(10)
  else:raise TimeoutError('package preparation')
  time.sleep(2);frame('disks')
- key('ret');frame('confirm1')
+ key('ret');time.sleep(8);frame('confirm1')
  key('esc');assert (f/'ssd.img').stat().st_mtime_ns==before
- key('ret');key('f10',3500);time.sleep(4);frame('confirm2-held')
+ key('ret');time.sleep(8);key('f10',5000);time.sleep(6);frame('confirm2-held')
  assert (f/'ssd.img').stat().st_mtime_ns==before,'held keyboard bypassed second confirmation'
- key('f10',1800);time.sleep(3);frame('installing')
+ key('f10',5000);time.sleep(6);frame('installing')
  print('NO_EARLY_TARGET_WRITE_PASS',flush=True)
 
 deadline=time.monotonic()+3000

@@ -4,7 +4,7 @@
 set -eu
 
 fw="$CONSOLE/firmware/xbox"
-for f in mcpx_1.0.bin bios.bin eeprom.bin; do
+for f in mcpx_1.0.bin bios.bin; do
 	# Como um Xbox sem BIOS: sem os arquivos, o console nao liga.
 	[ -f "$fw/$f" ] || { echo "configure: falta firmware/xbox/$f" >&2; exit 1; }
 done
@@ -39,9 +39,14 @@ case "${RAM:-}" in
 esac
 echo "configure: RAM=${RAM:-vazio} -> mem_limit=$mem_limit MB" >&2
 
-# O dashboard grava idioma, fuso e video na EEPROM. A copia de trabalho fica
-# em RAM e volta para o pendrive no desligamento (save.sh).
-install -m 0600 -o console -g console "$fw/eeprom.bin" "$RUN/eeprom.bin"
+# A EEPROM importada/persistida conserva a identidade existente. Sem arquivo,
+# o próprio Xemu gera no caminho de trabalho; console-eeprom.path a preserva
+# imediatamente no SSD. save.sh mantém as mudanças feitas durante a sessão.
+if [ -f "$fw/eeprom.bin" ]; then
+    install -m 0600 -o console -g console "$fw/eeprom.bin" "$RUN/eeprom.bin"
+else
+    echo 'configure: EEPROM opcional ausente; Xemu gerara a identidade no primeiro boot' >&2
+fi
 
 cat >"$RUN/xemu.toml" <<EOF
 [general]

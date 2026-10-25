@@ -2,26 +2,26 @@
 
 ## Download público e instalação
 
-**[BAIXAR A IMG — beta.2 · 1,29 GB](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/x-revive-v0.1.0-beta.2.img.xz)**
+**[BAIXAR A IMG — beta.3 · 1,29 GB](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/x-revive-v0.1.0-beta.3.img.xz)**
 
 **[COMO GRAVAR E INSTALAR — guia passo a passo](docs/BAIXAR-E-INSTALAR.md)**
 
 | Download | Para que serve |
 |---|---|
-| [IMG pronta (.img.xz)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/x-revive-v0.1.0-beta.2.img.xz) | Descompactar e gravar no pendrive; não precisa compilar |
-| [Pastas do usuário (.zip)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/arquivos-do-usuario.zip) | Extrair na raiz da partição XREVIVE e colocar seus arquivos |
-| [Checksums SHA256](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.2/SHA256SUMS.txt) | Conferir a integridade do download |
-| [Página da release e todos os arquivos](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.2) | Notas, fontes e avisos de licença |
+| [IMG pronta (.img.xz)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/x-revive-v0.1.0-beta.3.img.xz) | Descompactar e gravar no pendrive; não precisa compilar |
+| [Pastas do usuário (.zip)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/arquivos-do-usuario.zip) | Extrair na raiz da partição XREVIVE e colocar seus arquivos |
+| [Checksums SHA256](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.3/SHA256SUMS.txt) | Conferir a integridade do download |
+| [Página da release e todos os arquivos](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.3) | Notas, fontes e avisos de licença |
 
 Para gravar, recomendamos **[balenaEtcher](https://etcher.balena.io/)**.
 [Outros aplicativos e instruções por sistema](docs/BAIXAR-E-INSTALAR.md#aplicativos-para-gravar-o-pendrive).
 No GitHub, os botões **Code → Download ZIP** e os arquivos **Source code** baixam
 os fontes, não a IMG instaladora. Use o download da IMG acima.
 
-**Firmware na beta.2 publicada:** ainda são exigidos `bios.bin`, `mcpx_1.0.bin`
-e `eeprom.bin`. A próxima mudança aprovada torna a **EEPROM fornecida pelo usuário
-opcional**, com geração pelo Xemu quando ausente e preservação no SSD.
-[Estado e plano da mudança](docs/EEPROM-OPCIONAL.md). Ela ainda não está na IMG atual.
+**Arquivos necessários:** `bios.bin` e `mcpx_1.0.bin`.
+**EEPROM opcional:** forneça `eeprom.bin` para importar uma identidade existente;
+sem esse arquivo, o Xemu gera uma EEPROM e o X-Revive a preserva no SSD.
+[Como funciona](docs/EEPROM-OPCIONAL.md).
 
 ## Sobre o projeto
 
@@ -29,7 +29,7 @@ Um PC com experiência de Xbox Clássico: logo do projeto, animação Xbox e
 dashboard, com áudio, rede, FTP e controle da bandeja física do DVD.
 Linux fornece a base do sistema e o **Xemu** executa o console emulado.
 
-**Versão dos fontes: `v0.1.0-beta.2`.** Projeto experimental para PC x86-64 com
+**Versão dos fontes: `v0.1.0-beta.3`.** Projeto experimental para PC x86-64 com
 boot UEFI. A instalação **apaga o HDD/SSD selecionado**, após duas confirmações.
 Não é um instalador de dual boot com Windows/Linux nem uma migração de jogos.
 
@@ -46,16 +46,15 @@ Não é um instalador de dual boot com Windows/Linux nem uma migração de jogos
 
 BIOS, MCPX, EEPROM, jogos e animação proprietária não são fornecidos.
 
-O mantenedor confirmou que a nova mídia funcionou como esperado em teste físico
-em 24/10/2026. Esse retorno não especifica uma nova validação completa em cada
-máquina ou dos dois modos de instalação; veja a [matriz de validação](docs/BETA.md).
-A beta.2 prepara essa base para distribuição: firmware opcional do dongle e chave
-privada de compilação removidos, binário Xemu e drivers preservados.
-Compatibilidade com Xbox físico modchipado é experimental e exige teste separado.
+Validado em bancada: inicialização, áudio, rede/FTP, instalação de jogos e
+homebrew e abertura/fechamento da bandeja física. Consulte a
+[matriz de validação](docs/BETA.md) para os testes e limites da beta.
+Mantemos uma única imagem com Mesa e NVIDIA. Compatibilidade com Xbox físico
+modchipado permanece experimental.
 
 ## Começar
 
-1. Baixe a IMG na [release beta.2](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.2) e siga o [guia de gravação](docs/BAIXAR-E-INSTALAR.md). Não precisa compilar.
+1. Baixe a IMG na [release beta.3](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.3) e siga o [guia de gravação](docs/BAIXAR-E-INSTALAR.md). Não precisa compilar.
 2. Descompacte `.img.xz` e grave a IMG no **pendrive inteiro**, de pelo menos 16 GB.
 3. Na partição **XREVIVE**, coloque seus arquivos nesta estrutura:
 
@@ -66,7 +65,7 @@ Compatibilidade com Xbox físico modchipado é experimental e exige teste separa
          xbox/
            bios.bin
            mcpx_1.0.bin
-           eeprom.bin
+           eeprom.bin        # opcional
          bootanims/Xbox/       # opcional: animação fornecida pelo usuário
            BootAnim.xbe
            bootanim.ini
@@ -103,7 +102,7 @@ drivers, firmware ou coleção Rocky5.
 - [Instalação online, offline e diagnósticos](docs/INSTALADOR-ONLINE.md)
 - [Build, testes e reprodução](docs/COMUNIDADE-BUILD.md)
 - [Roadmap atual](docs/ROADMAP-BETA.md)
-- [Notas v0.1.0-beta.2](docs/releases/v0.1.0-beta.2.md) e [changelog](CHANGELOG.md)
+- [Notas v0.1.0-beta.3](docs/releases/v0.1.0-beta.3.md) e [changelog](CHANGELOG.md)
 - [Atualizador Xemu](docs/ATUALIZADOR-XEMU.md) e [patch da bandeja](docs/XEMU-SMC-TRAY.md)
 - [Licenças, terceiros e escopo da publicação](THIRD_PARTY_NOTICES.md) e [fontes da IMG](docs/FONTES-E-LICENCAS.md)
 - [Como contribuir](CONTRIBUTING.md) e [relatar problemas](SECURITY.md)

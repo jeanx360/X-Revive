@@ -1,6 +1,6 @@
 # Terceiros e distribuição
 
-A beta.2 distribui uma IMG pública, fontes, patches e avisos de licença.
+As imagens públicas distribuem uma IMG pública, fontes, patches e avisos de licença.
 Não distribui a coleção Rocky5, firmware Xbox, jogos, dumps pessoais ou executáveis Xbox.
 A licença do projeto não concede direitos sobre esses materiais.
 
@@ -21,7 +21,7 @@ baixado. O X-Revive não afirma que o acesso público a um pacote autoriza seu u
 ou redistribuição. As assinaturas conferem autenticidade e integridade, não uma
 licença de distribuição.
 
-## Entrega binária beta.2
+## Entrega binária pública
 
 A IMG inclui os pacotes Debian e seus avisos em `/usr/share/doc/` e
 `/usr/share/common-licenses/`. A release disponibiliza o inventário de versões,
@@ -38,4 +38,4 @@ modificadas. O aviso completo acompanha o pacote, sem relicenciamento como GPL.
 
 O cliente de atualização estar pronto não significa que exista um canal público
 ou uma oferta de atualização publicada. A IMG beta.1 de bancada continua sendo
-um artefato local; a beta.2 identifica a preparação pública.
+um artefato local; a beta.2 iniciou a distribuição pública.

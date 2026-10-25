@@ -206,7 +206,7 @@ class UI:
                 self.text('Configurações e atualizações podem mudar arquivos. Nada foi restaurado.',y+55,font=self.small)
         if self.state=='sources':
             self.text('Firmware: XREVIVE / X-Revive / firmware / xbox',450,font=self.small)
-            self.text('bios.bin   •   mcpx_1.0.bin   •   eeprom.bin',485,font=self.small)
+            self.text('BIOS e MCPX obrigatórios • EEPROM opcional',485,font=self.small)
         if self.message:self.text(self.message[:110],615,(255,125,110),self.small,x=40)
         footer=('Instalação em andamento — aguarde a conclusão.' if self.state=='progress' else
                 '↑ ↓ / Digital: navegar     Enter / A: escolher     Esc / B: voltar')

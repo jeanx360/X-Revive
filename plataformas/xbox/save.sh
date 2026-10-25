@@ -12,6 +12,8 @@ if python3 "$here/tools/preferences.py" capture "$RUN/xemu.toml" "$RUN/profile" 
 	preferences_ready=yes
 fi
 
+exec 9>"$RUN/eeprom-save.lock"
+flock 9
 mount -o remount,rw "$CONSOLE"
 trap 'mount -o remount,ro "$CONSOLE"' EXIT
 if [ -f "$src" ] && ! cmp -s "$src" "$dst"; then

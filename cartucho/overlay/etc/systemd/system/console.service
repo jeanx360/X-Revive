@@ -1,8 +1,8 @@
 [Unit]
 Description=Console em tela cheia (cage + emulador)
 Requires=console-prepare.service
-Wants=console-update.service
-After=console-prepare.service console-update.service systemd-user-sessions.service
+Wants=console-update.service console-eeprom.path
+After=console-prepare.service console-update.service console-eeprom.path systemd-user-sessions.service
 Conflicts=getty@tty1.service
 # Console nunca desiste de religar o emulador
 StartLimitIntervalSec=0

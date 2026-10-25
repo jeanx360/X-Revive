@@ -1,43 +1,30 @@
 # EEPROM opcional
 
-**Status: mudança aprovada pelo mantenedor; implementação e nova IMG pendentes.**
-Esta revisão altera documentação e apresentação no GitHub. Não altera o
-instalador nem o comportamento da IMG beta.2 já publicada.
+A partir da **beta.3**, é possível instalar sem fornecer `eeprom.bin`.
 
-## Comportamento aprovado para a próxima imagem
-
-| Arquivo do usuário | Exigência |
+| Arquivo | Exigência |
 |---|---|
 | `bios.bin` | Obrigatório |
 | `mcpx_1.0.bin` | Obrigatório |
-| `eeprom.bin` | Opcional |
+| `eeprom.bin` | Opcional, para importar uma identidade existente |
 
-Se o usuário fornecer uma EEPROM válida, ela será importada e preservada.
-Se não fornecer, a instalação deverá permitir continuar e deixar o **Xemu gerar
-uma EEPROM válida**. A geração criará uma identidade nova, própria daquela
-instalação. O arquivo gerado deverá ser persistido no SSD e reutilizado nos boots
-seguintes, sem recriação a cada inicialização ou sobrescrita de uma EEPROM existente.
+## Sem EEPROM fornecida
 
-A geração automática de EEPROM é uma funcionalidade do próprio Xemu:
-[documentação oficial](https://xemu.app/docs/eeprom/). MCPX e BIOS continuam
-necessários no sistema emulado: [arquivos requeridos](https://xemu.app/docs/required-files/).
+O Xemu gera uma EEPROM válida no primeiro boot. O X-Revive preserva o arquivo no
+SSD assim que ele é criado. A mesma identidade é usada nos próximos boots,
+reinícios, manutenção e atualizações; não há uma EEPROM pessoal embutida na IMG.
+As alterações de configurações feitas durante a sessão são salvas no desligamento.
 
-## Situação da beta.2 disponível para download
+## Com EEPROM fornecida
 
-O instalador e a preparação do boot ainda verificam a existência dos três
-arquivos. Remover apenas a frase da documentação não muda essa verificação.
-Portanto, quem baixar a beta.2 ainda precisa fornecer `eeprom.bin`.
-O download atual, os seus checksums e as instruções correspondem a essa versão.
+Copie seu arquivo de 256 bytes para `XREVIVE/X-Revive/firmware/xbox/eeprom.bin`.
+Ele é importado na instalação e usado no boot. O processo de geração automática
+não substitui uma identidade já existente. Arquivos com tamanho inválido ou
+links simbólicos são recusados antes da seleção do disco de destino.
 
-## Próxima implementação, após a revisão documental
+## Versões anteriores
 
-1. Tornar a EEPROM ausente aceitável na preparação e importação de firmware;
-   continuar validando um arquivo quando o usuário o fornecer.
-2. Adaptar o primeiro boot para a geração pelo Xemu, sem substituir essa etapa
-   por uma EEPROM pessoal ou genérica embutida no projeto.
-3. Persistir a EEPROM gerada no SSD e preservar a identidade no desligamento,
-   reinício, manutenção e atualização do Xemu.
-4. Verificar instalação sem EEPROM, importação com EEPROM, persistência entre
-   boots e comportamento com arquivo fornecido inválido.
-5. Somente depois publicar uma nova IMG e atualizar os guias/arquivos da release
-   para anunciar a EEPROM como opcional na versão efetivamente entregue.
+As betas.1 e .2 exigiam o fornecimento dos três arquivos. A geração automática é
+funcionalidade do [Xemu](https://xemu.app/docs/eeprom/); a beta.3 adapta o instalador
+e a persistência do X-Revive para utilizá-la. BIOS e MCPX permanecem separados e
+necessários: [arquivos requeridos](https://xemu.app/docs/required-files/).

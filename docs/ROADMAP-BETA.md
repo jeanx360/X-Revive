@@ -5,15 +5,12 @@
 Instalador próprio; uma IMG Mesa/NVIDIA; Rocky5 online; ISO X-Revive offline;
 firmware separado; SSD com boot independente e FATX; manutenção por R;
 Start+digital para cima para Xemu; bandeja física; logos de boot/desligamento;
-cliente Xemu assinado com reversão. Relatório físico recebido em 24/10/2026.
+cliente Xemu assinado com reversão. Validação em bancada concluída.
 
-## Próxima mudança — EEPROM opcional
+## EEPROM opcional — beta.3
 
-Primeiro revisar documentação, download público e instruções de gravação no
-GitHub. Em seguida, tornar `eeprom.bin` opcional: importar quando fornecida ou
-permitir a geração pelo Xemu, persistindo a identidade uma única vez no SSD.
-BIOS e MCPX continuam obrigatórios. [Plano e critérios](EEPROM-OPCIONAL.md).
-Nenhuma nova IMG é compilada durante esta revisão documental.
+Instalar com BIOS e MCPX. A EEPROM é importada quando fornecida ou gerada pelo
+Xemu quando ausente, com identidade preservada no SSD. [Funcionamento](EEPROM-OPCIONAL.md).
 
 ## Publicação dos fontes — concluída
 

@@ -27,3 +27,9 @@ conteúdo que possa licenciar.
 
 Atualize changelog e guias relevantes. Tags beta: `vMAJOR.MINOR.PATCH-beta.N`.
 Testes não promovem um candidato ao canal público nem validam todos os jogos.
+
+A documentação pública usa a voz do projeto: descreva funcionalidades, resultados
+e limites diretamente. Validações confirmadas em bancada entram como validadas,
+sem narrar conversas ou tratar o autor do projeto em terceira pessoa. Preserve a
+rastreabilidade técnica nos relatórios e não estenda um resultado a hardware ou
+cenários que não foram testados.

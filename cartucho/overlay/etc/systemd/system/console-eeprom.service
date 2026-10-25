@@ -1,0 +1,12 @@
+[Unit]
+Description=Preserva no SSD a EEPROM gerada pelo Xemu
+After=console-prepare.service
+StartLimitIntervalSec=0
+ConditionPathExists=/run/console/standalone.json
+ConditionPathExists=!/run/console/installer
+
+[Service]
+Type=oneshot
+Restart=on-failure
+RestartSec=2
+ExecStart=/usr/bin/python3 /usr/local/lib/console/eeprom_store.py

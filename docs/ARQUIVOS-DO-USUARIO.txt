@@ -3,7 +3,8 @@ X-Revive — arquivos do proprietário
 Na partição XREVIVE deste pendrive:
   X-Revive/firmware/xbox/bios.bin        BIOS de 256/512/1024 KiB
   X-Revive/firmware/xbox/mcpx_1.0.bin    MCPX de 512 bytes
-  X-Revive/firmware/xbox/eeprom.bin      EEPROM de 256 bytes
+  X-Revive/firmware/xbox/eeprom.bin      OPCIONAL: EEPROM de 256 bytes
+Sem eeprom.bin: o Xemu gera uma EEPROM e o X-Revive preserva no SSD.
 Opcional para a animação Xbox do Cerbios:
   X-Revive/firmware/bootanims/Xbox/BootAnim.xbe
   X-Revive/firmware/bootanims/Xbox/bootanim.ini
