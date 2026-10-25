@@ -11,11 +11,14 @@ Forneça no USB `XREVIVE/X-Revive/firmware/xbox/`:
 ```text
 bios.bin       BIOS compatível: 256, 512 ou 1024 KiB
 mcpx_1.0.bin   boot ROM MCPX 1.0: 512 bytes
-eeprom.bin     EEPROM do usuário: 256 bytes
+eeprom.bin     OPCIONAL: EEPROM do usuário, 256 bytes
 ```
 
-Nenhum desses arquivos está no Git. São validados e importados para CONSOLE do
-SSD na instalação. A EEPROM é identidade pessoal: não publique seu conteúdo.
+BIOS e MCPX são obrigatórios. Sem EEPROM fornecida, o próprio Xemu gera uma no
+primeiro boot e o X-Revive a preserva imediatamente no SSD para os próximos boots.
+Uma EEPROM fornecida é importada e preservada. Nenhum desses arquivos está no
+Git. Os arquivos fornecidos são validados e importados para CONSOLE na instalação.
+A EEPROM contém a identidade do console: não publique seu conteúdo.
 Compatibilidade entre revisão do console, BIOS, MCPX e EEPROM exige arquivos
 adequados; não se deve converter identidade ou trocar BIOS às cegas.
 

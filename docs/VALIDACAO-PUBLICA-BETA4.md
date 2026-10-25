@@ -11,7 +11,8 @@ e Xemu 0.8.138-xrevive-smc2. Os ensaios abaixo cobrem a mudança de EEPROM.
 - 72 testes locais aprovados.
 - Cópia pública limpa: 72 testes descobertos, 71 aprovados e um UIX opcional
   dispensado por depender de pacote externo.
-- Fingerprint da cópia limpa idêntico ao das entradas do build.
+- Fingerprint da cópia limpa da tag `v0.1.0-beta.4` idêntico ao das entradas do
+  build. A branch main pode receber ajustes de documentação depois da tag.
 - Transação completa de `multi-user.target` conferida por systemd-analyze.
   A verificação rejeitou a candidata com ciclo e aprovou a correção. Os avisos
   restantes referem-se aos serviços mascarados de Plymouth/getty.
@@ -70,3 +71,12 @@ reboot, pressionar R abriu a interface própria de manutenção. O inventário
 confirmou dez dashboards, 104 pacotes e 98.996 arquivos. A lista de dashboards
 foi aberta pela interface com teclas reais da VM. Marcador:
 `SSD_NORMAL_AND_R_MAINTENANCE_PASS`.
+
+## GitHub e encerramento
+
+[CI da main](https://github.com/jeanx360/X-Revive/actions/runs/40147631717) e
+[CI da tag](https://github.com/jeanx360/X-Revive/actions/runs/40147631664) aprovados:
+72 testes descobertos, 71 aprovados e um UIX opcional dispensado.
+Após desligar a VM, o layout híbrido e seu rodapé foram conferidos novamente;
+os primeiros 16 MiB de SYSTEM permaneceram idênticos ao estado anterior ao boot.
+As VMs foram encerradas.
