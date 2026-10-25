@@ -36,6 +36,8 @@ Nenhuma versão pública do projeto distribui BIOS/MCPX originais, jogos, EEPROM
 
 ## Registros históricos e relatórios
 
+- [Validação do site](VALIDACAO-SITE-2026-10-25.md): publicação, revisão editorial e testes desktop/mobile em 25/10/2026.
+
 Os documentos a seguir registram **decisões, testes e propostas da época em que foram escritos**. Alguns mencionam arquiteturas antigas (várias IMG, HDD FATX separado, HeXEn/OGXbox embutidos, diferentes drivers ou fluxos de instalação). **Não os utilize como instruções de instalação da beta pública atual.** São preservados para rastreabilidade:
 
 - [ROADMAP-BETA.md](ROADMAP-BETA.md), [ROADMAP.md](ROADMAP.md) e [ROADMAP-2026-10-23.md](ROADMAP-2026-10-23.md): planejamento anterior e decisões de bancada.
