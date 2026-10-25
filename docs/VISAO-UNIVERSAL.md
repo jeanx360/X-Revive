@@ -1,102 +1,41 @@
-# Visão: console universal por mídia (X-Revive)
+# Visão de longo prazo: consoles independentes por cartucho
 
-Registro da direção do projeto (2026-10-22). Ainda NÃO implementado — é o norte.
+Este documento descreve uma **visão futura**, não funcionalidades da beta pública. O projeto **X-Revive é dedicado somente ao Xbox Clássico**.
 
-Atualizacao 2026-10-23: o usuario autorizou estudar uma terceira variante
-standalone, como excecao opcional ao HDD puro descrito abaixo. A regra de disco
-Xbox separado continua padrao das duas imagens USB. O novo modo precisa provar
-isolamento e compatibilidade antes de tocar em discos reais; nao reutilizar
-as proibicoes historicas como veto ao prototipo explicitamente autorizado.
-Ver [roadmap atual](ROADMAP-2026-10-23.md).
+## A ideia
 
-## 0. Princípios inegociáveis (a alma do projeto)
+Uma carcaça de console ou PC compacto reúne placa-mãe, CPU, GPU, RAM, controles, conectores e, quando compatível, leitor óptico. A pessoa insere um **SSD/HDD intercambiável** e liga. Cada mídia inicia seu próprio sistema, já configurado para proporcionar a experiência daquela plataforma.
 
-- **Sistema único, sem Windows.** Nada de SO pesado por trás. Só o mínimo de
-  Linux invisível para a máquina virar o console.
-- **Não é um emulador "aberto num PC".** É um aparelho que, para quem usa, É o
-  console: liga, aparece o logo, a animação, a dashboard — e pronto.
-- **A experiência do console REAL é o objetivo final.** Comportamento, boot,
-  mídia, controles, manutenção — tudo imita o console de verdade, não um
-  programa rodando sobre um desktop.
-- Cada decisão de arquitetura serve a isso: invisibilidade do Linux, boot
-  direto, mídia como cartucho, portas livres para o console.
+A inspiração surgiu da reconstrução de um Xbox Clássico danificado por enchente, utilizando a carcaça original e hardware de notebook/PC reaproveitado. A ideia cresceu para um conceito de máquina modular — mas **não depende de uma carcaça Xbox**: a comunidade poderá construir os próprios gabinetes e adaptações.
 
+## Projetos separados, identidade própria
 
-## 1. O modelo "um console por mídia" (cartucho)
+| Projeto | Plataforma | Estado |
+| --- | --- | --- |
+| **X-Revive** | Xbox Clássico | Beta pública e pesquisa de preservação de HDD |
+| **PS2-Renew** | PlayStation 2 | Conceito futuro independente |
+| **Wii/GC-Boot** | Wii e GameCube | Conceito futuro independente |
+| Outros sistemas, inclusive Windows | Conforme cada SSD | Possibilidades futuras, sem compromisso de integração à mesma base |
 
-A ideia central: **cada mídia é um console completo**. Trocar a mídia = trocar de
-console, como trocar um cartucho.
+Cada projeto terá licença, requisitos, releases, documentação e matriz de compatibilidade próprios. O X-Revive **não vira um menu multiemulador** por causa dessa visão.
 
-- Cartucho do Xbox (SSD/HD com o sistema Xbox), cartucho do PS2, do GameCube/Wii,
-  do WiiU, e por aí vai.
-- **Um único hardware** físico (uma placa), compatível com controles de Xbox — e,
-  idealmente, de Switch e PlayStation também.
-- Um **sistema de swap de mídia**: trocar o SSD (ou outra mídia) como se fosse o
-  cartucho daquele console.
-- Todas as portas da placa — **USB, SATA, NVMe, rede, som, vídeo** — ficam livres
-  para o console usar, porque o sistema não precisa ocupar mídia/portas extras.
+## Princípios de experiência
 
-O Xbox é o **primeiro** (o favorito), quase na reta final.
+1. **Download, gravação, preparação, uso:** o usuário não deveria precisar configurar manualmente dezenas de drivers ou abrir um emulador num desktop.
+2. **Controle na mão:** navegação, manutenção e operação pelo controle quando o hardware suporta; teclado como alternativa.
+3. **Boot dedicado:** ligar a máquina significa entrar na experiência do sistema escolhido.
+4. **SSD como cartucho:** trocar a mídia com o equipamento **desligado**; cada mídia é um sistema independente.
+5. **Aproveitar hardware comum:** perfis automáticos e drivers integrados para famílias compatíveis, **sem alegar suporte a todos os PCs**.
+6. **Preservação responsável:** preferir backup e integridade verificável a modificar dados originais sem controle.
 
-## 2. XBOX: disco de Xbox PURO + pendrive SEPARADO (regra fixa)
+## Componentes potencialmente reutilizáveis
 
-Para o Xbox Clássico isto é **inegociável** e é exatamente como já está feito:
+Detecção de hardware e perfis (HAL), seleção de driver, diagnósticos, interface de manutenção, atalhos de controle, ferramentas de build e procedimentos de testes poderão inspirar outros sistemas. Mas as diferenças entre Xbox, PlayStation, GameCube e Wii exigem arquiteturas específicas. **Um drive comum não lê automaticamente a mídia original de todos esses consoles.**
 
-- O **disco (HD/SSD) é um disco de Xbox PURO — 100% compatível** com um Xbox
-  original: só partições **FATX**, nada de Linux. Formatável e substituível de
-  dentro do console (HeXEn), respondendo como num Xbox de verdade (erros 07/13/16,
-  chave da EEPROM, etc.).
-- O **instalador/bootável é SEPARADO do disco** (o pendrive). Justamente por isso:
-  se o usuário formatar ou **trocar o disco**, ele tem que responder como num Xbox
-  real — e isso só é possível se o sistema NÃO estiver no disco.
-- **NUNCA instalar o sistema Linux no disco do Xbox.** Isso quebraria a fidelidade.
-- O pendrive é o **"console/firmware" + manutenção**: dá boot e, quando precisa,
-  carrega o **HeXEn** (disco utilitário). O disco é o **"disco do Xbox"**
-  (dashboard, jogos). O **"cartucho" do Xbox = o par pendrive + disco**.
+## Pesquisa exclusiva do Xbox
 
-### Formatação: quem formata é o HeXEn, não o Linux (decidido no teste 2026-10-22)
+A visão de BIOS/firmware livre e tradução mais direta de execução `.xbe` pertence ao X-Revive, como objetivo de longo prazo. O projeto utiliza **Xemu atualmente**. A execução de programas x86 do Xbox em PCs genéricos exige reproduzir comportamento de kernel, GPU NV2A, memória, I/O, temporização e demais componentes. Otimizações e abordagens híbridas **não garantem por si só compatibilidade absoluta**.
 
-O Linux **nunca** formata o disco. Quando o console **não detecta FATX** (disco
-novo ou trocado), ele **abre o HeXEn automaticamente** no boot; a pessoa formata
-e instala a dashboard por **dentro do HeXEn**, exatamente como num disco de
-manutenção de Xbox real. Assim o disco permanece 100% puro e some a antiga
-formatação pelo lado Linux (que era frágil em discos grandes, ex.: 1 TB).
-- `prepare.sh` só **lê** a assinatura FATX e exporta `HDD_FATX=yes|no`.
-- `configure.sh`: sem FATX → cria a flag `boot-hexen`; `run.sh` carrega o
-  `hexen.iso` como disco virtual (o Cerbios dá boot no disco da bandeja).
-- Havendo FATX → boota a dashboard normal.
-- Alternativa manual: segurar **Start+Back** ao ligar (se o controle já respondeu
-  — no cold-boot ele costuma demorar, por isso o automático por "sem FATX").
+Esta é uma direção para pesquisa, compartilhamento de conhecimento e colaboração — não uma promessa de cronograma nem de funcionalidades já concluídas.
 
-## 3. Boot mais rápido — SEM tocar na pureza do disco
-
-O primeiro boot é, por natureza, mais lento (faz o que só precisa uma vez):
-identificação de hardware (perfil da HAL), formatação mínima do disco, config.
-
-Os boots seguintes devem ser **mais rápidos**, mas a otimização mora **no lado do
-pendrive**, nunca no disco do Xbox:
-- o **perfil de hardware já fica cacheado no pendrive** (partição CONSOLE,
-  `profiles/<fingerprint>.conf`) — nos boots seguintes, não há re-detecção;
-- o cache de shaders já é persistente (partição CACHE do pendrive);
-- o que dá pra encurtar: pular passos já feitos (detecção, formatação), enxugar o
-  sistema/serviços, acelerar/ajustar o `toram`.
-- O tempo do boot do **Cerbios → animação → dashboard** é inerente ao Xbox e deve
-  ser preservado (é parte da experiência real).
-
-O disco permanece **puro Xbox** o tempo todo.
-
-## 4. Por plataforma (cada console é diferente)
-
-- **Xbox** (atual, favorito, quase fechado): disco FATX puro + pendrive separado +
-  Cerbios + xemu. Modelo da seção 2 — **fixo**.
-- **PS2, GameCube/Wii, WiiU, etc.** (futuro): **comportamento diferente**, a ser
-  definido depois. Cada um tem seu emulador, seu formato de armazenamento e suas
-  regras — o modelo de mídia pode não ser o mesmo do Xbox.
-
-O conceito de "um console por mídia / cartucho" se mantém como visão geral (trocar
-a mídia = trocar de console), mas **os detalhes de cada console se definem caso a
-caso**, respeitando a fidelidade daquela plataforma — como o Xbox exige o disco
-puro e o bootável separado.
-
-Objetivo final: um **sistema universal** de consoles num hardware só, com todas as
-portas livres, controles modernos — sem abrir mão da fidelidade de cada aparelho.
+[Voltar ao README](../README.md) · [Roadmap](ROADMAP-ATUAL.md) · [Arquitetura da beta](ARQUITETURA.md)
