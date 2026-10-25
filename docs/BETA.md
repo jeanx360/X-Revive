@@ -29,6 +29,7 @@ emulação e do hardware. Não há interface de seleção de Wi-Fi.
 | VM, download online real | 107 arquivos HTTPS, hashes conferidos e coleção equivalente à offline |
 | VM, operação por controle | Preparação online, cancelamento, duas confirmações com soltura, instalação completa |
 | VM, boot só pelo SSD | Dashboard, áudio, manutenção por R e inventário de dez dashboards |
+| Build atual em bancada física, 25/10/2026 | Beta.4 testada e funcionando como esperado; [registro e identificação da imagem](VALIDACAO-PUBLICA-BETA4.md#confirmação-física-em-25102026) |
 | Bancada física | Inicialização, áudio, rede/FTP, jogos/homebrew e bandeja física validados |
 | Xbox original modchipado | Objetivo experimental; não há novo teste físico conclusivo desta beta |
 | Splash personalizado da BIOS | Cópia reaberta no editor e boot em VM; o splash não apareceu nas capturas. Exibição permanece pendente |

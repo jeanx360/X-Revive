@@ -80,3 +80,28 @@ foi aberta pela interface com teclas reais da VM. Marcador:
 Após desligar a VM, o layout híbrido e seu rodapé foram conferidos novamente;
 os primeiros 16 MiB de SYSTEM permaneceram idênticos ao estado anterior ao boot.
 As VMs foram encerradas.
+
+## Confirmação física em 25/10/2026
+
+A build `20261025T002311Z-0c39ff2d81ad` foi testada em bancada física e
+funcionou como esperado. Mantemos a beta.4 como imagem pública de referência:
+baixar, gravar, copiar os arquivos pessoais para XREVIVE e iniciar o assistente.
+A partição exFAT já está formatada na IMG; não é necessário iniciar o X-Revive
+uma vez para prepará-la e depois voltar ao PC.
+
+| Artefato | Tamanho | SHA256 |
+|---|---|---|
+| IMG descompactada | 14.162.067.456 bytes | `591079e952551547af4f7117633239eee45ef3345c12e656f158838209d1b548` |
+| Download IMG.xz | 1.274.032.740 bytes | `49f5c46b3c51aa7fd493d7d29f8dc4d6dcfc9eb888502ccd2922f85fe567c0ef` |
+
+A área pessoal tem 10 GiB fixos. O tamanho compactado reduz o download;
+o gravador descompacta e grava a imagem completa. Pendrives maiores não têm
+a partição pessoal expandida automaticamente nesta versão.
+
+A conferência local confirmou os hashes, a partição exFAT íntegra antes do boot
+e os 72 testes aprovados. A candidata que criava a área pessoal no primeiro
+boot foi retirada por exigir uma etapa adicional; não foi publicada.
+A confirmação mantém a imagem e a tag existentes, sem gerar uma nova versão.
+
+O modo LIVE de HDD Xbox existente e a conversão preservando FATX continuam
+pendentes, conforme o [roadmap vigente](ROADMAP-ATUAL.md).

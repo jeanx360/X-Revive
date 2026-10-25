@@ -1,5 +1,15 @@
 # Changelog
 
+## Validação e documentação — 2026-10-25
+
+- Beta.4 testada em bancada física e funcionando como esperado.
+- Mantidos a imagem, a tag e os checksums da release existente.
+- Documentado o fluxo com XREVIVE já formatada, sem boot intermediário.
+- Esclarecidos os tamanhos compactado/descompactado e os 10 GiB fixos de dados.
+- Priorizados modo LIVE e preservação de HDD Xbox existente, ainda pendentes.
+- Auxiliares de bancada com capacidade USB/RAM configuráveis, detecção de falha
+  da VM e espera pela conclusão da cópia dos arquivos de teste.
+
 ## v0.1.0-beta.4 — 2026-10-24
 
 - EEPROM fornecida pelo usuário opcional; geração nativa pelo Xemu quando ausente.

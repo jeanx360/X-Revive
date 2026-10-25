@@ -130,6 +130,17 @@ Espere instalação e leitura de volta terminarem. Desligue, retire o pendrive e
 inicie pelo HDD/SSD. Xbox Classic: logo X-Revive → animação, se fornecida e
 habilitada na BIOS → XBMC4Gamers. O pendrive continua útil para manutenção.
 
+## Área pessoal pronta após gravar
+
+A IMG já contém a partição exFAT `XREVIVE` formatada. Depois de gravar,
+abra essa partição no PC, extraia as pastas do usuário e copie seus arquivos
+antes de iniciar o X-Revive. Não há boot intermediário para criar a área pessoal.
+
+O download tem cerca de **1,27 GB**; descompactada, a IMG ocupa **14,16 GB**,
+incluindo **10 GiB fixos** para arquivos pessoais. A compactação reduz o download,
+mas o gravador escreve a imagem completa. Em pendrives maiores, a área XREVIVE
+continua com 10 GiB; o espaço adicional não é incorporado automaticamente.
+
 ## Uso e recuperação
 
 R no boot do SSD (ou Start+Back) abre manutenção. Start+digital para cima abre o

@@ -11,7 +11,7 @@ import re
 import shlex
 import time
 s=importlib.util.spec_from_file_location('m',Path(__file__).with_name('smoke-image.py'));m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
-p=argparse.ArgumentParser();p.add_argument('folder',type=Path);a=p.parse_args();f=a.folder.resolve()
+p=argparse.ArgumentParser();p.add_argument('folder',type=Path);p.add_argument('--expected-version',default='0.1.0-beta.4');a=p.parse_args();f=a.folder.resolve()
 
 def command(c):
     result=m.serial(f/'serial.sock',c)
@@ -45,7 +45,7 @@ def wait_ready():
     if not rows:raise RuntimeError('No identity verification result')
     return json.loads(rows[-1])
 
-first=wait_ready();assert first['build']=='0.1.0-beta.4'
+first=wait_ready();assert first['build']==a.expected_version
 print('XEMU_GENERATION_AND_IMMEDIATE_PERSISTENCE_PASS',first['identity'],flush=True)
 command('systemctl --no-block reboot')
 # Wait until the guest actually has a new boot id; the old runtime may still be ready.

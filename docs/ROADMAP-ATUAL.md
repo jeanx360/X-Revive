@@ -14,6 +14,30 @@ O X-Revive é dedicado ao **Xbox Clássico**. Este roadmap é a referência edit
 
 **Segurança:** instalação limpa **apaga o disco de destino**; não é migração nem preservação de HDD original.
 
+## Próxima etapa priorizada
+
+A beta.4 foi testada em bancada física em 25/10/2026 e permanece como base.
+Mantemos a experiência **baixar a imagem compactada → gravar → copiar os
+arquivos pessoais → iniciar**, com XREVIVE já formatada na mídia.
+[Identificação da build e validação](VALIDACAO-PUBLICA-BETA4.md#confirmação-física-em-25102026).
+
+1. **Modo LIVE no assistente:** carregar o firmware do usuário, reconhecer HDDs
+   Xbox com FATX existente e permitir selecionar o disco sem passar pela
+   instalação limpa. Essa opção ainda não está disponível.
+2. **Recuperação e preservação:** definir acesso protegido para diagnóstico e
+   recuperação, separado do uso normal que grava saves e configurações, e
+   verificar a integridade antes e depois dos ensaios.
+3. **Boot no próprio HDD existente:** oferecer conversão somente se houver
+   regiões realmente disponíveis para UEFI e sistema, sem sobrepor FATX.
+   Espaço livre dentro de uma partição FATX não equivale a espaço não particionado;
+   não basta alterar a tabela de partições. Manter LIVE como alternativa.
+4. **Nova candidata de bancada:** validar em VM, testar fisicamente e publicar
+   os recursos novos somente após a confirmação do teste correspondente.
+
+O aproveitamento automático de toda a capacidade de qualquer pendrive permanece
+pendente. A alternativa que exigia primeiro boot e retorno ao PC foi descartada;
+a área pessoal atual tem 10 GiB fixos.
+
 ## 🧪 Em validação ou aprimoramento
 
 - Reproduzir testes da beta.4 em **mais máquinas físicas**, incluindo diferentes GPUs, placas-mãe, unidades de armazenamento e controladores.

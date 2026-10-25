@@ -17,23 +17,28 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('image');parser.add_argument('--folder',default='bancada/validacao-estagio2')
     parser.add_argument('--ssd-gib',type=int,default=64)
+    parser.add_argument('--usb-gib',type=int,default=16)
+    parser.add_argument('--ram-mib',type=int,default=6144)
     parser.add_argument('--ftp-port',type=int,default=2121)
     parser.add_argument('--user-files',type=Path)
     args=parser.parse_args();image=Path(args.image).resolve()
     if not image.is_file():raise ValueError('somente imagem regular')
+    if args.usb_gib*1024**3<image.stat().st_size:raise ValueError('USB virtual menor que a IMG')
     folder=Path(args.folder).resolve();folder.mkdir(parents=True,exist_ok=True)
     usb=folder/'installer.img'
     subprocess.run(['cp','--reflink=auto',str(image),str(usb)],check=True)
+    with usb.open('r+b') as disk:disk.truncate(args.usb_gib*1024**3)
     table=json.loads(subprocess.check_output(['sfdisk','-J',str(usb)],text=True))['partitiontable']
     system=next(p for p in table['partitions'] if p['name']=='SYSTEM')
     (folder/'debug').touch()
     subprocess.run(['mcopy','-o','-i',str(usb)+'@@'+str(system['start']*512),str(folder/'debug'),'::/debug'],check=True)
     ssd=folder/'ssd.img'
     with ssd.open('xb') as f:f.truncate(args.ssd_gib*1024**3)
+    (folder/'ssd-before.json').write_text(json.dumps(dict(bytes=ssd.stat().st_size,mtime_ns=ssd.stat().st_mtime_ns)))
     firmware=Path('/usr/share/edk2/ovmf')
     shutil.copyfile(firmware/'OVMF_VARS.fd',folder/'OVMF_VARS.fd')
     options=['qemu-system-x86_64','-name','xrevive-installer-qa','-enable-kvm','-machine','q35',
-        '-cpu','host','-smp','4','-m','6144',
+        '-cpu','host','-smp','4','-m',str(args.ram_mib),
         '-drive',f'if=pflash,format=raw,readonly=on,file={firmware}/OVMF_CODE.fd',
         '-drive',f'if=pflash,format=raw,file={folder}/OVMF_VARS.fd',
         '-device','qemu-xhci,id=xhci','-drive',f'if=none,id=usb,format=raw,file={usb}',
@@ -56,6 +61,8 @@ def main():
         print('INSTALLER_VM',process.pid,folder,flush=True)
         try:
             while process.poll() is None:time.sleep(1)
+            if process.returncode:
+                raise RuntimeError('QEMU saiu com erro; confira '+str(folder/'qemu.log'))
         finally:
             if process.poll() is None:process.terminate();process.wait(timeout=10)
 

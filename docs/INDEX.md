@@ -36,6 +36,7 @@ Nenhuma versão pública do projeto distribui BIOS/MCPX originais, jogos, EEPROM
 
 ## Registros históricos e relatórios
 
+- [Validação da beta.4](VALIDACAO-PUBLICA-BETA4.md): instalação, persistência e confirmação física da build atual em 25/10/2026.
 - [Validação do site](VALIDACAO-SITE-2026-10-25.md): publicação, revisão editorial e testes desktop/mobile em 25/10/2026.
 
 Os documentos a seguir registram **decisões, testes e propostas da época em que foram escritos**. Alguns mencionam arquiteturas antigas (várias IMG, HDD FATX separado, HeXEn/OGXbox embutidos, diferentes drivers ou fluxos de instalação). **Não os utilize como instruções de instalação da beta pública atual.** São preservados para rastreabilidade:
