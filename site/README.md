@@ -23,7 +23,7 @@ A workflow `.github/workflows/pages.yml` publica o conteúdo de `site/` quando h
 
 ## Como manter atualizado
 
-A URL de download aponta intencionalmente para a beta pública verificada, `v0.1.0-beta.4`. Antes de mudar a versão ou prometer outro fluxo, revise `docs/BETA.md`, as releases e a matriz de testes. Não exponha o modo de preservação como recurso público antes de uma release que efetivamente o inclua.
+A URL de download aponta intencionalmente para a beta pública verificada, `v0.1.0-beta.5-live.6`. Antes de mudar a versão ou prometer outro fluxo, revise `docs/BETA.md`, as releases e a matriz de testes. Não exponha o modo de preservação como recurso público antes de uma release que efetivamente o inclua.
 
 Ao atualizar a identidade visual, copie o logo oficial para `site/assets/logo.png`
 e confira a imagem em desktop e mobile antes de publicar.

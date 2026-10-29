@@ -13,6 +13,7 @@ import time
 from updater import Transport, canonical, digest
 import installer
 import rocky_payload
+import media_source
 
 USER=Path('/userdata/X-Revive')
 CONFIG=Path('/etc/xrevive-packages.json')
@@ -74,11 +75,7 @@ def firmware():
 
 
 def sources():
-    folder=USER/'pacotes'
-    if not folder.is_dir():return []
-    return [dict(id=p.name,name=p.name,bytes=p.stat().st_size)
-            for p in sorted(folder.iterdir()) if p.is_file() and not p.is_symlink()
-            and p.suffix.lower()=='.iso']
+    return media_source.images(USER)
 
 
 def safe_manifest(payload,progress=lambda *_:None):
@@ -110,8 +107,7 @@ def prepare(mode,identity,progress):
     if mode=='offline':
         row=next((r for r in sources() if r['id']==identity),None)
         if row is None:raise ValueError('ISO local não encontrada em X-Revive/pacotes')
-        path=(USER/'pacotes'/row['id']).resolve()
-        if not path.is_relative_to((USER/'pacotes').resolve()):raise ValueError('origem inválida')
+        path=media_source.selected(USER,row['id'])
         OFFLINE.mkdir(exist_ok=True)
         if os.path.ismount(OFFLINE):subprocess.run(['umount',str(OFFLINE)],check=True)
         progress('Abrindo ISO offline...',5)
@@ -157,7 +153,7 @@ def prepare(mode,identity,progress):
         lock=STAGE/'rocky5.lock.json';lock.write_text(json.dumps(data))
         payload=STAGE/'payload'
         marker=STAGE/'prepared-catalog.sha256'
-        identity=hashlib.sha256(canonical(data)).hexdigest()
+        identity=hashlib.sha256(canonical(data)+str(rocky_payload.RECIPE).encode()).hexdigest()
         if payload.exists() and (not marker.exists() or marker.read_text()!=identity):
             shutil.rmtree(payload)
         if payload.exists():

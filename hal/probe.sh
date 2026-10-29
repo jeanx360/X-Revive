@@ -20,12 +20,15 @@ case "$chassis" in
 	*) laptop=no ;;
 esac
 
-# Primeira GPU de exibicao (classe PCI 0x03xxxx)
+# GPU ligada a tela; enumeracao PCI e apenas fallback antes de o DRM subir.
 gpu_vendor=unknown
 gpu_pci=""
 gpu_driver=unknown
 variant=$(cat /etc/console-variant 2>/dev/null || echo universal)
-for dev in /sys/bus/pci/devices/*; do
+display_gpu=$(python3 /usr/local/lib/console/graphics.py pci 2>/dev/null || true)
+if [ -n "$display_gpu" ]; then gpu_devices="$display_gpu"
+else gpu_devices=$(printf '%s\n' /sys/bus/pci/devices/*); fi
+for dev in $gpu_devices; do
 	case "$(cat "$dev/class")" in 0x03*) ;; *) continue ;; esac
 	gpu_pci="$(cat "$dev/vendor"):$(cat "$dev/device")"
 	gpu_driver=$(basename "$(readlink -f "$dev/driver")")

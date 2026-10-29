@@ -37,6 +37,7 @@ else
 fi
 [ -n "$part" ] || { log "particao CONSOLE nao encontrada"; exit 1; }
 mount -o ro,uid=console,gid=console,fmask=0137,dmask=0027 "$part" "$CONSOLE"
+python3 "$LIB/dongle.py" "$CONSOLE/firmware/dongle"
 if [ "$standalone" = yes ]; then boot_disk=$(st_field boot_device)
 else boot_disk=/dev/$(lsblk -no PKNAME "$part"); fi
 

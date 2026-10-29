@@ -1,31 +1,63 @@
 X-Revive — arquivos do proprietário
 
-Na partição XREVIVE deste pendrive:
-  X-Revive/firmware/xbox/bios.bin        BIOS de 256/512/1024 KiB
-  X-Revive/firmware/xbox/mcpx_1.0.bin    MCPX de 512 bytes
-  X-Revive/firmware/xbox/eeprom.bin      OPCIONAL: EEPROM de 256 bytes
-Sem eeprom.bin: o Xemu gera uma EEPROM e o X-Revive preserva no SSD.
+Na partição XREVIVE do pendrive:
+  X-Revive/firmware/xbox/bios.bin       BIOS de 256/512/1024 KiB
+  X-Revive/firmware/xbox/mcpx_1.0.bin   MCPX de 512 bytes
+  X-Revive/firmware/xbox/eeprom.bin     OPCIONAL: EEPROM de 256 bytes
+Sem EEPROM: o Xemu gera e o X-Revive preserva a identidade.
+
+Controle sem fio Xbox One/Series pelo adaptador Microsoft (xone):
+  X-Revive/firmware/dongle/xone_dongle_02e6.bin
+  X-Revive/firmware/dongle/xone_dongle_02fe.bin
+  X-Revive/firmware/dongle/xone_dongle_02f9.bin
+  X-Revive/firmware/dongle/xone_dongle_091e.bin
+Forneça o arquivo de seu modelo ou os quatro. São verificados por hash
+e carregados antes do assistente, apenas na RAM do Linux. Bluetooth não
+é o adaptador Xbox Wireless; controles Xbox 360 usam o driver xpad.
+O firmware proprietário não é distribuído na IMG pública.
+
+LIVE: escolha Protegido ou Instalação/manutenção, depois a mídia e o disco.
+Imagens com qualquer nome em X-Revive/pacotes e subpastas; também aceitamos
+a pasta pacotes direto na raiz do volume XREVIVE. Extensões ISO/XISO/IMG.
+HeXEn e OGXbox: use a ISO Xbox completa. XISO e DVD completo são mapeados
+somente leitura. Uma partição XDVDFS legível pode ser tentada mesmo sem
+default.xbe validado: a BIOS decide o caminho de boot, não um filtro de nome.
+ISO9660 iniciável e a coleção rocky5-offline do X-Revive
+são apresentadas como DVD Xbox virtual, lendo a ISO original em somente leitura.
+A coleção antiga abre um menu UnleashX próprio; não é o Extras Disc original.
+Nesta imagem não é necessária outra cópia integral de 4,7 GiB no pendrive.
+
+Protegido: HDD virtual temporário ou HDD físico com alterações somente em RAM.
+HDD físico protegido: até 512 MiB de mudanças; HDD virtual: até 1 GiB.
+Instalação/manutenção LIVE: libera SOMENTE o disco escolhido após duas
+confirmações (segurar LT+RT+Start OU F10, soltar e repetir). A mídia Xbox
+poderá formatar e instalar nesse disco real. Internos e USB são aceitos.
+O pendrive de boot e discos montados/em uso ficam excluídos.
+Não use discos com dados que deseja preservar como alvo de formatação.
+
+Instalar X-Revive: instalação limpa do sistema com boot para PC; apaga o
+disco selecionado após duas confirmações. Escolha Rocky5 online ou coleção
+offline normalizada. Este caminho é diferente de executar uma mídia em LIVE.
+Boot de HDD Xbox existente é opcional e fica no assistente.
+Boot existente é avisado e substituído/atualizado; jogos e apps são mantidos.
+É necessária uma região fora do FATX. Se F: ocupa todo o disco, reservar espaço
+exige reorganizar o volume; não se grava o sistema por cima de seus dados.
+
+Durante a preparação: barra animada, logo pulsando, etapa e tempo decorrido.
+F1 / X: detalhes. Esc / B: cancelar etapas de preparação quando disponível.
+Gravações de boot não são interrompidas no meio.
+
+Internet: Ethernet DHCP ou Configurar rede Wi-Fi. Teclado físico ou virtual
+por controle; senha não é lembrada depois de desligar nesta beta.
+Online: pacotes Rocky5 vêm das origens fixadas e são verificados. O cache
+de instalação completa ocupa 8 GiB: retire ISOs pelo PC antes se faltar espaço.
+Nunca remova arquivos ou o pendrive durante uma operação.
+
 Opcional para a animação Xbox do Cerbios:
   X-Revive/firmware/bootanims/Xbox/BootAnim.xbe
   X-Revive/firmware/bootanims/Xbox/bootanim.ini
 
-Online: conectar cabo Ethernet com DHCP, escolher Rocky5 e aguardar.
-Os pacotes vêm das origens oficiais fixadas no catálogo e são verificados.
-X-Revive/cache/rocky5-stage.ext4 ocupa 8 GiB para downloads e preparação.
-Essa área não vai para RAM nem contém jogos pessoais. Apagá-la pelo PC,
-com o pendrive desmontado do instalador, descarta o cache de downloads.
-
-Offline: colocar a ISO compatível em X-Revive/pacotes/rocky5-offline.iso.
-A ISO deve conter payload/manifest.json e a coleção X-Revive normalizada.
-Não é uma ISO genérica do HeXEn/OGXbox/AID; esses formatos precisam de adaptador.
-A ISO abre somente para leitura, sem executar seus menus de firmware.
-
-Para alternar os ensaios online/offline num pendrive de 16 GB:
-retirar pelo PC a ISO antes do online, ou o arquivo de cache de 8 GiB antes
- de copiar a ISO. Não remover nada com uma instalação em andamento.
-Firmware é importado uma vez para o SSD e não precisa continuar no USB.
-Instalar é instalação LIMPA: apaga o disco selecionado após duas confirmações.
-Não use Instalar para atualizar um SSD contendo jogos que deseja preservar.
-
-Diagnóstico: X-Revive/diagnosticos/ guarda logs sem copiar seu firmware.
-Use teclado (setas/Enter/Esc/F10) OU controle (digital/A/B/LT+RT+Start).
+Diagnósticos ficam em X-Revive/diagnosticos/, sem copiar seu firmware.
+Etapas das operações ficam em diagnosticos/operacoes/, sem senhas ou argumentos.
+Teclado: setas/Enter/Esc/F10. Controle: digital/A/B/LT+RT+Start.
+Boot direto para o assistente; Esc durante o boot abre recuperação de vídeo.

@@ -1,57 +1,58 @@
-# Beta v0.1.0-beta.4
+# Pré-release v0.1.0-beta.5-live.6
 
-Beta para PC x86-64 UEFI, com IMG pronta para gravar, instalação Rocky5 online
-ou ISO local normalizada, manutenção e EEPROM opcional.
+IMG para PC x86-64 UEFI com LIVE por mídia/HDD, instalação Rocky5, Wi-Fi,
+manutenção e recuperação de boot. [Download e gravação](BAIXAR-E-INSTALAR.md).
 
-## Requisitos atuais
+## Modos
 
-- PC x86-64 com boot UEFI; Secure Boot não é uma configuração validada.
-- Pendrive de 16 GB ou maior. A área de dados do instalador é exFAT.
-- HDD/SSD de teste dedicado, pelo menos 32 GiB, menor que 2 TiB e setores lógicos de 512 bytes.
-- Teclado ou controle compatível. Cabo de rede e DHCP para instalação online.
-- BIOS e MCPX fornecidos pelo usuário; EEPROM e animação Xbox opcionais.
-
-**EEPROM opcional na beta.4:** forneça sua EEPROM ou deixe o Xemu gerar uma nova.
-A identidade é preservada no SSD. [Detalhes](EEPROM-OPCIONAL.md).
-
-A mídia reúne Mesa e NVIDIA 550, incluindo suporte à GTX 750 da bancada. Isso
-não significa suporte a toda NVIDIA antiga ou futura. Desempenho depende da
-emulação e do hardware. Não há interface de seleção de Wi-Fi.
-
-## O que foi verificado
-
-| Evidência | Resultado e limite |
+| Modo | Comportamento |
 |---|---|
-| Testes da beta.4 | 72 passaram na bancada, incluindo limpeza pública, coleta de fontes e fingerprint sem assets particulares |
-| Testes automatizados da base df48 | 64 testes passaram com fixtures locais; no clone público, o teste UIX com pacote real é opcional |
-| Cópia limpa dos fontes públicos da beta.4 | 72 testes descobertos: 71 passaram e 1 skipped (UIX sem pacote real), sem firmware ou executáveis Xbox privados |
-| VM, instalação offline completa | 104 pacotes / 98.996 arquivos, leitura de volta; SSD intacto antes das confirmações |
-| VM, download online real | 107 arquivos HTTPS, hashes conferidos e coleção equivalente à offline |
-| VM, operação por controle | Preparação online, cancelamento, duas confirmações com soltura, instalação completa |
-| VM, boot só pelo SSD | Dashboard, áudio, manutenção por R e inventário de dez dashboards |
-| Build atual em bancada física, 25/10/2026 | Beta.4 testada e funcionando como esperado; [registro e identificação da imagem](VALIDACAO-PUBLICA-BETA4.md#confirmação-física-em-25102026) |
-| Bancada física | Inicialização, áudio, rede/FTP, jogos/homebrew e bandeja física validados |
-| Xbox original modchipado | Objetivo experimental; não há novo teste físico conclusivo desta beta |
-| Splash personalizado da BIOS | Cópia reaberta no editor e boot em VM; o splash não apareceu nas capturas. Exibição permanece pendente |
+| LIVE protegido | HDD virtual ou HDD Xbox somente leitura; mudanças temporárias na RAM |
+| LIVE instalação/manutenção | Mídia com escrita somente no disco escolhido, após duas confirmações |
+| Instalar X-Revive | Instalação limpa: apaga o destino e prepara boot próprio |
+| Preparar/reparar boot | Recria sistema/UEFI na área reservada fora do FATX, preservando os volumes Xbox |
 
-O [relatório técnico](VALIDACAO-ONLINE-2026-10-24.md) distingue as etapas e os
-problemas de instrumentação. Caches, discos de VM, capturas e logs citados são
-arquivos locais de bancada, não fazem parte do clone público.
+F ocupando o disco inteiro não é reduzida automaticamente. Não use a instalação
+limpa para preservar jogos existentes. [Preservação e limites](PRESERVACAO-HDD.md).
 
-## Limitações conhecidas
+## Requisitos e operação
 
-- Instalação limpa: não preserva jogos ou outro sistema existente no destino.
-- Offline aceita somente ISO normalizada com `payload/manifest.json`, não qualquer ISO Xbox.
-- ISO de teste e cache online de 8 GiB não cabem juntos na área XREVIVE de 10 GiB.
-- Cliente Xemu validado localmente; canal público de atualização ainda pendente.
-- Firmware do Xbox Wireless Adapter não incluído: use teclado ou controle com fio nesta entrega pública.
-- Atualização integral, migração preservando dados e importadores de outros discos não implementados.
-- Downloads dependem das origens fixadas; se mudarem, os hashes impedem instalar conteúdo diferente silenciosamente.
-- Build ainda não hermético: APT sem snapshot completo, wheel pyfatx sem hash fixado e timestamps variáveis.
+- PC x86-64 UEFI; Secure Boot desativado para testar.
+- Pendrive ≥16 GB, área XREVIVE exFAT de 10 GiB já pronta.
+- Instalação limpa: HDD/SSD dedicado ≥32 GiB, menor que 2 TiB, setores de 512 bytes.
+- BIOS e MCPX próprios; EEPROM e animação Xbox opcionais.
+- Teclado ou controle. Firmware privado do dongle, se necessário, em
+  `X-Revive/firmware/dongle/`.
+- Ethernet/DHCP ou Wi-Fi compatível configurado pelo assistente.
 
-## Relatar um problema
+Mesa e NVIDIA 550 permanecem na mesma imagem; suporte depende do dispositivo.
+O assistente mostra atividade, etapa e tempo; F1/X abre detalhes, Esc/B cancela
+preparação quando disponível. Gravações de boot precisam terminar.
 
-Use o modelo de bug do GitHub, informe build, hardware e passos. A mídia salva
-diagnósticos em `X-Revive/diagnosticos/<boot-id>/`. Revise antes de anexar: podem
-incluir modelos/séries de discos e dados de rede. Não anexe BIOS, MCPX, EEPROM,
-chaves de assinatura, jogos ou discos inteiros.
+## Evidências
+
+124 testes locais passaram na candidata C7. Em VM: Rocky5 offline e OGXbox,
+áudio, FTP, proteção e boot do SSD-clone reparado. Um HDD físico de 1 TB foi
+usado na VM por descritor somente leitura: HeXEn e transferência FTP em RAM
+passaram; hashes de metadados e blocos alocados permaneceram iguais. Animação,
+cancelamento, registro de etapas e prazo de 90 s foram exercitados.
+
+Os relatos de campo das etapas anteriores incluem GTX 750, áudio/FTP/bandeja,
+boot do assistente e Wi-Fi no Dell G15, e controle sem fio desde o início.
+Esses relatos não validam todo hardware ou todo fluxo novo da C7. A publicação
+desta pré-release foi autorizada em 28/10/2026. [Relatório](VALIDACAO-LIVE6-RECUPERACAO.md).
+
+## Limitações
+
+- Sem migração automática de F para criar espaço de boot; não alterar só PARTINFO.
+- Compatibilidade com Xbox original modchipado exige teste próprio.
+- FTP externo por Wi-Fi ainda precisa de teste específico; não confundir com NAT da VM.
+- Wi-Fi pessoal temporário; redes corporativas, ocultas e portais não são configurados.
+- Canal público de atualização Xemu ainda não ativo; kernel/driver não atualizam por ele.
+- Download online e ISO pessoal/cache podem disputar os 10 GiB do USB. O DVD
+  virtual offline dispensa a segunda cópia integral, não o armazenamento da origem.
+- APT sem snapshot completo e timestamps variáveis; build não é hermético.
+
+Para relatar erro, informe build, hardware, caminho escolhido e última etapa.
+Revise os diagnósticos antes de anexar; não envie firmware, chaves ou discos.
+A [beta.4 anterior](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.4) permanece disponível.

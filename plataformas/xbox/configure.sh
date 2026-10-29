@@ -14,6 +14,7 @@ get() { sed -n "s/^$1=//p" "$PROFILE"; }
 # Disco instalado: dashboard por padrao, manutencao propria por R/Start+Back.
 # FATX ausente tambem encaminha a manutencao, sem formatacao automatica.
 here=$(dirname "$0")
+if [ "${XREVIVE_LIVE:-}" != 1 ]; then
 rm -f "$RUN/boot-hexen" "$RUN/boot-ogxbox" "$RUN/installer" "$RUN/update"
 echo 'configure: segure R ou Start+Back para manutencao X-Revive (8s)' >&2
 selected=$(python3 "$here/tools/held.py" --select --timeout 8) || selected=""
@@ -29,6 +30,7 @@ if [ "$selected" = installer ] || [ "${HDD_FATX:-}" != yes ]; then
 elif [ "$selected" = update ]; then
 	touch "$RUN/update"
 	boot_message 'Abrindo atualizacoes - pode soltar U / Y'
+fi
 fi
 
 # RAM do console: 64 (original) ou 128 (upgrade "Ultimate Xbox"). A Cerbios

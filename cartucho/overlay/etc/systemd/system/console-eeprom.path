@@ -6,7 +6,8 @@ DefaultDependencies=no
 After=basic.target console-prepare.service
 Before=console.service shutdown.target
 Conflicts=shutdown.target
-ConditionPathExists=/run/console/standalone.json
+ConditionPathExists=|/run/console/standalone.json
+ConditionPathExists=|/run/console/live.json
 ConditionPathExists=!/run/console/installer
 
 [Path]

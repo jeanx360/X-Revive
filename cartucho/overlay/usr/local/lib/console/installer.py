@@ -21,10 +21,10 @@ GIB=1024**3
 
 
 def command(*args):
-    return subprocess.check_output(args,text=True).strip()
+    return subprocess.check_output(args,text=True,timeout=15).strip()
 
 
-def info(path, qa=False, allow_busy=False):
+def info(path, qa=False, allow_busy=False, allow_readonly=False):
     path=Path(path).resolve();st=path.stat()
     if qa:
         if not stat.S_ISREG(st.st_mode):raise ValueError('QA aceita somente arquivo regular')
@@ -32,7 +32,7 @@ def info(path, qa=False, allow_busy=False):
     else:
         if not stat.S_ISBLK(st.st_mode):raise ValueError('destino não é disco de bloco')
         row=json.loads(command('lsblk','-J','-b','-d','-o','PATH,TYPE,SIZE,MODEL,SERIAL,RO,LOG-SEC',str(path)))['blockdevices'][0]
-        if row['type']!='disk' or (row['ro'] and not allow_busy) or row['log-sec']!=512:
+        if row['type']!='disk' or (row['ro'] and not allow_busy and not allow_readonly) or row['log-sec']!=512:
             raise ValueError('disco somente leitura, não inteiro ou sem setores de 512 bytes')
         size=int(row['size']);serial=row['serial'] or '';model=(row['model'] or '').strip()
         device_id=[os.major(st.st_rdev),os.minor(st.st_rdev)]
@@ -57,10 +57,11 @@ def disks(source):
     rows=json.loads(command('lsblk','-J','-b','-d','-o','PATH,TYPE,SIZE,MODEL,SERIAL'))['blockdevices']
     result=[]
     for row in rows:
+        if Path(row['path']).name.startswith(('nbd','loop','ram','zram')):continue
         if row['type']!='disk':continue
         if Path(row['path']).resolve()==Path(source).resolve():continue
-        try:result.append(dict(info(row['path']),available=True))
-        except (ValueError,OSError,subprocess.CalledProcessError) as exc:
+        try:result.append(dict(info(row['path'],allow_readonly=True),available=True))
+        except (ValueError,OSError,subprocess.SubprocessError) as exc:
             result.append(dict(path=row['path'],bytes=int(row['size']),model=row.get('model') or '',
                                serial=row.get('serial') or '',available=False,reason=str(exc)))
     return result
@@ -81,6 +82,9 @@ def make_layout(capacity, source):
 
 
 def drive_regions(data):
+    if data.get('existing_fatx'):
+        layout.checked_layout(data)
+        return {r['drive']:(r['offset'],r['bytes']) for r in data['native_regions']}
     result={'e':layout.RETAIL[0][1:],'c':layout.RETAIL[1][1:],
             'x':layout.RETAIL[2][1:],'y':layout.RETAIL[3][1:],'z':layout.RETAIL[4][1:]}
     for i,(_,start,size) in enumerate(layout.extended(data)):result['fg'[i]]=(start,size)
@@ -103,7 +107,7 @@ def verify_payload(payload, progress=lambda *_:None):
 
 
 def plan(target, source, payload, qa=False):
-    device=info(target,qa)
+    device=info(target,qa,allow_readonly=True)
     if Path(device['path'])==Path(source['device']).resolve():raise ValueError('mídia de origem bloqueada')
     data=make_layout(device['bytes'],source)
     regions=drive_regions(data)
@@ -117,7 +121,8 @@ def plan(target, source, payload, qa=False):
                 xbox_gib=round(data['xbox_bytes']/GIB,2),minimum_bytes=minimum)
 
 
-def copy_region(src_fd, dst_fd, start, dest, count):
+def copy_region(src_fd, dst_fd, start, dest, count,report=lambda *_:None):
+    total=count
     while count:
         chunk=os.pread(src_fd,min(count,4*MIB),start)
         if not chunk:raise OSError('mídia de instalação truncada')
@@ -127,6 +132,7 @@ def copy_region(src_fd, dst_fd, start, dest, count):
             if n<=0:raise OSError('cópia incompleta')
             done+=n
         start+=len(chunk);dest+=len(chunk);count-=len(chunk)
+        report(total-count,total)
 
 
 def boot_files(fd,data):
@@ -225,6 +231,8 @@ def install(prepared, source, payload, progress=lambda *_:None):
                     reference=f'/proc/{os.getpid()}/fd/{fd}@@{data["console"]["offset"]}'
                     subprocess.run(['mmd','-i',reference,'::/firmware'],check=False,stderr=subprocess.DEVNULL)
                     subprocess.run(['mcopy','-o','-s','-i',reference,str(fw),'::/firmware/'],check=True)
+                    import dongle
+                    dongle.persist(reference,[Path('/userdata/X-Revive/firmware/dongle'),Path('/userdata/firmware/dongle')])
             with tempfile.TemporaryDirectory(prefix='xrevive-empty-') as empty:
                 for index,(drive,(offset,size)) in enumerate(regions.items()):
                     if drive=='g':
@@ -306,11 +314,43 @@ def choose_dashboard(path,data,manifest,name):
     finally:os.close(fd)
 
 
-def repair_boot(path,data):
+def clear_old_gpt(fd,size,data):
+    """Remove only known PC boot signatures outside every Xbox volume."""
+    regions=drive_regions(data)
+    for offset in (512,size-512):
+        if any(max(offset,start)<min(offset+8,start+length) for start,length in regions.values()):continue
+        if os.pread(fd,8,offset)==b'EFI PART':os.pwrite(fd,bytes(8),offset)
+
+
+def repair_boot(path,data,source=None,progress=lambda *_:None,recovered=False):
     fd=os.open(path,os.O_RDWR|os.O_NOFOLLOW)
     try:
         fcntl.flock(fd,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        original=layout.read_verified(path,data)
+        if recovered:
+            # The caller recovered and revalidated the ESP map from the selected
+            # disk. A damaged footer must not prevent replacing its boot.
+            layout.checked_layout(data);original=os.pread(fd,512,0);layout.repair_sector(original,data)
+        else:original=layout.read_verified(path,data)
+        data=dict(data)
+        backup=Path('/run/xrevive-installer/boot-backup');backup.mkdir(parents=True,exist_ok=True)
+        (backup/'sector0.bin').write_bytes(original)
+        (backup/'footer.bin').write_bytes(os.pread(fd,layout.FOOTER_BYTES,data['image_bytes']-layout.FOOTER_BYTES))
+        (backup/'layout.json').write_text(json.dumps(data,indent=2))
+        if source:
+            if info(source['device'],allow_busy=True)['identity']!=source['identity']:raise ValueError('Pendrive de origem mudou')
+            region=data['system'];origin=source['regions']['system']
+            if origin['bytes']!=region['bytes']:raise ValueError('O tamanho do sistema novo exige replanejar a área de boot')
+            if region['offset']<data['xbox_bytes']:raise ValueError('Região de boot invade o FATX')
+            progress('Substituindo o sistema de boot; FATX preservado...',40)
+            with open(source['device'],'rb',buffering=0) as src:
+                copy_region(src.fileno(),fd,origin['offset'],region['offset'],region['bytes'],
+                            lambda done,total:progress('Atualizando o boot: '+str(done//MIB)+' / '+str(total//MIB)+' MiB',40+int(35*done/total)))
+            data.update(build_id=source['build_id'],source_sha256=source['source_sha256'])
+        progress('Recriando a inicialização UEFI do X-Revive...',85)
         boot_files(fd,data)
+        clear_old_gpt(fd,os.lseek(fd,0,os.SEEK_END),data)
+        os.pwrite(fd,layout.footer(data),data['image_bytes']-layout.FOOTER_BYTES)
         os.pwrite(fd,layout.repair_sector(original,data),0);os.fsync(fd)
+        layout.read_verified(path,data)
+        return dict(boot_ready=True,kind='repair')
     finally:os.close(fd)

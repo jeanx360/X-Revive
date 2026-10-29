@@ -16,6 +16,9 @@ import installer
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('ssd');parser.add_argument('folder')
+    parser.add_argument('--ram-mib',type=int,default=6144)
+    parser.add_argument('--ftp-port',type=int,default=2121)
+    parser.add_argument('--xbox-dongle',action='store_true',help='Somente adaptador Microsoft 045e:02fe; sem USB de armazenamento')
     args=parser.parse_args();ssd=Path(args.ssd).resolve();folder=Path(args.folder).resolve()
     if not ssd.is_file():raise ValueError('somente SSD virtual regular')
     data=installer.installed(ssd)
@@ -27,17 +30,18 @@ def main():
     firmware=Path('/usr/share/edk2/ovmf')
     shutil.copyfile(firmware/'OVMF_VARS.fd',folder/'OVMF_VARS.fd')
     options=['qemu-system-x86_64','-name','xrevive-installed-qa','-enable-kvm','-machine','q35',
-        '-cpu','host','-smp','4','-m','6144',
+        '-cpu','host','-smp','4','-m',str(args.ram_mib),
         '-drive',f'if=pflash,format=raw,readonly=on,file={firmware}/OVMF_CODE.fd',
         '-drive',f'if=pflash,format=raw,file={folder}/OVMF_VARS.fd',
         '-drive',f'if=none,id=ssd,format=raw,file={ssd}',
         '-device','ide-hd,bus=ide.0,drive=ssd,serial=XREVIVE-QA-SSD,bootindex=1',
         '-device','virtio-vga','-display','none',
         '-audiodev',f'wav,id=som,path={folder}/audio.wav','-device','ich9-intel-hda','-device','hda-output,audiodev=som',
-        '-netdev','user,id=net,hostfwd=tcp:127.0.0.1:2121-:2121','-device','e1000,netdev=net',
+        '-netdev',f'user,id=net,hostfwd=tcp:127.0.0.1:{args.ftp_port}-:2121','-device','e1000,netdev=net',
         '-chardev',f'socket,id=ser,path={folder}/serial.sock,server=on,wait=off,logfile={folder}/serial.log',
         '-serial','chardev:ser','-qmp',f'unix:{folder}/vm.qmp,server=on,wait=off',
         '-drive','if=none,id=dvd,media=cdrom','-device','ide-cd,bus=ide.1,drive=dvd']
+    if args.xbox_dongle:options.extend(['-device','qemu-xhci,id=xhci','-device','usb-host,bus=xhci.0,id=xboxradio,vendorid=0x045e,productid=0x02fe'])
     (folder/'command.json').write_text(json.dumps(options,indent=2))
     with (folder/'qemu.log').open('w') as log:
         process=subprocess.Popen(options,stdout=log,stderr=subprocess.STDOUT)

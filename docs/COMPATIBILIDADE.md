@@ -1,8 +1,8 @@
-# Compatibilidade e requisitos — X-Revive beta.4
+# Compatibilidade e requisitos — X-Revive beta.5-live.6
 
-**Referência:** `v0.1.0-beta.4` publicada em 25/10/2026, conforme a release GitHub. Esta página descreve **o que se sabe**, não uma garantia universal. Veja os [resultados de bancada e VM](BETA.md).
+**Referência:** `v0.1.0-beta.5-live.6`, conforme a release GitHub. Esta página descreve **o que se sabe**, não uma garantia universal. Veja os [resultados de bancada e VM](BETA.md).
 
-> ⚠️ **Instalação destrutiva.** A beta pública apaga o disco de destino. Não use HDD original do Xbox ou discos com arquivos importantes neste fluxo. A pesquisa de preservação é separada: [PRESERVACAO-HDD.md](PRESERVACAO-HDD.md).
+> A instalação limpa apaga o destino. LIVE protegido e preparação/reparo de boot têm fluxos separados; [limites](PRESERVACAO-HDD.md).
 
 ## Requisitos da beta pública
 
@@ -13,8 +13,8 @@
 | USB | Pendrive de **16 GB ou mais** | O instalador usa uma área `XREVIVE` exFAT para arquivos do usuário |
 | Destino | HDD/SSD **dedicado** com pelo menos **32 GiB**, menor que **2 TiB** | Exige setores lógicos de **512 bytes**; destino será integralmente apagado |
 | Gráficos | GPU e drivers suportados pela imagem | Mesa e driver proprietário NVIDIA **550** incluídos na beta; não implica compatibilidade com todas as placas |
-| Controle | Controle compatível **com fio**, ou teclado | Firmware de Xbox Wireless Adapter não está incluso na IMG pública |
-| Rede | Ethernet + DHCP para instalação online | Não há interface de configuração de Wi-Fi nesta beta |
+| Controle | Controle compatível, ou teclado | Firmware de Xbox Wireless Adapter fornecido pelo usuário; importação antes da interface |
+| Rede | Ethernet/DHCP ou Wi-Fi pessoal compatível | Wi-Fi no assistente, conforme adaptador e firmware |
 | Firmware Xbox | `bios.bin` e `mcpx_1.0.bin` fornecidos pelo usuário | `eeprom.bin` é opcional, mas a identidade original depende de seu backup |
 
 A documentação da beta recomenda reservar pelo menos 16 GB livres no computador usado para descompactar a IMG antes da gravação.

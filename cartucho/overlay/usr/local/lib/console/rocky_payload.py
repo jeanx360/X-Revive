@@ -12,6 +12,8 @@ import xml.etree.ElementTree as ET
 import fatx
 import uix_relocate as uix
 
+RECIPE=2
+
 
 def slug(text):
     return re.sub('[^a-zA-Z0-9_-]+','-',text).strip('-')[:32]
@@ -93,11 +95,11 @@ def build(cache, lock, output, animations=None, progress=lambda *_:None):
                 relative=path[len(strip):]
                 if relative.rsplit('/',1)[-1].lower() in ('thumbs.db','desktop.ini'):continue
                 name=relative.rsplit('/',1)[-1]
-                if len(name.encode('cp1252'))>42 and '/synopsis/' in ('/'+relative.lower()) and name.lower().endswith('.txt'):
-                    shortened=name[:-4][:31]+'-'+hashlib.sha256(name.encode()).hexdigest()[:6]+'.txt'
+                if '/synopsis/' in ('/'+relative.lower()) and name.lower().endswith('.txt') and fatx.metadata_filename(name)!=name:
+                    shortened=fatx.metadata_filename(name)
                     warnings.append(dict(package=item['id'],original=relative,
                                          installed=relative[:-len(name)]+shortened,
-                                         reason='upstream synopsis filename exceeds FATX 42-byte limit'))
+                                         reason='upstream synopsis filename incompatible with native Xbox filename rules'))
                     relative=relative[:-len(name)]+shortened
                 # Its native paths bypass the launch directory. Keep original
                 # MS resources on C: and the complete UIX resource tree on F:.

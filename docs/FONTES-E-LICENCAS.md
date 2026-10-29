@@ -1,7 +1,9 @@
 # Fontes e licenças das imagens públicas
 
-As betas.2 e .3 usam as mesmas versões dos pacotes Debian e do Xemu.
-Cada release disponibiliza esses fontes e a tag correspondente ao código X-Revive.
+A beta.5-live.6 tem 482 pacotes Debian e 347 versões-fonte, incluindo Built-Using.
+As versões da beta.4 continuam cobertas pelos dois primeiros arquivos; o terceiro
+arquivo acrescenta as 16 versões-fonte necessárias à nova imagem. O Xemu mantém
+o mesmo binário e seus fontes correspondentes. Cada release inclui a tag X-Revive.
 
 Os avisos estão na própria IMG em `/usr/share/doc/` e
 `/usr/share/common-licenses/`; a release oferece também `licencas-e-avisos.zip`.
@@ -13,8 +15,8 @@ firmware de hardware e demais componentes conservam suas próprias licenças.
 
 Esses arquivos não são necessários para instalar o sistema:
 
-- `sources-debian-01.tar.zst` e `sources-debian-02.tar.zst`: pacotes-fonte exatos,
-  `.dsc`, originais e patches Debian de 331 versões, cobrindo os 461 pacotes
+- `sources-debian-01.tar.zst`, `sources-debian-02.tar.zst` e `sources-debian-03.tar.zst`: pacotes-fonte exatos,
+  `.dsc`, originais e patches Debian de 347 versões, cobrindo os 482 pacotes
   instalados e dependências Built-Using / Static-Built-Using.
 - `sources.json`: URLs, nomes, tamanhos e SHA256, obtidos dos índices deb-src
   autenticados do Debian e conferidos em cada download.
@@ -23,16 +25,17 @@ Esses arquivos não são necessários para instalar o sistema:
   incluindo dependências/submódulos, patches e identidade do compilador.
 - `xone-0.5.8.tar.gz` e `pyfatx-0.0.8.tar.gz`: fontes das dependências externas
   adicionais. O pyfatx sdist inclui o código C do libfatx.
-- O `Source code` da tag beta.2 contém nossos scripts, receitas, patches e testes.
+- O `Source code` da tag v0.1.0-beta.5-live.6 contém nossos scripts, receitas, patches e testes.
 
-Os dois arquivos Debian são arquivos tar independentes, não pedaços de um único
-stream. Extraia ambos na mesma pasta. Exemplo Linux:
+Os três arquivos Debian são arquivos tar independentes, não pedaços de um único
+stream. Extraia todos na mesma pasta. Exemplo Linux:
 
 ```sh
 mkdir fontes
 cd fontes
 tar --zstd -xf ../sources-debian-01.tar.zst
 tar --zstd -xf ../sources-debian-02.tar.zst
+tar --zstd -xf ../sources-debian-03.tar.zst
 ```
 
 `debian/` contém os pacotes. `dpkg-source -x` extrai um `.dsc` junto dos arquivos

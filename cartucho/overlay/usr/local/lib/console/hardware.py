@@ -21,6 +21,9 @@ def wired_interface(root, requested="auto"):
         except OSError:
             carrier = False
         candidates.append((not carrier, link.name))
+    # An unplugged Ethernet port cannot carry pcap traffic. NAT also works
+    # through the host's Wi-Fi; explicit port selections remain respected.
+    if requested=='auto':candidates=[item for item in candidates if not item[0]]
     return min(candidates)[1] if candidates else ""
 
 
@@ -44,8 +47,9 @@ def audio_device(pcm, requested="auto"):
 
 
 def command(*args):
+    print('XREVIVE_STAGE Configurando '+{'ip':'rede','ethtool':'conexão Ethernet','amixer':'saída de áudio','aplay':'dispositivos de áudio','nvidia-smi':'placa de vídeo'}.get(args[0],args[0])+'...',flush=True)
     try:
-        result = subprocess.run(args, capture_output=True, text=True, timeout=10)
+        result = subprocess.run(args, capture_output=True, text=True, timeout=4)
         return result.stdout + result.stderr
     except (OSError, subprocess.TimeoutExpired) as exc:
         return str(exc)

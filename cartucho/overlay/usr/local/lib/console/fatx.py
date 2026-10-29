@@ -11,6 +11,22 @@ import math
 import os
 from pathlib import Path
 import struct
+import unicodedata
+
+
+def metadata_filename(name):
+    """Native Xbox APIs reject punctuation accepted by some raw FATX writers.
+
+    Used only for optional synopsis TXT metadata, never executable/resources.
+    Keep bytes unchanged and give changed names a deterministic collision suffix.
+    """
+    allowed=set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'()-.@[]^_`{}~ ")
+    converted=unicodedata.normalize('NFKD',name).encode('ascii','ignore').decode()
+    converted=''.join(c for c in converted if c in allowed).strip(' .')
+    if converted==name and len(name)<=42:return name
+    stem,ext=os.path.splitext(converted)
+    stem=(stem or 'metadata')[:31].rstrip(' .')
+    return stem+'-'+hashlib.sha256(name.encode()).hexdigest()[:6]+ext[:4]
 
 
 def geometry(size, cluster=16384):
@@ -216,6 +232,8 @@ class Volume:
         item = self.find(path)
         if item['directory']: raise IsADirectoryError(path)
         remaining = item['size']
+        # Native Xbox formatters may leave empty files with no allocated cluster.
+        if not remaining: return
         for c in self.chain(item['first']):
             if not remaining: break
             block = self.read_at(self.data+(c-1)*self.cluster,min(remaining,self.cluster))

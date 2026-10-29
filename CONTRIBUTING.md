@@ -25,7 +25,8 @@ ISOs ou logs sem revisão. Código original segue GPL-3.0-or-later; patches Xemu
 seguem GPL-2.0-or-later. Preserve avisos/autoria de terceiros. Só contribua com
 conteúdo que possa licenciar.
 
-Atualize changelog e guias relevantes. Tags beta: `vMAJOR.MINOR.PATCH-beta.N`.
+Atualize changelog e guias relevantes. Tags beta: `vMAJOR.MINOR.PATCH-beta.N`; candidatas LIVE podem usar sufixo
+`-live.N`, preservado ao publicar a imagem correspondente.
 Testes não promovem um candidato ao canal público nem validam todos os jogos.
 
 A documentação pública usa a voz do projeto: descreva funcionalidades, resultados
@@ -35,6 +36,6 @@ rastreabilidade técnica nos relatórios e não estenda um resultado a hardware 
 cenários que não foram testados.
 
 A direção vigente está em [INDEX](docs/INDEX.md) e [ROADMAP-ATUAL](docs/ROADMAP-ATUAL.md):
-X-Revive dedicado ao Xbox Clássico, preservação de HDD/FATX como pesquisa separada
-da instalação limpa publicada, experiência por controle e SSDs intercambiáveis.
+X-Revive dedicado ao Xbox Clássico, LIVE/preservação de HDD/FATX separado
+da instalação limpa, com migração de geometria ainda experimental, experiência por controle e SSDs intercambiáveis.
 Outros consoles pertencem a projetos futuros independentes.

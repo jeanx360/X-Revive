@@ -48,4 +48,8 @@ def persist_initial(run=Path('/run/console'),console=Path('/console'),remount=No
     return True
 
 
-if __name__=='__main__':persist_initial()
+if __name__=='__main__':
+    if Path('/run/console/live.json').exists():
+        from live_disk import save
+        save(initial=True)
+    else:persist_initial()

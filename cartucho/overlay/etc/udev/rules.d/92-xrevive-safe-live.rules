@@ -1,0 +1,2 @@
+# Applies after the boot USB is verified; only the authorized target is exempt.
+ACTION=="add|change", SUBSYSTEM=="block", ENV{DEVTYPE}=="disk", KERNEL!="loop*", KERNEL!="ram*", RUN+="/usr/bin/python3 /usr/local/lib/console/safe_live.py protect-new /dev/%k"

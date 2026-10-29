@@ -13,12 +13,12 @@ Preservação, reaproveitamento, engenharia e uma experiência feita para jogar 
 [![Licença](https://img.shields.io/badge/c%C3%B3digo-GPL--3.0--or--later-9ADD58?style=flat-square&labelColor=102015)](LICENSE)
 [![GitHub Pages](https://img.shields.io/badge/site-GitHub%20Pages-9ADD58?style=flat-square&labelColor=102015)](https://jeanx360.github.io/X-Revive/)
 
-**[🌐 Site oficial](https://jeanx360.github.io/X-Revive/) · [⬇️ Download da beta](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.4) · [📖 Instalação](docs/BAIXAR-E-INSTALAR.md) · [🛠️ Contribuir](CONTRIBUTING.md)**
+**[🌐 Site oficial](https://jeanx360.github.io/X-Revive/) · [⬇️ Download da beta](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.5-live.6) · [📖 Instalação](docs/BAIXAR-E-INSTALAR.md) · [🛠️ Contribuir](CONTRIBUTING.md)**
 
 </div>
 
 > [!WARNING]
-> **A beta pública v0.1.0-beta.4 APAGA completamente o HDD/SSD escolhido durante a instalação.** Não conecte seu disco original de Xbox para instalar esta versão. O modo que investiga a preservação de FATX existente está **em testes, fora da release pública**. Faça backups antes de qualquer operação com discos.
+> **Instalar X-Revive apaga o HDD/SSD escolhido.** Para usar um HDD Xbox existente, escolha **LIVE → Protegido**: as alterações ficam na RAM. O reparo de boot só grava após aviso e duas confirmações, quando há espaço reservado fora do FATX. Redimensionamento automático de F não está incluído. [Guia dos modos e limites](docs/LIVE-RECUPERACAO-BETA5-LIVE6.md).
 
 ## Por que o X-Revive nasceu?
 
@@ -42,12 +42,14 @@ A proposta é simples: **ligar o computador e entrar no Xbox.** Um Linux minimal
 | Instalação limpa em HDD/SSD dedicado, com FATX para conteúdo Xbox | ✅ Publicada; **destrutiva** |
 | Boot direto pelo HDD/SSD após a instalação | ✅ Validado em VM na beta |
 | Linux minimalista, Mesa e NVIDIA 550 na mesma imagem | ✅ Publicado; suporte varia conforme o hardware |
-| Instalação de coleção Rocky5 pela rede ou por ISO *normalizada X-Revive* | ✅ Publicada |
+| Instalação Rocky5 online ou coleção offline; LIVE por HeXEn/OGXbox/XISO do usuário | ✅ Publicada |
 | Dashboard XBMC4Gamers, áudio, rede/FTP e operação via controle | ✅ Funcionalidades com testes documentados |
-| EEPROM do usuário ou geração inicial pelo Xemu | ✅ Beta.4; identidade preservada no SSD |
-| Recuperação/manutenção via USB | ✅ Publicada |
+| EEPROM do usuário ou geração inicial pelo Xemu | ✅ Opcional; identidade preservada no SSD |
+| LIVE por mídia ou HDD, interno/USB | ✅ Protegido ou escrita explícita no único disco escolhido |
+| Wi-Fi no assistente e teclado virtual | ✅ Incluídos; compatibilidade depende do adaptador |
+| Recuperação/manutenção via USB | ✅ Reparo de EFI/rodapé recuperáveis, progresso e diagnóstico |
 | Atualizações Xemu assinadas | 🧪 Cliente implementado; **canal público ainda indisponível** |
-| Usar HDD original FATX preservando os dados e instalar boot UEFI ao lado | 🧪 Pesquisa de bancada **fora desta beta** |
+| Usar HDD original FATX preservando os dados e instalar boot UEFI ao lado | 🧪 LIVE protegido e boot com reserva externa; redução de F ainda não automatizada |
 | Usar disco preparado em Xbox físico com modchip | 🧪 Compatibilidade física ainda não conclusivamente validada |
 | BIOS totalmente livre e execução direta de XBE sem o Xemu | 🧭 Objetivo de pesquisa de longo prazo |
 
@@ -55,33 +57,33 @@ A compatibilidade de jogos é limitada pelo Xemu, pela configuração e pelo har
 
 ## Download e primeiros passos
 
-**Versão pública de referência:** `v0.1.0-beta.4` · [Página da release](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.4)
+**Pré-release beta para testes:** `v0.1.0-beta.5-live.6` · [Página da release](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.5-live.6)
 
 | Arquivo | Uso |
 | --- | --- |
-| **[Baixar imagem instaladora (.img.xz)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/x-revive-v0.1.0-beta.4.img.xz)** | Descompactar e gravar em um pendrive de 16 GB ou maior |
-| [Estrutura das pastas do usuário (.zip)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/arquivos-do-usuario.zip) | Preparar a pasta de firmware e arquivos autorizados |
-| [Checksums SHA256](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.4/SHA256SUMS.txt) | Conferir a integridade do download |
+| **[Baixar imagem instaladora (.img.xz)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.5-live.6/x-revive-v0.1.0-beta.5-live.6.img.xz)** | Descompactar e gravar em um pendrive de 16 GB ou maior |
+| [Estrutura das pastas do usuário (.zip)](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.5-live.6/arquivos-do-usuario.zip) | Preparar a pasta de firmware e arquivos autorizados |
+| [Checksums SHA256](https://github.com/jeanx360/X-Revive/releases/download/v0.1.0-beta.5-live.6/SHA256SUMS.txt) | Conferir a integridade do download |
 | [Todas as releases](https://github.com/jeanx360/X-Revive/releases) | Notas, fontes e versões posteriores |
 
 1. Confira o [guia passo a passo](docs/BAIXAR-E-INSTALAR.md) e os [requisitos](docs/COMPATIBILIDADE.md).
 2. Descompacte `.img.xz` e **grave a IMG no pendrive inteiro** (ex.: com [balenaEtcher](https://etcher.balena.io/)). Não basta copiar o arquivo para o USB.
 3. Na partição `XREVIVE`, extraia as pastas do usuário e coloque seus próprios arquivos `bios.bin` e `mcpx_1.0.bin`; `eeprom.bin` é opcional. **Nenhum firmware proprietário é fornecido.**
-4. Inicie o PC pelo USB em modo UEFI. Escolha a coleção Rocky5 online (com Ethernet/DHCP) ou uma ISO offline no formato exigido pelo X-Revive.
-5. Escolha **um HDD/SSD de teste dedicado**, verifique modelo/capacidade e confirme a formatação duas vezes. **Todos os dados do destino serão apagados.**
-6. Terminada a instalação, retire o USB e inicie o console pelo HDD/SSD.
+4. Inicie o PC pelo USB em UEFI. Use **Configurar rede Wi-Fi** se necessário; há teclado virtual para controle e entrada por teclado físico.
+5. Escolha **LIVE → Protegido** para iniciar por uma mídia ou pelo HDD Xbox sem instalar. Ou escolha **Instalar X-Revive** para uma instalação limpa em disco dedicado, com duas confirmações e apagamento do destino.
+6. Para boot direto do HDD existente, siga o [guia de preparação/reparo](docs/LIVE-RECUPERACAO-BETA5-LIVE6.md). Não use a instalação limpa para preservar seu disco. A [beta.4 anterior](https://github.com/jeanx360/X-Revive/releases/tag/v0.1.0-beta.4) permanece disponível.
 
 **Requisitos da beta:** PC x86-64 com UEFI, Secure Boot desativado, pendrive de pelo menos 16 GB, HDD/SSD de teste com pelo menos 32 GiB e menos de 2 TiB, setores lógicos de 512 bytes, firmware Xbox autorizado. Consulte as restrições completas antes de tentar instalar.
 
 **[Guia completo de instalação →](docs/BAIXAR-E-INSTALAR.md)**
 
-## Preservar um HDD original: pesquisa separada
+## Usar um HDD Xbox existente
 
-O motivo original do X-Revive continua sendo sua grande ambição: reaproveitar um HDD do Xbox, com suas partições FATX e biblioteca existente, em hardware diferente. Essa linha de pesquisa estuda o reconhecimento de FATX existente e uma área UEFI que preserve o conteúdo original.
+O LIVE reconhece FATX nativo ou híbrido em unidades internas e USB. No modo protegido, o disco fica somente leitura e as mudanças vão para RAM; ele também pode iniciar com um HDD virtual descartável. Para instalar dentro de uma mídia Xbox, escolha o modo com escrita e autorize somente o disco selecionado.
 
-**Isso não corresponde ao instalador da beta.4.** Os resultados ainda precisam ser reproduzidos com procedimentos de integridade, backups e diferentes modelos de disco/firmware antes de serem oferecidos como opção de uso público. O modo de instalação limpa é intencionalmente separado dessa pesquisa.
+O assistente pode preparar/reparar o boot UEFI quando existe área de sistema fora dos volumes Xbox. A existência de boot anterior não impede o reparo: ele é substituído após aviso e confirmações. Se F ocupa o disco todo, é necessária uma migração de geometria, **ainda não automatizada nesta release**. Compatibilidade com Xbox físico exige teste específico.
 
-[Leia os limites e critérios de validação da preservação →](docs/PRESERVACAO-HDD.md)
+[Modos, limites e evidências de preservação →](docs/PRESERVACAO-HDD.md)
 
 ## O futuro: um console por cartucho
 

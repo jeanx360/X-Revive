@@ -1,0 +1,9 @@
+[Unit]
+Description=Inicia HDD Xbox existente pelo USB sem instalar
+Requires=console-prepare.service
+After=console-prepare.service console-installer-worker.service
+ConditionPathExists=/run/console/live.json
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/local/lib/console/live_disk.py activate

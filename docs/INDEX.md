@@ -1,8 +1,8 @@
 # Documentação do X-Revive
 
-Este é o índice **vigente para a versão pública v0.1.0-beta.4**. Ele distingue instruções de usuário, documentação de engenharia, experimentos ainda não distribuídos e registros históricos. Consulte primeiro o [estado da beta](BETA.md).
+Este é o índice **vigente para a versão pública v0.1.0-beta.5-live.6**. Ele distingue instruções de usuário, documentação de engenharia, experimentos ainda não distribuídos e registros históricos. Consulte primeiro o [estado da beta](BETA.md).
 
-> **Segurança:** a beta.4 executa **instalação limpa com apagamento do disco selecionado**. O projeto de preservação de HDD original com FATX existente **não** faz parte dessa release. Não use o HDD original para testar o instalador público.
+> **Escolha o modo:** instalação limpa apaga o destino; LIVE protegido usa RAM. Reparo de boot exige mapa/reserva fora do FATX e duas confirmações.
 
 ## Quero usar a beta publicada
 
@@ -12,8 +12,10 @@ Este é o índice **vigente para a versão pública v0.1.0-beta.4**. Ele disting
 | [Compatibilidade](COMPATIBILIDADE.md) | Requisitos verificáveis, GPUs, limites e o que não está garantido |
 | [Estado da beta](BETA.md) | Testes publicados, limitações e funcionalidades |
 | [EEPROM opcional](EEPROM-OPCIONAL.md) | Importação de identidade existente ou geração pelo Xemu |
+| [LIVE, Wi-Fi e dongle](LIVE-MIDIAS-WIFI-BETA5.md) | Mídias livres, discos USB, rede e entrada |
+| [LIVE e recuperação](LIVE-RECUPERACAO-BETA5-LIVE6.md) | Proteção, feedback e reparo de UEFI |
 | [Instalador online/offline](INSTALADOR-ONLINE.md) | Fluxo detalhado, ISO normalizada, logs e recuperação |
-| [Releases](releases/v0.1.0-beta.4.md) | Inventário da versão pública beta.4 |
+| [Releases](releases/v0.1.0-beta.5-live.6.md) | Imagem, hashes, fontes e limites da pré-release |
 
 ## Quero conhecer e desenvolver
 
@@ -36,7 +38,8 @@ Nenhuma versão pública do projeto distribui BIOS/MCPX originais, jogos, EEPROM
 
 ## Registros históricos e relatórios
 
-- [Validação da beta.4](VALIDACAO-PUBLICA-BETA4.md): instalação, persistência e confirmação física da build atual em 25/10/2026.
+- [Validação live.6](VALIDACAO-LIVE6-RECUPERACAO.md): evidências e limites da entrega atual.
+- [Validação da beta.4](VALIDACAO-PUBLICA-BETA4.md): instalação, persistência e confirmação física da build anterior em 25/10/2026.
 - [Validação do site](VALIDACAO-SITE-2026-10-25.md): publicação, revisão editorial e testes desktop/mobile em 25/10/2026.
 
 Os documentos a seguir registram **decisões, testes e propostas da época em que foram escritos**. Alguns mencionam arquiteturas antigas (várias IMG, HDD FATX separado, HeXEn/OGXbox embutidos, diferentes drivers ou fluxos de instalação). **Não os utilize como instruções de instalação da beta pública atual.** São preservados para rastreabilidade:

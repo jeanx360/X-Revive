@@ -1,45 +1,40 @@
-# Preservação de HDD Xbox original — pesquisa experimental
+# HDD Xbox existente — LIVE e boot experimental
 
-**Estado:** pesquisa experimental de bancada. **Não disponível na imagem pública `v0.1.0-beta.4`.** Este documento explica o objetivo, os riscos e os testes necessários; **não é um tutorial de conversão de disco**.
+A beta.5-live.6 inclui LIVE e preparação/reparo de boot em layouts reconhecidos.
+Não é uma migração automática de qualquer HDD. [Guia](LIVE-RECUPERACAO-BETA5-LIVE6.md).
 
-## Por que isso existe?
+| Opção | Efeito no disco |
+|---|---|
+| LIVE protegido, sem mídia ou por ISO | HDD somente leitura, alterações descartáveis na RAM |
+| LIVE com acesso de escrita | A mídia Xbox pode instalar/formatar no disco escolhido após duas confirmações |
+| Preparar/reparar boot | Atualiza SYSTEM/UEFI fora do FATX, após aviso e duas confirmações |
+| Instalar X-Revive | Apaga o destino; não usar para preservar conteúdo existente |
 
-O X-Revive nasceu de um Xbox Clássico danificado por enchente. A intenção original é usar outro hardware sem perder o HDD, os dados FATX, jogos, dashboards e, quando for possível recuperar, a identidade da máquina.
+FATX nativo e híbrido, em unidades internas ou USB, podem iniciar sem exigir
+inventário de aplicativos do X-Revive. Boot UEFI anterior, íntegro ou quebrado,
+é substituído quando o mapa/reserva permite; outros dados PC não são apagados
+para forçar essa operação. Rodapé danificado pode ser recuperado pelo mapa da
+ESP. Se todo o mapa foi perdido, é necessário diagnóstico específico.
 
-A pesquisa parte da inicialização do ambiente por USB/RAM e do reconhecimento de FATX existente, e investiga uma área de boot UEFI no mesmo disco sem sobrescrever o conteúdo original. Os protótipos históricos e a instalação limpa não demonstram, por si só, a preservação de um HDD original. Essa abordagem ainda precisa de um procedimento reproduzível e de verificação integral.
+## Quando F ocupa até o final
 
-## O que é diferente da beta pública
+Espaço livre dentro de F não é área independente para Linux/UEFI. Reduzir F
+altera o tamanho derivado da FAT e pode deslocar o início dos dados; mudar só
+a tabela PARTINFO pode corromper o acesso. A candidata não faz esse
+redimensionamento automaticamente: informa a necessidade e permite LIVE.
 
-| Aspecto | Beta pública beta.4 | Pesquisa de preservação |
-| --- | --- | --- |
-| Disco de destino | Novo ou descartável | HDD original, possivelmente com dados exclusivos |
-| Operação | **Instalação limpa: apaga o disco** | Objetivo: identificar FATX e preservar o conteúdo existente |
-| Boot | USB para instalar e SSD/HDD para usar | Investigação de USB/RAM e boot UEFI opcional |
-| Garantia de integridade | Duas confirmações antes da instalação limpa | **Ainda não há garantia pública para o modo de preservação** |
-| Disponibilidade | IMG distribuída nas releases | Pesquisa de bancada, fora da beta.4 |
+A reserva de cerca de 3,19 GiB foi provada em uma cópia de HDD de 1 TB, com
+reposicionamento e hashes dos dados alocados preservados. Essa cópia iniciou
+sem pendrive. No HDD físico, os ensaios foram somente leitura, sem aplicar a
+migração. Isso não é garantia para qualquer geometria ou disco original.
 
-**Não conecte seu HDD original para instalar a beta.4.**
+## Evidências e trabalho seguinte
 
-## Premissas técnicas que devem ser demonstradas
+[Validação](VALIDACAO-LIVE6-RECUPERACAO.md): cópia de metadados e todos os blocos
+alocados, conferência antes/depois, proteção real por descritor O_RDONLY,
+reparo de rodapé/EFI em clones e boot independente.
 
-A estrutura FATX do Xbox original não é uma tabela GPT comum. Suas informações de particionamento e o setor de boot do PC podem compartilhar endereços e comportamentos de forma específica. Uma leitura aparentemente correta depois de alterar partições Linux **não prova**, por si só, que todas as regiões, assinaturas, backups e caminhos de recuperação estejam seguros.
-
-Antes de distribuir esse modo, a equipe deve demonstrar, em discos representativos e imagens-clone descartáveis:
-
-1. Reconhecimento **somente leitura** de FATX e da geometria real, incluindo variações, partições estendidas e tabelas/BIOS relevantes.
-2. Cópia integral e **backup verificável antes da primeira escrita**. Se houver sinais de degradação física, priorizar imagem forense/recuperação em vez de experimentar sobre o original.
-3. Mapa de regiões usadas e reservadas, com comparação dos setores relevantes **antes e depois** da intervenção UEFI; nenhum campo necessário ao Xbox pode ser alterado silenciosamente.
-4. Inventário e hashes verificáveis dos dados, com checagem de integridade e boot depois da modificação.
-5. Reinicializações repetidas, diferentes firmwares/BIOS, falhas de energia e método documentado de retorno ao estado anterior.
-6. Quando declarado compatível: ensaio **físico** no Xbox modchipado, com BIOS compatível e sem formatadores que possam ocupar a região UEFI do PC.
-7. Mensagens inequívocas de risco e confirmação; nenhuma operação destrutiva automática em discos existentes.
-
-## EEPROM e bloqueio ATA
-
-O backup `eeprom.bin` de uma máquina existente pode ser necessário para recuperar sua identidade e a chave associada ao HDD. **Ter um backup não significa automaticamente que o HDD esteja desbloqueado**. Algumas unidades possuem ATA Security e precisam de procedimentos específicos, seguros e compatíveis. Não divulgue EEPROM, HDD key, dumps, números de série ou conteúdo privado em issues e logs públicos.
-
-## Segurança editorial
-
-Enquanto não houver release própria e matriz de validação pública, qualquer conteúdo no README ou site deve chamar esse recurso de **pesquisa experimental**. Evite frases como “zero risco”, “preserva qualquer HDD”, “100% compatível com Xbox físico” ou “um clique sem perdas”.
-
-[Estado da beta](BETA.md) · [Arquitetura atual](ARQUITETURA.md) · [Índice](INDEX.md)
+A migração genérica ainda precisa de backup verificável, planejamento por
+geometria, recuperação após interrupção e testes em mais modelos. Uso no Xbox
+físico depende também de BIOS, versão, EEPROM e trava ATA; a VM não valida isso.
+Manter instalação limpa separada desses testes e preservar os dados originais.

@@ -30,6 +30,7 @@ mmdebstrap --mode=root --variant=minbase \
 	--customize-hook='mkdir -p "$1/usr/local/lib/console/hal" && cp --preserve=mode /src/hal/probe.sh "$1/usr/local/lib/console/hal/"' \
 	--customize-hook='chroot "$1" systemctl enable console-prepare.service console-update-health.service console-pad.service console.service console-tray-monitor.service console-installer.service console-installer-worker.service console-diagnostics.service systemd-networkd.service systemd-resolved.service' \
 	--customize-hook='chroot "$1" systemctl mask getty@tty1.service getty@tty3.service console-getty.service plymouth-quit.service plymouth-quit-wait.service' \
+	--customize-hook='chroot "$1" systemctl enable NetworkManager.service && chroot "$1" systemctl mask NetworkManager-wait-online.service' \
 	--customize-hook='echo console > "$1/etc/hostname"' \
 	--customize-hook='chroot "$1" plymouth-set-default-theme x-revive || true' \
 	--customize-hook='chroot "$1" update-initramfs -u' \

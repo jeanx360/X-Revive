@@ -16,6 +16,8 @@ if os.path.ismount('/userdata'):
             result=subprocess.run(cmd,capture_output=True,timeout=12)
             (dest/name).write_bytes((result.stdout+result.stderr)[-1024**2:])
         except Exception as exc:(dest/name).write_text(str(exc))
-    for src in ('/run/console/profile','/run/console/interface.log','/usr/share/console/build.json','/proc/cmdline'):
+    for src in ('/run/console/profile','/run/console/interface.log','/run/console/graphics.json',
+                '/run/xrevive-installer/protected-disks.json','/run/console/dongle.json',
+                '/usr/share/console/build.json','/proc/cmdline'):
         if Path(src).is_file():(dest/Path(src).name).write_bytes(Path(src).read_bytes())
     subprocess.run(['sync','-f',str(dest)],timeout=10)

@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.1.0-beta.5-live.6 — 28/10/2026
+
+- LIVE unificado por mídia ou HDD, com disco virtual/protegido ou escrita explícita em um alvo.
+- Wi-Fi, teclado virtual e importação do firmware do dongle antes da interface.
+- Progresso animado com etapas/tempo, detalhes, cancelamento e diagnósticos persistentes.
+- Recuperação/substituição do boot UEFI em mapa reconhecido, independente do inventário de apps.
+- DVD virtual offline sem segunda cópia integral da coleção; mídias XDVDFS diretas.
+- 124 testes locais e ensaios de boot/áudio/FTP/proteção/reparo documentados.
+- F até o final ainda exige migração específica; redimensionamento automático não incluído.
+
+
 ## Validação e documentação — 2026-10-25
 
 - Beta.4 testada em bancada física e funcionando como esperado.

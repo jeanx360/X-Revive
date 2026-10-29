@@ -1,5 +1,6 @@
 import importlib.util
 import os
+import struct
 from pathlib import Path
 import tempfile
 import unittest
@@ -10,6 +11,20 @@ fatx=importlib.util.module_from_spec(spec);spec.loader.exec_module(fatx)
 
 
 class FATXInstallerTests(unittest.TestCase):
+    def test_native_empty_file_without_cluster_is_readable_but_nonempty_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp=Path(tmp);source=tmp/'files';source.mkdir();(source/'empty.txt').touch()
+            disk=tmp/'volume';disk.write_bytes(bytes(2*1024**2));fd=os.open(disk,os.O_RDWR)
+            try:
+                fatx.format_tree(fd,0,disk.stat().st_size,source)
+                volume=fatx.Volume(fd,0,disk.stat().st_size);entry=volume.find('empty.txt')
+                os.pwrite(fd,struct.pack('<II',0,0),entry['at']+44)
+                self.assertEqual(fatx.Volume(fd,0,disk.stat().st_size).read('empty.txt'),b'')
+                os.pwrite(fd,struct.pack('<II',0,1),entry['at']+44)
+                with self.assertRaisesRegex(ValueError,'cadeia FATX'):
+                    fatx.Volume(fd,0,disk.stat().st_size).read('empty.txt')
+            finally:os.close(fd)
+
     def test_large_trainer_directory_chains_and_boundary_sentinels(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp=Path(tmp);source=tmp/'files';source.mkdir();(source/'trainers').mkdir()

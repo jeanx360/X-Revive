@@ -1,0 +1,1040 @@
+{
+  "schema": 1,
+  "commit": "53203aa1c1272468c9374f260233f92557c9f324",
+  "origin": "https://raw.githubusercontent.com/Rocky5/Xbox-Softmodding-Tool/",
+  "files": [
+    {
+      "path": "FlashSM/Prep/Cfiles.zip",
+      "bytes": 75753,
+      "git_blob": "903caa3adf92251f7f17943b2077e68b0e1d62f9",
+      "sha256": "b66d735fc8a658f7fc7e7e5c05731df3565ff760428cb80b34935b993fc0a1af"
+    },
+    {
+      "path": "FlashSM/Prep/NoVC.bin",
+      "bytes": 262144,
+      "git_blob": "871a0e53b9936a22a61d53fead0c8560555e4c8c",
+      "sha256": "7ec7f2d0b00ade181edaa4bb2ef4bc1c3416b6a6fbf298837fd48212a0d0161b"
+    },
+    {
+      "path": "FlashSM/Prep/boot.cfg",
+      "bytes": 386,
+      "git_blob": "06edd200eb66e3141a3224ae8b2c52d925d90ee9",
+      "sha256": "c1ae45a2de3073abf27362ffb2bce4ce51657dd533fdeaf783180e59cc5b2d30"
+    },
+    {
+      "path": "FlashSM/Prep/config.xml",
+      "bytes": 3713,
+      "git_blob": "babe52101a387d6dc7555abbc74816868ad3bc2d",
+      "sha256": "d2e22e65ede3af1ca63a48d474c8de0170049998d3a18c1b57ce48c87649af10"
+    },
+    {
+      "path": "FlashSM/Prep/default.xbe",
+      "bytes": 22272,
+      "git_blob": "a46e4081569367415626ce46743f77a929c1f672",
+      "sha256": "05bc46c5549ca6d42a475ff3480458296f18f02f249412c968df98e714a3c764"
+    },
+    {
+      "path": "FlashSM/Prep/skins/CleanupHM/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "FlashSM/Prep/skins/CleanupHM/skin.xml",
+      "bytes": 10676,
+      "git_blob": "613f07821e7310af801e7b98d36dfb3057bd25b2",
+      "sha256": "abe1f83e1b37e880ddaa260be34d635d351f1fc40a0c05ae29c9203a38fa9e8e"
+    },
+    {
+      "path": "FlashSM/Prep/skins/CleanupSM/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "FlashSM/Prep/skins/CleanupSM/skin.xml",
+      "bytes": 10612,
+      "git_blob": "b54d8882905f1548f07db8abc57acd942d9fc447",
+      "sha256": "47995cec74655454f355711c0b83b83622340a5b38188415352b02e6c408a6c2"
+    },
+    {
+      "path": "FlashSM/Prep/skins/TSOPFlash/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "FlashSM/Prep/skins/TSOPFlash/skin.xml",
+      "bytes": 10437,
+      "git_blob": "fe7b8097e2f42d09a6f100202d5369455d89ec10",
+      "sha256": "d68eb3cdba8ef18ee4fd784209684398af98308f23c04efa7b64a276f741cd92"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/fonts/font1.xpr",
+      "bytes": 135168,
+      "git_blob": "0b35c3be0b8411671f827990e5f157bd65694e3b",
+      "sha256": "e1b5db7d2f54b34f2fadfe6eb632dbb4544f1190efea2357a4e81d91988a0c09"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/fonts/font2.xpr",
+      "bytes": 135168,
+      "git_blob": "e324cdbc40db45e499bcb12b346dd30507670922",
+      "sha256": "86a06942814fddb8095ca022aa8b34884e4a18395ca05249a9a1e25cf72c1880"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/fonts/font3.xpr",
+      "bytes": 135168,
+      "git_blob": "fe1d64d39e6fb24bb34b78a1c1e39d8b63797ccc",
+      "sha256": "15df272184162ac059626050b56ff144cc1fa3a4d6d812303cf4bc620eb0d87a"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/fonts/font4.xpr",
+      "bytes": 135168,
+      "git_blob": "4cf83f9277411f43e78442350f0edadae47e4e0e",
+      "sha256": "a021cf0b2393e7e3cc286d73e0b378c689932e47fdab5485be36cee91868a8c1"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/Softmodding Tool.png",
+      "bytes": 18553,
+      "git_blob": "6c2128948c759c9c2a9d29fa2340776e7dda098b",
+      "sha256": "4101d3af61a8f71218d38b434fca1eadcd0e7671c7650877d3350be91a15fd1e"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/Xbox Logo.png",
+      "bytes": 62235,
+      "git_blob": "d452b9f30b41535700f0a6986dbc247e04c84bee",
+      "sha256": "abf58561bcb56881df5909f40da51a6c94b6af5cd1032b6c4acbf190a359499d"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/background.png",
+      "bytes": 70,
+      "git_blob": "c57caf57e8299fd292b12f15ec7926385f2cdd7b",
+      "sha256": "3ef18277dfe68b94f77c76b213b4406a4c9de67e9a938b1d44a81ca14773d265"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/buttons.png",
+      "bytes": 6016,
+      "git_blob": "4721c2eb819a2508d6345d7782887c9cf201f809",
+      "sha256": "e93dfbe94512e5098f4178cf3e40644cb34a0c291ad568adffaad160a1c471d9"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/loading.png",
+      "bytes": 41501,
+      "git_blob": "164b98ddcb24a128b075671905ce004bc035c2a5",
+      "sha256": "027e038e255e1fe42ec72942cb6e333e036cc5cfa22eab0365b8fce6cdd42f8f"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/musicplayer/buttonmap.png",
+      "bytes": 7273,
+      "git_blob": "a5aaa2625f8f78f3b03bbeebb1d4c7fbf25a3710",
+      "sha256": "654e3878b4666dba96dca8d6e28c78f465519aafe8861b9bbb792bbd76c529f1"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/musicplayer/musicbg.png",
+      "bytes": 22573,
+      "git_blob": "240ad3ec3200f422f4e5333f652f8215b5ff6603",
+      "sha256": "1ce22f55ab06677413c03a10edc104f5047f309de1d4176ddf77febd14bc1cc3"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/musicplayer/vboverlay.png",
+      "bytes": 3391,
+      "git_blob": "214792d5f02ca9e3b4827ae3416877cac904a214",
+      "sha256": "a0a3601ea6b1cb4a963d1d7f9b34d90e0b387b1508b7fc9d541edb55bf5348a1"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/images/musicplayer/vbunderlay.png",
+      "bytes": 70,
+      "git_blob": "a546382be303663276a8474c2d2a3fa2d9d0b168",
+      "sha256": "15551af84cf0b17a330cf4229979d26f0a47d86d6e96fad0df45b2d5cf069e30"
+    },
+    {
+      "path": "FlashSM/Prep/skins/skin files/music/ambient.wav",
+      "bytes": 675246,
+      "git_blob": "1010ad4d2a250c11a9ddef96d5b082dc6411288a",
+      "sha256": "3ad3c441a3d90a72b713b803be35741db35292cfb155a62941cb72be74840f9d"
+    },
+    {
+      "path": "FlashSM/Prep/stage2.zip",
+      "bytes": 3778257,
+      "git_blob": "ef4b56d2cb3b0a9ecfa013d45c23734690f64746",
+      "sha256": "c07af28418dc673efd4fcbb17775d448e6d11edb54326d5981d3a45910c86db1"
+    },
+    {
+      "path": "FlashSM/Prep/unleashx.xbe",
+      "bytes": 3055616,
+      "git_blob": "165d51395d4de078eab462e5a3712fbcd5761a3c",
+      "sha256": "caee3ef43e6115d75d1146334e61fc76a5358fe6ebcd66e3d7d1eebf6bd0b2bd"
+    },
+    {
+      "path": "FlashSM/bios/5003_no_intro.bin",
+      "bytes": 262144,
+      "git_blob": "6a8dee770b0336dcdf0fa562093a5387b3dec432",
+      "sha256": "4280b9f236aee335248cfc76b46aa94fb74748e32b77021fd4c842bf2fd24377"
+    },
+    {
+      "path": "FlashSM/bios/5003_stock_look.bin",
+      "bytes": 262144,
+      "git_blob": "6a8dee770b0336dcdf0fa562093a5387b3dec432",
+      "sha256": "4280b9f236aee335248cfc76b46aa94fb74748e32b77021fd4c842bf2fd24377"
+    },
+    {
+      "path": "FlashSM/bios/M8Plus_no_intro.bin",
+      "bytes": 262144,
+      "git_blob": "e2ba03321c5d7ac6694f085c00c53a17c11e4376",
+      "sha256": "20a94b6e8a4639a0c15e432dfb6fec330998ee18cc56c8d4d2ca9cc9f314231a"
+    },
+    {
+      "path": "FlashSM/bios/M8Plus_stock_look.bin",
+      "bytes": 262144,
+      "git_blob": "78605d0eef62512ca580da401547b4d3ff7afc71",
+      "sha256": "c5dd36a55c2fe39fcf4a8fc7982f2aba2a7cf2e5f935984b28a19ce221167712"
+    },
+    {
+      "path": "FlashSM/bios/ReadMe.txt",
+      "bytes": 132,
+      "git_blob": "2f87ddb3d7a5f265e4c0622f86e59852d62c851d",
+      "sha256": "3a53082788df68a8e177781d819de042a4341fc0c30c08e58978cdd06dfed2f8"
+    },
+    {
+      "path": "FlashSM/bios/ind-bios_no_intro.cfg",
+      "bytes": 1540,
+      "git_blob": "9dc66dc221310a4a14e88bb998a97b6c88873dfb",
+      "sha256": "8e063ad11165ffa0201cfd4514275d519cbdb46ce123a64cda513482db10b3fe"
+    },
+    {
+      "path": "FlashSM/bios/ind-bios_stock_look.cfg",
+      "bytes": 1540,
+      "git_blob": "9a01e91326486506493d8027818b5470e333ba6c",
+      "sha256": "4b1e2196cb02b1d4fc492e93af2af2ccc6bf8bcddcdc305af00a68cebb16bdb2"
+    },
+    {
+      "path": "FlashSM/default.xbe",
+      "bytes": 3055616,
+      "git_blob": "6cb1a09bc09d1b917dc9c503d9a7552348c4c1df",
+      "sha256": "2b9a5f1c8174a812dcdaee9c0ff3851f3b8d03e914794feca07b19c997ed558f"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/Softmodding Tool.png",
+      "bytes": 18553,
+      "git_blob": "6c2128948c759c9c2a9d29fa2340776e7dda098b",
+      "sha256": "4101d3af61a8f71218d38b434fca1eadcd0e7671c7650877d3350be91a15fd1e"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/Xbox Logo.png",
+      "bytes": 62235,
+      "git_blob": "d452b9f30b41535700f0a6986dbc247e04c84bee",
+      "sha256": "abf58561bcb56881df5909f40da51a6c94b6af5cd1032b6c4acbf190a359499d"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/background.png",
+      "bytes": 70,
+      "git_blob": "c57caf57e8299fd292b12f15ec7926385f2cdd7b",
+      "sha256": "3ef18277dfe68b94f77c76b213b4406a4c9de67e9a938b1d44a81ca14773d265"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/buttons.png",
+      "bytes": 6016,
+      "git_blob": "4721c2eb819a2508d6345d7782887c9cf201f809",
+      "sha256": "e93dfbe94512e5098f4178cf3e40644cb34a0c291ad568adffaad160a1c471d9"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/font1.xpr",
+      "bytes": 135168,
+      "git_blob": "0b35c3be0b8411671f827990e5f157bd65694e3b",
+      "sha256": "e1b5db7d2f54b34f2fadfe6eb632dbb4544f1190efea2357a4e81d91988a0c09"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/font2.xpr",
+      "bytes": 135168,
+      "git_blob": "e324cdbc40db45e499bcb12b346dd30507670922",
+      "sha256": "86a06942814fddb8095ca022aa8b34884e4a18395ca05249a9a1e25cf72c1880"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/font3.xpr",
+      "bytes": 135168,
+      "git_blob": "fe1d64d39e6fb24bb34b78a1c1e39d8b63797ccc",
+      "sha256": "15df272184162ac059626050b56ff144cc1fa3a4d6d812303cf4bc620eb0d87a"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/font4.xpr",
+      "bytes": 135168,
+      "git_blob": "4cf83f9277411f43e78442350f0edadae47e4e0e",
+      "sha256": "a021cf0b2393e7e3cc286d73e0b378c689932e47fdab5485be36cee91868a8c1"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/loading.png",
+      "bytes": 41501,
+      "git_blob": "164b98ddcb24a128b075671905ce004bc035c2a5",
+      "sha256": "027e038e255e1fe42ec72942cb6e333e036cc5cfa22eab0365b8fce6cdd42f8f"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/musicplayer/buttonmap.png",
+      "bytes": 7273,
+      "git_blob": "a5aaa2625f8f78f3b03bbeebb1d4c7fbf25a3710",
+      "sha256": "654e3878b4666dba96dca8d6e28c78f465519aafe8861b9bbb792bbd76c529f1"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/musicplayer/musicbg.png",
+      "bytes": 22573,
+      "git_blob": "240ad3ec3200f422f4e5333f652f8215b5ff6603",
+      "sha256": "1ce22f55ab06677413c03a10edc104f5047f309de1d4176ddf77febd14bc1cc3"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/musicplayer/vboverlay.png",
+      "bytes": 3391,
+      "git_blob": "214792d5f02ca9e3b4827ae3416877cac904a214",
+      "sha256": "a0a3601ea6b1cb4a963d1d7f9b34d90e0b387b1508b7fc9d541edb55bf5348a1"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/musicplayer/vbunderlay.png",
+      "bytes": 70,
+      "git_blob": "a546382be303663276a8474c2d2a3fa2d9d0b168",
+      "sha256": "15551af84cf0b17a330cf4229979d26f0a47d86d6e96fad0df45b2d5cf069e30"
+    },
+    {
+      "path": "FlashSM/skins/Flasher/skin.xml",
+      "bytes": 10496,
+      "git_blob": "1bb3168f2c1aa14248297e03465be01559fad088",
+      "sha256": "e5f63566e52863ddc9c9641945761e7945b2849a5b50076a2ac02cc35634bbf7"
+    },
+    {
+      "path": "Hardmod/dashloader/Dashloader.ini",
+      "bytes": 257,
+      "git_blob": "673b857f467c1d22dd06988b021aa99a16b7bdc7",
+      "sha256": "21b81108bb142da978f3e04a3fdfdd073b3b7c5a870ebf46818a4c2626fd6a11"
+    },
+    {
+      "path": "Hardmod/dashloader/evoxdash.xbe",
+      "bytes": 348160,
+      "git_blob": "07cd24f8cae0efacbbd7c486af02ea8e70b5a669",
+      "sha256": "3044ecaf16808731c7957b12a0dde803756fdf4f7156edcbd1dce61835665138"
+    },
+    {
+      "path": "Hardmod/default.xbe",
+      "bytes": 3055616,
+      "git_blob": "b4810c8965c3a65a2fd08f4e831a783dc918753d",
+      "sha256": "9940b8c2e58bfc04b67b99259c86a76d7ae06e397bd65cc852ec0e9a99ac6e9c"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/Softmodding Tool.png",
+      "bytes": 18553,
+      "git_blob": "6c2128948c759c9c2a9d29fa2340776e7dda098b",
+      "sha256": "4101d3af61a8f71218d38b434fca1eadcd0e7671c7650877d3350be91a15fd1e"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/Xbox Logo.png",
+      "bytes": 62235,
+      "git_blob": "d452b9f30b41535700f0a6986dbc247e04c84bee",
+      "sha256": "abf58561bcb56881df5909f40da51a6c94b6af5cd1032b6c4acbf190a359499d"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/background.png",
+      "bytes": 70,
+      "git_blob": "09045a7a3f8cc50d6f04245c24642aa1ca8e1ee2",
+      "sha256": "bad733bffde95c9e7fe2f3752925b79dcc8b4604e1c80a991f22243f1d9a2cc5"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/buttons.png",
+      "bytes": 6016,
+      "git_blob": "4721c2eb819a2508d6345d7782887c9cf201f809",
+      "sha256": "e93dfbe94512e5098f4178cf3e40644cb34a0c291ad568adffaad160a1c471d9"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/font1.xpr",
+      "bytes": 135168,
+      "git_blob": "0b35c3be0b8411671f827990e5f157bd65694e3b",
+      "sha256": "e1b5db7d2f54b34f2fadfe6eb632dbb4544f1190efea2357a4e81d91988a0c09"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/font2.xpr",
+      "bytes": 135168,
+      "git_blob": "e324cdbc40db45e499bcb12b346dd30507670922",
+      "sha256": "86a06942814fddb8095ca022aa8b34884e4a18395ca05249a9a1e25cf72c1880"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/font3.xpr",
+      "bytes": 135168,
+      "git_blob": "fe1d64d39e6fb24bb34b78a1c1e39d8b63797ccc",
+      "sha256": "15df272184162ac059626050b56ff144cc1fa3a4d6d812303cf4bc620eb0d87a"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/font4.xpr",
+      "bytes": 135168,
+      "git_blob": "4cf83f9277411f43e78442350f0edadae47e4e0e",
+      "sha256": "a021cf0b2393e7e3cc286d73e0b378c689932e47fdab5485be36cee91868a8c1"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/loading.png",
+      "bytes": 41523,
+      "git_blob": "a0a8eef4effc940135565989c49960c53b91f4be",
+      "sha256": "b66142f5d7401a7e028c80f53d8e551a8c16800cc2ca98da238c92545a9bfa17"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/musicplayer/buttonmap.png",
+      "bytes": 7273,
+      "git_blob": "a5aaa2625f8f78f3b03bbeebb1d4c7fbf25a3710",
+      "sha256": "654e3878b4666dba96dca8d6e28c78f465519aafe8861b9bbb792bbd76c529f1"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/musicplayer/musicbg.png",
+      "bytes": 22573,
+      "git_blob": "240ad3ec3200f422f4e5333f652f8215b5ff6603",
+      "sha256": "1ce22f55ab06677413c03a10edc104f5047f309de1d4176ddf77febd14bc1cc3"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/musicplayer/vboverlay.png",
+      "bytes": 3391,
+      "git_blob": "214792d5f02ca9e3b4827ae3416877cac904a214",
+      "sha256": "a0a3601ea6b1cb4a963d1d7f9b34d90e0b387b1508b7fc9d541edb55bf5348a1"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/musicplayer/vbunderlay.png",
+      "bytes": 70,
+      "git_blob": "a546382be303663276a8474c2d2a3fa2d9d0b168",
+      "sha256": "15551af84cf0b17a330cf4229979d26f0a47d86d6e96fad0df45b2d5cf069e30"
+    },
+    {
+      "path": "Hardmod/skins/Hardmod/skin.xml",
+      "bytes": 12410,
+      "git_blob": "b934477d7df9c11a574f2a435db66d2557d395a1",
+      "sha256": "4652d43d991b4b88b83708a646bd47a83c2bb9a1703f4d1f829a5a4c1f577692"
+    },
+    {
+      "path": "Media/Font_Message.xpr",
+      "bytes": 135168,
+      "git_blob": "0acf7becec5d1bc9e7c3925b12e1fd3f12e359a2",
+      "sha256": "0f0e9dc3c9d73518b94b48c0f9f0a9c7a621fc88674543dcf252035db2b76d08"
+    },
+    {
+      "path": "Media/Font_Status.xpr",
+      "bytes": 135168,
+      "git_blob": "d8ef36ecc71081d2f37deaed75c2cd05d2de709e",
+      "sha256": "6f6655b3a18634ce9098eb5536432b70998e67a565c3b9d584be9859acae81da"
+    },
+    {
+      "path": "Media/RetailMD5Hashes.ini",
+      "bytes": 1230,
+      "git_blob": "9ff7fc7ae7e16beed87e4c2b3f609a773d12401d",
+      "sha256": "c370777c725c4285b4a0fa5519ee482b33f7fd1f67ab87428f943426c75b789d"
+    },
+    {
+      "path": "Media/background.png",
+      "bytes": 40614,
+      "git_blob": "312bfe4626b39c5b19f3e4260c1c20e0ada6f423",
+      "sha256": "095fbf8c60cc06e17db8b37c31072ce9f5358b87530fa19e03666fb8f76149c0"
+    },
+    {
+      "path": "OtherSM/default.xbe",
+      "bytes": 3055616,
+      "git_blob": "b881f38f411977bab6504656b1bce91c99a7e7be",
+      "sha256": "46f35bede88cbe1cf21803d72449c3846bfba1f9720e32fce2e84ba07e71b009"
+    },
+    {
+      "path": "Softmod/applications/Chimp261812.zip",
+      "bytes": 3716477,
+      "git_blob": "de7a9d9684bfa32f6606ae364f44d3e0f29f825c",
+      "sha256": "8aaef3ca73eaefed2cc42a46998ba3275a8ebcfd9f96761c4fb944c22d410734"
+    },
+    {
+      "path": "Softmod/applications/ConfigMagic v1.6.1.zip",
+      "bytes": 625678,
+      "git_blob": "1eb84b7c68d4910e610e3a7c5d86d67568d8fec4",
+      "sha256": "d672b7844688a223a6764d21436bee87118a7b928f4e69194dccc214baad3422"
+    },
+    {
+      "path": "Softmod/applications/DVD2Xbox.zip",
+      "bytes": 3192600,
+      "git_blob": "30cccdfccc0f07623bd6b41687fd7ac7280c59a6",
+      "sha256": "2f8b48a996aca77bf0193229a6a5b6e99b2ceb7b0478110aa6dad65511047e29"
+    },
+    {
+      "path": "Softmod/applications/DVDX v2.zip",
+      "bytes": 900136,
+      "git_blob": "3c5164445a16f5cbb7ee350859297fab7059e01a",
+      "sha256": "dbf77dcf294743d91c5bfb2f826ac336c7862f4e12a61927953a7d9ebd386f48"
+    },
+    {
+      "path": "Softmod/applications/Dashloader Customizer.zip",
+      "bytes": 12488384,
+      "git_blob": "21ab708fdc5fd9979d49d0fc9bf58b4037c825fc",
+      "sha256": "f1a247f402b3b18bf7ebd253542b43015e55a2ddede1a8683019d5f636c85205"
+    },
+    {
+      "path": "Softmod/applications/EEPROM Backuperer.zip",
+      "bytes": 543448,
+      "git_blob": "17b757d4da4efdef14678513cced3975d178ba5f",
+      "sha256": "f8a6b18747465531f3c932ca376caf4ada2b2af1777af06aa45fcc453765c619"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X.zip",
+      "bytes": 1564259,
+      "git_blob": "3742174a6cd3f18bb494a05786126aa5c71b1add",
+      "sha256": "08760162e80b107a905759941373772862097f7ffaac47491256528db84e85a4"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/Font.xpr",
+      "bytes": 69632,
+      "git_blob": "579380b60bfab44b0704ec9bcf7c6d34eff9152a",
+      "sha256": "54ebc90fcf4d84ddf57e017a9c73ac987bc34292bd634baa85200ab0068ccd8c"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/Fonts/arial_16.abc",
+      "bytes": 2332,
+      "git_blob": "98f7174668b5819d56726688842f1bfb2a85ae44",
+      "sha256": "2b82f863daadb827ffeefc834af3bfae93e0b42a880fdf428841dddbca59629d"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/Fonts/arial_16.tga",
+      "bytes": 131090,
+      "git_blob": "8fa374f36a1e31deb1a5eed4ae1c429e3c900c1c",
+      "sha256": "446c62c1dd39ccffcfcfc7d23e51db89a100704e5b9518f143abce235e531b05"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/Gamepad.xpr",
+      "bytes": 1230848,
+      "git_blob": "5608b1cfbead530cb0c3aa8e2c24e10d6afe2f51",
+      "sha256": "e5fe91a2ccb4d783be741be9d9b7637cf39997a2c147b587013f94f9e3e82489"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/Shaders/fog.vsh",
+      "bytes": 3008,
+      "git_blob": "adb38df097f559d2305020e243fc79e781d14ff3",
+      "sha256": "d6bcc7cbb3cebaa99cbc1b3dec1a12ce7773064c6de8bf9f31d707adbec3bbd1"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/Shaders/fog.xvu",
+      "bytes": 244,
+      "git_blob": "af799c482533effa167d9e80f869da1e6498663d",
+      "sha256": "72520d746571a408c6a6e16882b41d53b1ed539467138f444a54a775bd21280e"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/Textures/gamepad.tga",
+      "bytes": 1228818,
+      "git_blob": "e7befb59276da587699cbf0f9480462da66d337b",
+      "sha256": "77ec0b273d2674b38b52b36144fd3c50d7d00ca14aaa6c0107791bbb39b9971c"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/Textures/seafloor.bmp",
+      "bytes": 196662,
+      "git_blob": "2a89d8cb928c514a8d02a35ab73d58544b431554",
+      "sha256": "4f8a99606cfb393111388cc7b50a17767c9dbaac0b298379da23b8f88eed3867"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/bluescreen.bmp",
+      "bytes": 921654,
+      "git_blob": "73c28a4c3189d55012f04407b0efb5055f0ba169",
+      "sha256": "fa8626b74313c6173e29e43b821bd38a0d78c798fc7b9b15a6c04c5170e0911e"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/boot_menu.bmp",
+      "bytes": 921654,
+      "git_blob": "853149ca86b0ee82a6d82cdda140e68399e41675",
+      "sha256": "c169723d3c45ac27b809cfe32008be6d8affc069ab7ac3bbc406d05d0015e36f"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/credits.bmp",
+      "bytes": 921654,
+      "git_blob": "4f63fae05e665366052b51ca11b8ac6aa73836a3",
+      "sha256": "912c4febf8cda62d4fdb56cfa8ae7805d1c589a3d977a8bec78c39db839eef2e"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/Media/resource.xpr",
+      "bytes": 178176,
+      "git_blob": "d706951d65d44f905b157c249445d00e2d51027d",
+      "sha256": "d977663ef082c56d454210fbf0cfd977e81101bfb4532e65fff8bc18efc67220"
+    },
+    {
+      "path": "Softmod/applications/Enigmah-X/default.xbe",
+      "bytes": 172032,
+      "git_blob": "eda6d4c34e024146c18fe9806e290220d6ecfaaf",
+      "sha256": "3715334601c8702a892e12ec164b4ad8aff83de1f8e2ef4ad42e2b2449973b40"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/CD.png",
+      "bytes": 32324,
+      "git_blob": "3ab4f6471dee4cdf174cfd70379d6d531a068a75",
+      "sha256": "2558e7f57c52828a5ee81cbd64d2bce4c1d64101b1a2008107d1b422fea6873b"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/banner.png",
+      "bytes": 14522,
+      "git_blob": "348d25526587535ae7c3efec6e859513ad139d9a",
+      "sha256": "2e2e8c70e033f43a9ea146728795482b9474c13b4f7785f72f35f4a51dde1b7b"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/cdposter.png",
+      "bytes": 22129,
+      "git_blob": "59afa7da728cef4b5350326fe7f1d89805fed200",
+      "sha256": "597bd8aa10d2b3febf747966356f25725fe4efdda8b9315b61c85e4d85ffba36"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/dual3d.png",
+      "bytes": 24056,
+      "git_blob": "7fc68f3e429a5dd4e92299913a06098125ede7b6",
+      "sha256": "5858a7c2f811cc65c03cd9b7a2eade2818f9ad95f34cc16500615404d3f25eeb"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/fanart.jpg",
+      "bytes": 26638,
+      "git_blob": "33213ba54c06286828b783a92fcc3e76a2675fbf",
+      "sha256": "5eaff74bb215e888cf006655270d4a84b02fab68d21873da29c7a287c7e4c8eb"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/fog.jpg",
+      "bytes": 531,
+      "git_blob": "d8f86dfb46e3c9fc785ad7bfac67bd1065ce1681",
+      "sha256": "d8894814401672865e8aa68eed39546f760d052c4fd2367a5b7e79d049fafeaa"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/icon.png",
+      "bytes": 16677,
+      "git_blob": "c1aef9a2f4dc7449280bf3f9f2532dbb1b50dcae",
+      "sha256": "6625d6148b345a7d6f9186c0941929f1fcd71f7bce9e3a6285ba832d8148df0d"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/opencase.png",
+      "bytes": 14332,
+      "git_blob": "c79da3d755b1aa0bf948e99a4ba66d80e2507458",
+      "sha256": "b40e30040369989cca3d127b19559d8879f1904db5cac5210ae69ae03cca3844"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/poster.jpg",
+      "bytes": 6435,
+      "git_blob": "8195b0b465882646c88271a5fe332763c158cedd",
+      "sha256": "b29dd3f52389b7e457556672dd70320e32aafa9c844b3de811a250b293cea572"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/synopsis.png",
+      "bytes": 66953,
+      "git_blob": "77c6289b6aad4217a758d4e3c10a4bced6d1d1bf",
+      "sha256": "3c3b19422506cf94999a6fcbbd183b7a86f83af7c98ea652a88ca9c62f3f5870"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/artwork/thumb.jpg",
+      "bytes": 4822,
+      "git_blob": "3674399a4678ef4482360f917e61352ef9727b76",
+      "sha256": "62dd1c0961c2abed8bcf1f4c6d9be0edc4be1abfa12462507ad5330d5cb3dc33"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/default.xml",
+      "bytes": 589,
+      "git_blob": "f1e48796501b75c3e91158e96c60787acc9900be",
+      "sha256": "4c09547e4e26a2f3ccfb340f333fa48acef2d33ff3a920baa05c72a3cd469b3b"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/media/empty",
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/_resources/screenshots/Screenshot-1.jpg",
+      "bytes": 19469,
+      "git_blob": "ea0012c8de33fd668a6f7cccbcf20725e4ee2108",
+      "sha256": "88ce30a2b4dfcae2733dacded589e5d73e14950fc63653cb3c01c08517a3116f"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/default.tbn",
+      "bytes": 6435,
+      "git_blob": "8195b0b465882646c88271a5fe332763c158cedd",
+      "sha256": "b29dd3f52389b7e457556672dd70320e32aafa9c844b3de811a250b293cea572"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/default.xbe",
+      "bytes": 65536,
+      "git_blob": "8e601d145cc3185247bcbbcdc4c2a1da969b86a9",
+      "sha256": "9287e41791ef54aac9ede1d2355a8f169dbdd35196265d5befec66567a19deae"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/fanart.jpg",
+      "bytes": 26638,
+      "git_blob": "33213ba54c06286828b783a92fcc3e76a2675fbf",
+      "sha256": "5eaff74bb215e888cf006655270d4a84b02fab68d21873da29c7a287c7e4c8eb"
+    },
+    {
+      "path": "Softmod/applications/NKPatcher Settings/modules/empty",
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Softmod/applications/XBPTableWriter.zip",
+      "bytes": 175995,
+      "git_blob": "efee9b6fabb36018192891ca010b1d0e98734131",
+      "sha256": "1b5c97e9862533ccf6f0cb811a37e65b33e26a008b97f229b0ea2565fa5d9029"
+    },
+    {
+      "path": "Softmod/applications/XBpartitioner.zip",
+      "bytes": 457100,
+      "git_blob": "265b07a54e9f66e63bcbf2df6e30f9035cde3703",
+      "sha256": "e53695aa730e6d7d7fc086d1bdb808a74c90baf465e02a45e506b216b08131f7"
+    },
+    {
+      "path": "Softmod/applications/Xored Mini.zip",
+      "bytes": 6059838,
+      "git_blob": "6977aa4e4764bc2141926e68ae31749a7df195a2",
+      "sha256": "d13a6df4782f9d016d6b66d22c3619fd901c4235f180b35b1a284892d92ff900"
+    },
+    {
+      "path": "Softmod/configs/factoryreset.xml",
+      "bytes": 11380,
+      "git_blob": "4d7f30f892a4f5ae3da60428ea77f642004359ea",
+      "sha256": "b7a99f0b81d009b9b59450c6c4208866868670699b8bc8fa5a7297ee98f3a984"
+    },
+    {
+      "path": "Softmod/configs/resoftmod.xml",
+      "bytes": 9131,
+      "git_blob": "9a7acfa76d4cddf4f177a84ec6cf238eea544596",
+      "sha256": "4cba85e945c9de184fa5f55f0185e661c83a5fceb391aad2a5fad50409bc42da"
+    },
+    {
+      "path": "Softmod/configs/updatesoftmod.xml",
+      "bytes": 10262,
+      "git_blob": "ab00820481a128487a06f37a3d998667c635564e",
+      "sha256": "4131aee464278c5a861ff09fb065e9f2365bbb7b69a7182df96c38bf3a21370d"
+    },
+    {
+      "path": "Softmod/configs/upgradesoftmod.xml",
+      "bytes": 11864,
+      "git_blob": "289afd979cc74135e03df6e290abe22f5bc4789d",
+      "sha256": "a8834ddb1631d6cc77517fd07d76453b3329312922f20a7014e9171f4c87403f"
+    },
+    {
+      "path": "Softmod/dashboards/Avalaunch.zip",
+      "bytes": 16147105,
+      "git_blob": "d6d1e067ade862ac08de8df539c75602671341db",
+      "sha256": "f80359226898edb69fc7e121fa10093241f335273925dd2561a351ba8b9de372"
+    },
+    {
+      "path": "Softmod/dashboards/EvolutionX.zip",
+      "bytes": 7456786,
+      "git_blob": "5ab325a43f181e09541da79934cd9fd1fc06db0c",
+      "sha256": "7ee1a7061e8046181e61255ca7ed54ed3e75f9f72692ffa1cfd1f65fa95a0e03"
+    },
+    {
+      "path": "Softmod/dashboards/UIX Lite.zip",
+      "bytes": 77368493,
+      "git_blob": "3b7bf21aedf08449503054af9f9c78b95750ea65",
+      "sha256": "c107ba1a42dce14ec72170220548fe3599690484bb6e14526c291c9dfbddec23"
+    },
+    {
+      "path": "Softmod/dashboards/UnleashX Network Patched.zip",
+      "bytes": 1867181,
+      "git_blob": "b9ba1f9c13f65eb3ce8a298e81b1e3c7990ac031",
+      "sha256": "05b987e67cd21ceab4b8e011d34aea3ca958d41e29ad72c25e5ffc875b9dd8f6"
+    },
+    {
+      "path": "Softmod/dashboards/UnleashX.zip",
+      "bytes": 51215838,
+      "git_blob": "d375e3e2233913057b11ecb31ac35fc4c65d7f2f",
+      "sha256": "c9600bf2739f0db6e70791a98315f6c3b9952d66ebcbebb77f593e1e3babfe47"
+    },
+    {
+      "path": "Softmod/dashboards/XBMC-Emustation.zip",
+      "bytes": 58944132,
+      "git_blob": "3e77e6672bc51d69f43b4b005af11aeb1650fcce",
+      "sha256": "177ea165c44bdc9c2c6da3a94b118cd90fdd86ff6145e0789a4d7355806d30dc"
+    },
+    {
+      "path": "Softmod/dashboards/XBMC-Emustation_emulators.zip",
+      "bytes": 60410866,
+      "git_blob": "80ad474772795ad29b58cace868f8872386a68ba",
+      "sha256": "21f20cf1e4730316a5d137ca68201465e0dbf33fa177c30ee8aadb3e3ed3473d"
+    },
+    {
+      "path": "Softmod/dashboards/XBMC4Gamers.zip",
+      "bytes": 49498110,
+      "git_blob": "04397023922bfe8687953acb23d1d8c6d4774fe3",
+      "sha256": "577652ce9fea788151b780cbbaa270a6d12fde5c8664b07a5ce23102b240802e"
+    },
+    {
+      "path": "Softmod/dashboards/XBMC4Xbox.zip",
+      "bytes": 68178249,
+      "git_blob": "af662c8435739e04a5da408f82bb75271cec8aac",
+      "sha256": "a2e4e33d790b86d9fded10a26df5880f5fcc2febc660bfa1dfe4cde37e638b6b"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/modded/4920 Modded.zip",
+      "bytes": 42895610,
+      "git_blob": "00f0e199b9989483c3cc6c7c3f7fed5c8c49607a",
+      "sha256": "a10f2cf86ea924a906127a07e29aebf9eaf4fd50c66da3eea7d77491309713a2"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/modded/5960 Modded.zip",
+      "bytes": 74082234,
+      "git_blob": "04e308346573d31a7c4149fca1739df378b35f04",
+      "sha256": "5770c7f6e3409ab56954e0fc8228f81c7ac8902760dbb2730b3cb64bd34b1099"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/modded/Don't install these to a unmodded console",
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/other/Audio.zip",
+      "bytes": 29237722,
+      "git_blob": "79b3f1a69bd636d1d44449c41d7eabf985ad8db4",
+      "sha256": "033fcc37c7de171f9b334d673639d5a7669a8aa068b2b019cbfdf0c8c5c464de"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/other/UDDAE-C.zip",
+      "bytes": 4827605,
+      "git_blob": "908f0274695bf855788a909195bf4ed68997f08c",
+      "sha256": "7057d70f3ca729d4b3abe3f6219a1cf1d9a1e510baffb847f7e75433c445eacd"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/other/UDDAE-E.zip",
+      "bytes": 1097,
+      "git_blob": "95ef33d8a7799b775ba9bca802a16d3d26bad4dc",
+      "sha256": "ddb73f12a0cf8904643ce56a18c4ef8c063e7196b2a4567a46b49f6358c44784"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/other/msdash.xbe",
+      "bytes": 61440,
+      "git_blob": "0a941f10384f439c92dc38ee34c4150456d7b2e7",
+      "sha256": "21e8cc8bf0262fe247c4f2f1222e25b1699d95163b97482474eb9868ee9e752c"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/other/uixlite.bin",
+      "bytes": 8,
+      "git_blob": "96903a0cf0e3b603958d2adb898ce00f17f2fd49",
+      "sha256": "c120062af77b3a5efc5dc4305731a7582c4b6678e29dd665d0f99aedc2574b53"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/other/uixlite.xbe",
+      "bytes": 86016,
+      "git_blob": "b581fc15d3cc2977589a4a2e6fbce2ffd1e0e4c1",
+      "sha256": "47b95d99773391779a06a891d74574fb898483c173cf726c672ac26991b9b366"
+    },
+    {
+      "path": "Softmod/dashboards/msdash/retail/5960.zip",
+      "bytes": 74079781,
+      "git_blob": "608535953fa0823001bf89482d375f6199f1a9d6",
+      "sha256": "3ad00cfb7a4f9672b145e03ed47ce0d426723b9905a3ffacb99d791fe91d8186"
+    },
+    {
+      "path": "Softmod/default.xbe",
+      "bytes": 3055616,
+      "git_blob": "a75d2cb24dd7aedd04d76ed0e5c85833f238f15d",
+      "sha256": "b3c7bc18c71ad62d2e5ecdd86e3f612ed9d597fb5df91af5538446bddf7a7be4"
+    },
+    {
+      "path": "Softmod/shadowc.xbe",
+      "bytes": 3055616,
+      "git_blob": "872acb09a1e72a160d5ce01f743ef3ce8f41051e",
+      "sha256": "dd7f88879ab6ef23c532038500afc62906725da9d3a0b541d57dd7a281fe9411"
+    },
+    {
+      "path": "Softmod/skins/Factory Reset/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "Softmod/skins/Factory Reset/skin.xml",
+      "bytes": 10534,
+      "git_blob": "05655685b0e86a97ec3c286f41358156f54e1ec8",
+      "sha256": "f434f85e46fbdc507b5a1ac0ae563913b647ddaaf4003831762507f6b1407266"
+    },
+    {
+      "path": "Softmod/skins/ShadowC/skin.xml",
+      "bytes": 12706,
+      "git_blob": "f91acac684bb7f3a7e0e42a760eddb3a01f1e960",
+      "sha256": "03849bffb39a9ee27fff575a5c657c21cab14fd5051561e70d082a812e2ae7d1"
+    },
+    {
+      "path": "Softmod/skins/Softmod/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "Softmod/skins/Softmod/skin.xml",
+      "bytes": 12700,
+      "git_blob": "f7b7b33146482a2f5b8933a3b03b0dd185b20576",
+      "sha256": "396b185036f1ddd81118a0157040478687e4f80209f39d0a6006b95bfb92822c"
+    },
+    {
+      "path": "Softmod/skins/Update Softmod/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "Softmod/skins/Update Softmod/skin.xml",
+      "bytes": 10624,
+      "git_blob": "a210f68d065297a47506caa953fd605c8bc8d184",
+      "sha256": "4646a4d7ffa461efc6d4b6138c6c737ffd1ad6cab9fb94e222d468bb90b1fd1b"
+    },
+    {
+      "path": "Softmod/skins/Upgrade Softmod/lang.xml",
+      "bytes": 146,
+      "git_blob": "a6a14c8fca34c7a67ac2f15e8c171dac0a9a22e4",
+      "sha256": "42b13d45b39a0f11246d8065259d1e1db08380a6a271aa4b650552b640cb4f79"
+    },
+    {
+      "path": "Softmod/skins/Upgrade Softmod/skin.xml",
+      "bytes": 10626,
+      "git_blob": "17bed33fa959752d9c90a7d5afc9051f5f09bd2f",
+      "sha256": "e29bdbcd67db7192258ef8678b0ac5d8a4630e03f575fae46c83e55e2482e3a3"
+    },
+    {
+      "path": "Softmod/skins/installed.png",
+      "bytes": 18967,
+      "git_blob": "84a27eca35f247a183f36d50433214c324ec4950",
+      "sha256": "1fdf886d6cf25f5e97f149ee4c6bfbc7a615131b26fee97317dddc1195151617"
+    },
+    {
+      "path": "Softmod/skins/skin files/fonts/font1.xpr",
+      "bytes": 135168,
+      "git_blob": "0b35c3be0b8411671f827990e5f157bd65694e3b",
+      "sha256": "e1b5db7d2f54b34f2fadfe6eb632dbb4544f1190efea2357a4e81d91988a0c09"
+    },
+    {
+      "path": "Softmod/skins/skin files/fonts/font2.xpr",
+      "bytes": 135168,
+      "git_blob": "e324cdbc40db45e499bcb12b346dd30507670922",
+      "sha256": "86a06942814fddb8095ca022aa8b34884e4a18395ca05249a9a1e25cf72c1880"
+    },
+    {
+      "path": "Softmod/skins/skin files/fonts/font3.xpr",
+      "bytes": 135168,
+      "git_blob": "fe1d64d39e6fb24bb34b78a1c1e39d8b63797ccc",
+      "sha256": "15df272184162ac059626050b56ff144cc1fa3a4d6d812303cf4bc620eb0d87a"
+    },
+    {
+      "path": "Softmod/skins/skin files/fonts/font4.xpr",
+      "bytes": 135168,
+      "git_blob": "4cf83f9277411f43e78442350f0edadae47e4e0e",
+      "sha256": "a021cf0b2393e7e3cc286d73e0b378c689932e47fdab5485be36cee91868a8c1"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/Softmodding Tool.png",
+      "bytes": 18553,
+      "git_blob": "6c2128948c759c9c2a9d29fa2340776e7dda098b",
+      "sha256": "4101d3af61a8f71218d38b434fca1eadcd0e7671c7650877d3350be91a15fd1e"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/Xbox Logo.png",
+      "bytes": 62235,
+      "git_blob": "d452b9f30b41535700f0a6986dbc247e04c84bee",
+      "sha256": "abf58561bcb56881df5909f40da51a6c94b6af5cd1032b6c4acbf190a359499d"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/background.png",
+      "bytes": 69,
+      "git_blob": "8b6d97d2f1a352753a0480c7cb96ed3972329054",
+      "sha256": "2fcd4d50e47c4529df1f60d85586565392522407dd68fd0887fee18816313c9c"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/background_SC.png",
+      "bytes": 70,
+      "git_blob": "e41019c988032ecdef943aa8a60261dead8bde41",
+      "sha256": "09b947f6e6150b3e96f02813ac7c42b6eff60ecb87d1687f86ae2ce0b4e4f122"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/buttons.png",
+      "bytes": 6016,
+      "git_blob": "4721c2eb819a2508d6345d7782887c9cf201f809",
+      "sha256": "e93dfbe94512e5098f4178cf3e40644cb34a0c291ad568adffaad160a1c471d9"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/loading.png",
+      "bytes": 51557,
+      "git_blob": "f87ec58ca0b6f6a3ca75c683e437bd7677b37f9f",
+      "sha256": "bc268ad5ba4611a007d65bb4d363c5da48bf4383b7e78b98dcbef1e46ab76b7a"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/loading_SC.png",
+      "bytes": 41739,
+      "git_blob": "248701ebf15d3f708f617c06c863343e2e57876a",
+      "sha256": "444cb8ee7560a8a08c3e845592f9146d1fa25a8689a226f62caad8beacd2f8a1"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/musicplayer/buttonmap.png",
+      "bytes": 7273,
+      "git_blob": "a5aaa2625f8f78f3b03bbeebb1d4c7fbf25a3710",
+      "sha256": "654e3878b4666dba96dca8d6e28c78f465519aafe8861b9bbb792bbd76c529f1"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/musicplayer/musicbg.png",
+      "bytes": 22573,
+      "git_blob": "240ad3ec3200f422f4e5333f652f8215b5ff6603",
+      "sha256": "1ce22f55ab06677413c03a10edc104f5047f309de1d4176ddf77febd14bc1cc3"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/musicplayer/vboverlay.png",
+      "bytes": 3391,
+      "git_blob": "214792d5f02ca9e3b4827ae3416877cac904a214",
+      "sha256": "a0a3601ea6b1cb4a963d1d7f9b34d90e0b387b1508b7fc9d541edb55bf5348a1"
+    },
+    {
+      "path": "Softmod/skins/skin files/images/musicplayer/vbunderlay.png",
+      "bytes": 70,
+      "git_blob": "a546382be303663276a8474c2d2a3fa2d9d0b168",
+      "sha256": "15551af84cf0b17a330cf4229979d26f0a47d86d6e96fad0df45b2d5cf069e30"
+    },
+    {
+      "path": "Softmod/skins/skin files/music/ambient.wav",
+      "bytes": 675246,
+      "git_blob": "1010ad4d2a250c11a9ddef96d5b082dc6411288a",
+      "sha256": "3ad3c441a3d90a72b713b803be35741db35292cfb155a62941cb72be74840f9d"
+    },
+    {
+      "path": "Softmod/softmod files/Xbox Softmodding Tool.zip",
+      "bytes": 6762463,
+      "git_blob": "4ed463d506bbf567236e30c1f84ef3bae6eb387c",
+      "sha256": "310bde0a5e359e953c605266284498b9625c59080ea88151683edae69de94961"
+    },
+    {
+      "path": "default.xbe",
+      "bytes": 901120,
+      "git_blob": "c523f38b2c2b886b0d22fddb34c4fa200b4f5f6b",
+      "sha256": "934c3e31aa546b89d19d213ed7df6ec9162e90a5e4c293eeb53851d4de8bd728"
+    },
+    {
+      "path": "flashsm.xml",
+      "bytes": 3636,
+      "git_blob": "c2c65324382c71b03f3dc98bc0df289a22cf4983",
+      "sha256": "f7c91f531d85cbfc9e1f2eb3fea8f8f3653ee6b9714c40683058f8ead10b799e"
+    },
+    {
+      "path": "hardmod.xml",
+      "bytes": 98580,
+      "git_blob": "84a7356199785f66ef1303835788aa022fb7cdd8",
+      "sha256": "f9fccf3c7bcfa495042030a5c2c852cd1badad60a4d4b91ec12c8a3a9f6e076d"
+    },
+    {
+      "path": "othersm.xml",
+      "bytes": 3550,
+      "git_blob": "d58bb4547f852d0db90d2feac9f5a813b772435d",
+      "sha256": "ba4637ff1cc99e98ff9b95c0da9dddd5912193ffda20753918d2cb756d26f769"
+    },
+    {
+      "path": "shadowc.xml",
+      "bytes": 10405,
+      "git_blob": "294db8aa91d4f4cddd1a04a7bdb6bbf8e931e4ec",
+      "sha256": "8a0a0e65332db91a80576436529e52c39006f493ae77cc0f7d5f83907d7f6de7"
+    },
+    {
+      "path": "softmod.xml",
+      "bytes": 110651,
+      "git_blob": "7c602dbffe6772c67553dc92d2e63bd55d5e7832",
+      "sha256": "3c4e820fcff9049edcf9a39b431c7bb7fec48371d1da6893b0e544b6016521ae"
+    }
+  ],
+  "iso_sha256": "757520a86146a7868e8c3d65c33d7e73f53d62f821619df6fe657aa017b18b1b"
+}

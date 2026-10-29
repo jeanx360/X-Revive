@@ -1,5 +1,7 @@
 # Instalação Rocky5 online e ISO local
 
+> Na beta.5-live.6, escolha entre LIVE e instalação limpa. Este documento detalha a instalação da coleção; para mídias livres, Wi-Fi e reparo, consulte [LIVE](LIVE-RECUPERACAO-BETA5-LIVE6.md) e o [guia atual](BAIXAR-E-INSTALAR.md).
+
 Para baixar e usar sem compilar, siga [Baixar e instalar](BAIXAR-E-INSTALAR.md).
 A beta.4 é a preparação pública da base de bancada descrita abaixo.
 

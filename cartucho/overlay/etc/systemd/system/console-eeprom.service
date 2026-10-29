@@ -2,7 +2,8 @@
 Description=Preserva no SSD a EEPROM gerada pelo Xemu
 After=console-prepare.service
 StartLimitIntervalSec=0
-ConditionPathExists=/run/console/standalone.json
+ConditionPathExists=|/run/console/standalone.json
+ConditionPathExists=|/run/console/live.json
 ConditionPathExists=!/run/console/installer
 
 [Service]

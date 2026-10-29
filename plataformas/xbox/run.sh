@@ -9,7 +9,9 @@ dvd=$(cat "$RUN/dvd" 2>/dev/null || true)
 disc=""
 # Leitor fisico pelo driver host_device do QEMU: o host_cdrom trava o xemu na
 # leitura. Sem disco na bandeja, o console liga com o leitor vazio.
-if [ -f "$RUN/boot-ogxbox" ] && [ -f "${UTILS:-/utils}/ogxbox.iso" ]; then
+if [ -f "$RUN/live-disc" ]; then
+	disc=$(cat "$RUN/live-disc")
+elif [ -f "$RUN/boot-ogxbox" ] && [ -f "${UTILS:-/utils}/ogxbox.iso" ]; then
 	disc="${UTILS:-/utils}/ogxbox.iso"
 elif [ -f "$RUN/boot-hexen" ] && [ -f "$CONSOLE/utils/hexen.iso" ]; then
 	# Recuperacao ganha do DVD fisico e permanece nos restarts desta sessao.

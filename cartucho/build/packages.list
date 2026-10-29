@@ -11,6 +11,7 @@ dosfstools
 e2fsprogs
 exfatprogs
 util-linux
+qemu-utils
 kbd
 python3
 python3-cffi
@@ -51,6 +52,10 @@ libcurl3t64-gnutls
 libgtk-3-0t64
 iproute2
 ethtool
+network-manager
+wpasupplicant
+wireless-regdb
+python3-dbus
 
 # Audio
 libasound2t64
@@ -69,6 +74,8 @@ firmware-sof-signed
 firmware-realtek
 firmware-iwlwifi
 firmware-atheros
+firmware-mediatek
+firmware-brcm80211
 intel-microcode
 amd64-microcode
 

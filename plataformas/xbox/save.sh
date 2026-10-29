@@ -1,6 +1,9 @@
 #!/bin/sh
 # No desligamento: preserva EEPROM e preferencias do xemu no pendrive.
 set -eu
+if [ -f "$RUN/live.json" ]; then
+    exec python3 /usr/local/lib/console/live_disk.py save
+fi
 
 src="$RUN/eeprom.bin"
 dst="$CONSOLE/firmware/xbox/eeprom.bin"

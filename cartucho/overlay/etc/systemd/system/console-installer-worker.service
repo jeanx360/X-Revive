@@ -1,7 +1,8 @@
 [Unit]
 Description=Preparação e manutenção de disco X-Revive
 Requires=console-prepare.service
-After=console-prepare.service
+Wants=NetworkManager.service
+After=console-prepare.service NetworkManager.service
 ConditionPathExists=/run/console/installer
 
 [Service]

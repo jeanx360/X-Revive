@@ -45,6 +45,18 @@ def checked_layout(data):
     if not isinstance(data['disk_id'], str) or len(data['disk_id']) != 8:
         raise ValueError('identidade MBR invalida')
     int(data['disk_id'], 16)
+    if data.get('existing_fatx'):
+        regions=data.get('native_regions',[])
+        if not isinstance(regions,list) or not 5<=len(regions)<=7:raise ValueError('mapa FATX existente ausente')
+        if not all(isinstance(r,dict) for r in regions):raise ValueError('mapa FATX existente inválido')
+        if {r.get('drive') for r in regions} not in ({'e','c','x','y','z'},{'e','c','x','y','z','f'},{'e','c','x','y','z','f','g'}):
+            raise ValueError('mapa de unidades FATX inválido')
+        for r in regions:
+            if any(type(r.get(k)) is not int for k in ('offset','bytes')) or r['offset']<0x80000 or r['bytes']<4096 or r['offset']+r['bytes']>xbox:
+                raise ValueError('FATX invade o sistema')
+        ordered=sorted(regions,key=lambda r:r['offset'])
+        if any(a['offset']+a['bytes']>b['offset'] for a,b in zip(ordered,ordered[1:])):
+            raise ValueError('FATX existente sobreposto')
     return data
 
 

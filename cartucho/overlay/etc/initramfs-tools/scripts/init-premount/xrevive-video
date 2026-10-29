@@ -4,6 +4,12 @@
 PREREQ=""
 prereqs() { echo "$PREREQ"; }
 case "$1" in prereqs) prereqs; exit 0;; esac
+case " $(cat /proc/cmdline) " in
+    *" xrevive.video=compat "*)
+        # Let Intel/AMD drive the internal panel; avoid loading proprietary
+        # NVIDIA from this hook even when the module has been blacklisted.
+        exit 0;;
+esac
 for dev in /sys/bus/pci/devices/*; do
     case "$(cat "$dev/class" 2>/dev/null)" in 0x03*) ;; *) continue;; esac
     [ "$(cat "$dev/vendor" 2>/dev/null)" = 0x10de ] || continue
